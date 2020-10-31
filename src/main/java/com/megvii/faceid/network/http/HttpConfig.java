@@ -2,13 +2,13 @@ package com.megvii.faceid.network.http;
 
 public class HttpConfig
 {
-    /** Á¬½Ó³¬Ê±Ê±³¤ µ¥Î»£ºÃë */
+    /** è¿æ¥è¶…æ—¶æ—¶é•¿ å•ä½ï¼šç§’ */
     private final int mConnectTimeout;
-    /** ¶Á ³¬Ê±Ê±³¤ µ¥Î»£ºÃë */
+    /** è¯» è¶…æ—¶æ—¶é•¿ å•ä½ï¼šç§’ */
     private final int mReadTimeout;
-    /** Ğ´ ³¬Ê±Ê±³¤ µ¥Î»£ºÃë */
+    /** å†™ è¶…æ—¶æ—¶é•¿ å•ä½ï¼šç§’ */
     private final int mWriteTimeout;
-    /** ÊÇ·ñ×Ô¶¯ÖØÁ¬ */
+    /** æ˜¯å¦è‡ªåŠ¨é‡è¿ */
     private final boolean mRetryOnConnectionFailure;
 
     private HttpConfig(Builder builder)

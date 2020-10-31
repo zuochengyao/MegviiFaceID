@@ -6,40 +6,40 @@ import org.junit.jupiter.api.Test;
 
 class FaceIDConfigTest
 {
-    private final FaceIDConfig faceIDConfig;
+    private final FaceID faceid;
     public FaceIDConfigTest()
     {
-        faceIDConfig = new FaceIDConfig("1","1");
+        faceid = new FaceID("1", "1");
     }
 
     @BeforeEach
     void setUp()
     {
-        System.out.println("FaceIDConfigTest setUp");
+        System.out.println("FaceIDTest setUp");
     }
 
     @AfterEach
     void tearDown()
     {
-        System.out.println("FaceIDConfigTest tearDown");
+        System.out.println("FaceIDTest tearDown");
     }
 
     @Test
     void getApiKey()
     {
-        System.out.println(faceIDConfig.getApiKey());
+        System.out.println(faceid.getApiKey());
     }
 
     @Test
     void getApiSecret()
     {
-        System.out.println(faceIDConfig.getApiSecret());
+        System.out.println(faceid.getApiSecret());
     }
 
     @Test
     void getApiSign()
     {
-        System.out.println(faceIDConfig.getApiSign());
-        System.out.println(faceIDConfig.getApiSign());
+        System.out.println(faceid.getApiSign());
+        System.out.println(faceid.getApiSign());
     }
 }

@@ -5,22 +5,22 @@ import com.megvii.faceid.network.http.HttpConnection;
 
 public class FaceIDApi
 {
-    private FaceIDConfig mFaceIDConfig;
+    private FaceID mFaceID;
     private HttpConfig mHttpConfig;
     private HttpConnection mConnection;
 
-    public FaceIDApi(FaceIDConfig faceidConfig)
+    public FaceIDApi(FaceID faceid)
     {
-        this(faceidConfig, new HttpConfig.Builder().build());
+        this(faceid, new HttpConfig.Builder().build());
     }
 
-    public FaceIDApi(FaceIDConfig faceidConfig, HttpConfig httpConfig)
+    public FaceIDApi(FaceID faceid, HttpConfig httpConfig)
     {
-        this.mFaceIDConfig = faceidConfig;
+        this.mFaceID = faceid;
         this.mHttpConfig = httpConfig;
-        HttpConnection.Builder builder = new HttpConnection.Builder();
-        builder.setConnectTimeout(httpConfig.getConnectTimeout());
+        HttpConnection.Builder builder = new HttpConnection.Builder()
+                .setConnectTimeout(httpConfig.getConnectTimeout())
+                .setProxy(null)
+                .addInterceptors(null);
     }
-
-
 }
