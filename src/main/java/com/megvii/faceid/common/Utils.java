@@ -1,4 +1,4 @@
-package com.megvii.faceid.util;
+package com.megvii.faceid.common;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -8,13 +8,13 @@ import java.util.Random;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-public class FaceIDUtils
+public class Utils
 {
     /**
      * 生成签名字段
      * @param apiKey key
      * @param secretKey secret
-     * @param expired 过期时长（单位：秒）
+     * @param expired 过期时间戳
      * @return sign
      */
     public static String genSign(String apiKey, String secretKey, long expired)
@@ -23,7 +23,7 @@ public class FaceIDUtils
         {
             long now = System.currentTimeMillis() / 1000;
             int rdm = Math.abs(new Random().nextInt());
-            String plainText = String.format("a=%s&b=%d&c=%d&d=%d", apiKey, now + expired, now, rdm);
+            String plainText = String.format("a=%s&b=%d&c=%d&d=%d", apiKey, expired, now, rdm);
             byte[] hmacDigest = HmacSha1(plainText.getBytes(), secretKey);
             byte[] signContent = new byte[hmacDigest.length + plainText.getBytes().length];
             System.arraycopy(hmacDigest, 0, signContent, 0, hmacDigest.length);

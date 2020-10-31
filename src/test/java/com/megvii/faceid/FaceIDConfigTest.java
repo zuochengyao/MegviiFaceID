@@ -9,7 +9,7 @@ class FaceIDConfigTest
     private final FaceIDConfig faceIDConfig;
     public FaceIDConfigTest()
     {
-        faceIDConfig = new FaceIDConfig("","");
+        faceIDConfig = new FaceIDConfig("1","1");
     }
 
     @BeforeEach
@@ -27,33 +27,19 @@ class FaceIDConfigTest
     @Test
     void getApiKey()
     {
-
-    }
-
-    @Test
-    void setApiKey()
-    {
-        faceIDConfig.setApiKey("S");
         System.out.println(faceIDConfig.getApiKey());
     }
 
     @Test
     void getApiSecret()
     {
-    }
-
-    @Test
-    void setApiSecret()
-    {
+        System.out.println(faceIDConfig.getApiSecret());
     }
 
     @Test
     void getApiSign()
     {
-    }
-
-    @Test
-    void setApiSign()
-    {
+        System.out.println(faceIDConfig.getApiSign());
+        System.out.println(faceIDConfig.getApiSign());
     }
 }

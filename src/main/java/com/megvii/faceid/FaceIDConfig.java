@@ -2,60 +2,52 @@ package com.megvii.faceid;
 
 import com.megvii.faceid.exception.ApiKeyNullException;
 import com.megvii.faceid.exception.ApiSecretNullException;
-import com.megvii.faceid.util.FaceIDUtils;
+import com.megvii.faceid.common.Utils;
 
 public class FaceIDConfig
 {
-    private String apiKey;
-    private String apiSecret;
-    private String apiSign;
+    private String megApiKey;
+    private String megApiSecret;
+    private String megApiSign;
+    /** 过期时长（秒）*/
+    private int megApiSignTimeout;
+    /** 过期时间戳 */
+    private long megApiSignExpired;
 
     public FaceIDConfig(String apiKey, String apiSecret)
     {
-        this(apiKey, apiSecret, "");
+        this(apiKey, apiSecret, 3600);
     }
 
-    public FaceIDConfig(String apiKey, String apiSecret, String apiSign)
+    public FaceIDConfig(String apiKey, String apiSecret, int apiSignTimeout)
     {
-        if (FaceIDUtils.isNullOrEmpty(apiKey))
+        if (Utils.isNullOrEmpty(apiKey))
             throw new ApiKeyNullException();
-        if (FaceIDUtils.isNullOrEmpty(apiSecret))
+        if (Utils.isNullOrEmpty(apiSecret))
             throw new ApiSecretNullException();
-        this.apiKey = apiKey;
-        this.apiSecret = apiSecret;
-        if (FaceIDUtils.isNullOrEmpty(apiSign))
-        {
-            this.apiSign = FaceIDUtils.genSign(apiKey, apiSecret, 3600);
-        }
+        this.megApiKey = apiKey;
+        this.megApiSecret = apiSecret;
+        this.megApiSignTimeout = apiSignTimeout > 0 ? apiSignTimeout : 3600;
     }
 
     public String getApiKey()
     {
-        return apiKey;
-    }
-
-    public void setApiKey(String apiKey)
-    {
-        this.apiKey = apiKey;
+        return megApiKey;
     }
 
     public String getApiSecret()
     {
-        return apiSecret;
-    }
-
-    public void setApiSecret(String apiSecret)
-    {
-        this.apiSecret = apiSecret;
+        return megApiSecret;
     }
 
     public String getApiSign()
     {
-        return apiSign;
-    }
-
-    public void setApiSign(String apiSign)
-    {
-        this.apiSign = apiSign;
+        long now = System.currentTimeMillis() / 1000;
+        if (now >= megApiSignExpired)
+        {
+            this.megApiSignExpired = now + megApiSignTimeout;
+            this.megApiSign = Utils.genSign(megApiKey, megApiSecret, megApiSignExpired);
+        }
+        return megApiSign;
     }
 }
