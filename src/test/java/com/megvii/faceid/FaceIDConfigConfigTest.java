@@ -4,12 +4,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class FaceIDConfigTest
+class FaceIDConfigConfigTest
 {
-    private final FaceID faceid;
-    public FaceIDConfigTest()
+    private final FaceIDConfig faceid;
+    public FaceIDConfigConfigTest()
     {
-        faceid = new FaceID("1", "1");
+        faceid = new FaceIDConfig("1", "1");
     }
 
     @BeforeEach

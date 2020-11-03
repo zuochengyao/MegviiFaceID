@@ -1,58 +1,28 @@
 package com.megvii.faceid;
 
-import com.megvii.faceid.common.Utils;
-import com.megvii.faceid.exception.ApiKeyNullException;
-import com.megvii.faceid.exception.ApiSecretNullException;
+import com.megvii.faceid.model.detect.DetectRequest;
+import com.megvii.faceid.model.detect.DetectResponse;
+import com.megvii.faceid.network.http.HttpConfig;
+import com.megvii.faceid.network.http.HttpManager;
 
 public class FaceID
 {
-    private final String apiKey;
-    private final String apiSecret;
-    private String apiSign;
-    /** 过期时长（秒） */
-    private int apiSignTimeout;
-    /** 过期时间戳 */
-    private long apiSignExpired;
+    private final FaceIDConfig mFaceIDConfig;
+    private final HttpManager mHttpManager;
 
-    public FaceID(String key, String secret)
+    public FaceID(FaceIDConfig faceidConfig)
     {
-        this(key, secret, 3600);
+        this(faceidConfig, HttpConfig.getDefault());
     }
 
-    public FaceID(String key, String secret, int apiSignTimeout)
+    public FaceID(FaceIDConfig faceidConfig, HttpConfig httpConfig)
     {
-        if (Utils.isNullOrEmpty(key))
-            throw new ApiKeyNullException();
-        if (Utils.isNullOrEmpty(secret))
-            throw new ApiSecretNullException();
-        this.apiKey = key;
-        this.apiSecret = secret;
-        this.apiSignTimeout = apiSignTimeout > 0 ? apiSignTimeout : 3600;
+        this.mFaceIDConfig = faceidConfig;
+        mHttpManager = new HttpManager(httpConfig);
     }
 
-    public void setApiSignTimeout(int timeout)
+    public DetectResponse detect(DetectRequest req)
     {
-        this.apiSignTimeout = timeout;
-    }
-
-    public String getApiKey()
-    {
-        return apiKey;
-    }
-
-    public String getApiSecret()
-    {
-        return apiSecret;
-    }
-
-    public String getApiSign()
-    {
-        long now = System.currentTimeMillis() / 1000;
-        if (now >= apiSignExpired)
-        {
-            this.apiSignExpired = now + apiSignTimeout;
-            this.apiSign = Utils.genSign(apiKey, apiSecret, apiSignExpired);
-        }
-        return apiSign;
+        return new DetectResponse();
     }
 }
