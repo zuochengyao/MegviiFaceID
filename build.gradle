@@ -1,0 +1,25 @@
+apply plugin: 'maven'
+apply plugin: 'java'
+
+group = 'com.megvii.faceid'
+version = '0.1.0'
+
+description = "MegviiFaceID-SDK"
+
+sourceCompatibility = 8
+targetCompatibility = 8
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+
+repositories {
+    jcenter()
+    google()
+}
+dependencies {
+    implementation group: 'com.squareup.okio', name: 'okio', version: '2.9.0'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.9'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.4.2'
+}
