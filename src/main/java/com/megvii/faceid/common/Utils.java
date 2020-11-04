@@ -11,10 +11,10 @@ import javax.crypto.spec.SecretKeySpec;
 public class Utils
 {
     /**
-     * Éú³ÉÇ©Ãû×Ö¶Î
+     * ç”Ÿæˆç­¾åå­—æ®µ
      * @param apiKey key
      * @param secretKey secret
-     * @param expired ¹ıÆÚÊ±¼ä´Á
+     * @param expired è¿‡æœŸæ—¶é—´æˆ³
      * @return sign
      */
     public static String genSign(String apiKey, String secretKey, long expired)
@@ -38,7 +38,7 @@ public class Utils
     }
 
     /**
-     * Éú³É hmacsha1 Ç©Ãû
+     * ç”Ÿæˆ hmacsha1 ç­¾å
      */
     private static byte[] HmacSha1(byte[] binaryData, String key) throws NoSuchAlgorithmException, InvalidKeyException
     {
@@ -61,5 +61,19 @@ public class Utils
     public static boolean isNullOrEmpty(String str)
     {
         return str == null || str.length() == 0;
+    }
+
+    public static boolean isClassExist(String className)
+    {
+        boolean flag = true;
+        try
+        {
+            Class.forName(className);
+        }
+        catch (ClassNotFoundException e)
+        {
+            flag = false;
+        }
+        return flag;
     }
 }

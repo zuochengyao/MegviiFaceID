@@ -1,6 +1,6 @@
 package com.megvii.faceid.network.http.base;
 
-enum HttpStatus
+public enum HttpStatus
 {
     CONTINUE(100, "Continue"),
     SWITCHING_PROTOCOLS(101, "Switching Protocols"),

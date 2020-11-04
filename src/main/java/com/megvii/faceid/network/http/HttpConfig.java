@@ -1,18 +1,22 @@
 package com.megvii.faceid.network.http;
 
+import java.net.Proxy;
+
 public class HttpConfig
 {
     public static final String CLASSNAME_OKHTTP = "okhttp3.OkHttpClient";
     public static final String CLASSNAME_ORIGIN = "java.net.HttpURLConnection";
 
-    /** 连接超时时长 单位：秒 */
+    /** 连接超时时长 单位：毫秒 */
     private final int mConnectTimeout;
-    /** 读 超时时长 单位：秒 */
+    /** 读 超时时长 单位：毫秒 */
     private final int mReadTimeout;
-    /** 写 超时时长 单位：秒 */
+    /** 写 超时时长 单位：毫秒 */
     private final int mWriteTimeout;
     /** 是否自动重连 */
     private final boolean mRetryOnConnectionFailure;
+    /** 设置代理服务器 */
+    private final Proxy mProxy;
     /**
      * http 请求框架
      * 目前支持 okhttp & HttpURLConnection
@@ -32,6 +36,7 @@ public class HttpConfig
         this.mWriteTimeout = builder.writeTimeout;
         this.mRetryOnConnectionFailure = builder.retryOnConnectionFailure;
         this.mHttpClassName = builder.httpClassName;
+        this.mProxy = builder.proxy;
     }
 
     public int getConnectTimeout()
@@ -59,13 +64,19 @@ public class HttpConfig
         return mHttpClassName;
     }
 
+    public Proxy getProxy()
+    {
+        return mProxy;
+    }
+
     public static class Builder
     {
-        private int connectTimeout = 60;
-        private int readTimeout = 30;
-        private int writeTimeout = 30;
+        private int connectTimeout = 10000;
+        private int readTimeout = 10000;
+        private int writeTimeout = 10000;
         private boolean retryOnConnectionFailure = true;
         private String httpClassName = CLASSNAME_ORIGIN;
+        private Proxy proxy;
 
         public Builder setConnectTimeout(int timeout)
         {
@@ -94,6 +105,12 @@ public class HttpConfig
         public Builder setHttpClassName(String className)
         {
             this.httpClassName = className;
+            return this;
+        }
+
+        public Builder setProxy(Proxy proxy)
+        {
+            this.proxy = proxy;
             return this;
         }
 
