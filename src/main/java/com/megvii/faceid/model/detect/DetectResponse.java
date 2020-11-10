@@ -7,6 +7,6 @@ public class DetectResponse extends BaseKeyModel
     @Override
     protected void toMap()
     {
-
+        super.toMap();
     }
 }

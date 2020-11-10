@@ -1,4 +1,4 @@
-package com.megvii.faceid.model.detect;
+package com.megvii.faceid.model.ocr;
 
 import com.megvii.faceid.common.Const;
 import com.megvii.faceid.common.Utils;
@@ -6,10 +6,10 @@ import com.megvii.faceid.model.base.BaseKeyModel;
 
 import java.io.File;
 
-public class DetectRequest extends BaseKeyModel
+public class IDCardRequest extends BaseKeyModel
 {
     private byte[] image;
-    private String multiOrientedDetection;
+    private String returnPortrait;
 
     public byte[] getImage()
     {
@@ -27,21 +27,21 @@ public class DetectRequest extends BaseKeyModel
         this.image = image;
     }
 
-    public String getMultiOrientedDetection()
+    public String getReturnPortrait()
     {
-        return multiOrientedDetection;
+        return returnPortrait;
     }
 
-    public void setMultiOrientedDetection(String multiOrientedDetection)
+    public void setReturnPortrait(String returnPortrait)
     {
-        this.multiOrientedDetection = multiOrientedDetection;
+        this.returnPortrait = returnPortrait;
     }
 
     @Override
     protected void toMap()
     {
         super.toMap();
-        this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, multiOrientedDetection);
+        this.addStringParam(Const.API_PARAM_RETURN_PORTRAIT, returnPortrait);
         this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 }

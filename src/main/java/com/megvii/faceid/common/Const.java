@@ -7,6 +7,8 @@ public final class Const
     // region Base
     public static final String API_PARAM_API_KEY = "api_key";
     public static final String API_PARAM_API_SECRET = "api_secret";
+    public static final String API_PARAM_SIGN = "sign";
+    public static final String API_PARAM_SIGN_VERSION = "sign_version";
     public static final String API_PARAM_REQUEST_ID = "request_id";
     public static final String API_PARAM_TIME_USED = "time_used";
     // endregion

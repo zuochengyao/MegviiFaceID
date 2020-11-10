@@ -1,6 +1,7 @@
 package com.megvii.faceid.model.base;
 
 import com.google.gson.annotations.SerializedName;
+import com.megvii.faceid.common.Const;
 
 public abstract class BaseSignModel extends BaseModel
 {
@@ -21,5 +22,12 @@ public abstract class BaseSignModel extends BaseModel
     public String getSignVersion()
     {
         return "hmac_sha1";
+    }
+
+    @Override
+    protected void toMap()
+    {
+        this.addStringParam(Const.API_PARAM_SIGN, sign);
+        this.addStringParam(Const.API_PARAM_SIGN_VERSION, getSignVersion());
     }
 }

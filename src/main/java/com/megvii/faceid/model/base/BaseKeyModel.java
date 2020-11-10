@@ -1,6 +1,7 @@
 package com.megvii.faceid.model.base;
 
 import com.google.gson.annotations.SerializedName;
+import com.megvii.faceid.common.Const;
 
 public abstract class BaseKeyModel extends BaseModel
 {
@@ -27,5 +28,12 @@ public abstract class BaseKeyModel extends BaseModel
     public void setApiSecret(String apiSecret)
     {
         this.apiSecret = apiSecret;
+    }
+
+    @Override
+    protected void toMap()
+    {
+        this.addStringParam(Const.API_PARAM_API_KEY, apiKey);
+        this.addStringParam(Const.API_PARAM_API_SECRET, apiSecret);
     }
 }
