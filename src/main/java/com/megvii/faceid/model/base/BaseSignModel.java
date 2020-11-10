@@ -1,7 +1,10 @@
 package com.megvii.faceid.model.base;
 
+import com.google.gson.annotations.SerializedName;
+
 public abstract class BaseSignModel extends BaseModel
 {
+    @SerializedName("sign")
     private String sign;
     // private final String signVersion = "hmac_sha1";
 
