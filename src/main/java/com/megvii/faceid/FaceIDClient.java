@@ -6,17 +6,17 @@ import com.megvii.faceid.network.http.HttpConfig;
 import com.megvii.faceid.network.http.HttpManager;
 import com.megvii.faceid.network.http.HttpResponse;
 
-public class FaceID
+public class FaceIDClient
 {
     private final FaceIDConfig mFaceIDConfig;
     private final HttpManager mHttpManager;
 
-    public FaceID(FaceIDConfig faceidConfig)
+    public FaceIDClient(FaceIDConfig faceidConfig)
     {
         this(faceidConfig, HttpConfig.getDefault());
     }
 
-    public FaceID(FaceIDConfig faceidConfig, HttpConfig httpConfig)
+    public FaceIDClient(FaceIDConfig faceidConfig, HttpConfig httpConfig)
     {
         this.mFaceIDConfig = faceidConfig;
         this.mHttpManager = new HttpManager(httpConfig);
