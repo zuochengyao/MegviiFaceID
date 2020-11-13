@@ -8,6 +8,7 @@ import java.io.File;
 
 public class DetectRequest extends BaseKeyModel
 {
+    public static final String API_URL = "/faceid/v1/detect";
     private byte[] image;
     private String multiOrientedDetection;
 
@@ -38,10 +39,10 @@ public class DetectRequest extends BaseKeyModel
     }
 
     @Override
-    protected void toMap()
+    public void toMap()
     {
         super.toMap();
-        this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, multiOrientedDetection);
+        this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, 1);
         this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 }

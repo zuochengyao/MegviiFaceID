@@ -4,7 +4,7 @@ import com.megvii.faceid.common.Utils;
 import com.megvii.faceid.exception.ApiKeyNullException;
 import com.megvii.faceid.exception.ApiSecretNullException;
 
-public class FaceIDConfig
+public class FaceIdConfig
 {
     private final String apiKey;
     private final String apiSecret;
@@ -14,12 +14,12 @@ public class FaceIDConfig
     /** 过期时间戳 */
     private long apiSignExpired;
 
-    public FaceIDConfig(String key, String secret)
+    public FaceIdConfig(String key, String secret)
     {
         this(key, secret, 3600);
     }
 
-    public FaceIDConfig(String key, String secret, int apiSignTimeout)
+    public FaceIdConfig(String key, String secret, int apiSignTimeout)
     {
         if (Utils.isNullOrEmpty(key))
             throw new ApiKeyNullException();

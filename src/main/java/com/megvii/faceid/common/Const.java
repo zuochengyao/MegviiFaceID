@@ -1,9 +1,7 @@
 package com.megvii.faceid.common;
 
-public final class Const
+public abstract class Const
 {
-    private Const() {}
-
     // region Base
     public static final String API_PARAM_API_KEY = "api_key";
     public static final String API_PARAM_API_SECRET = "api_secret";
@@ -137,4 +135,9 @@ public final class Const
     public static final String API_PARAM_WIDTH = "width";
     public static final String API_PARAM_HEIGHT = "height";
     // endregion
+
+    public static final String API_HOST_URL_CHINA = "https://api.megvii.com";
+    public static final String API_HOST_URL_CHINA_IPV6 = "https://api-ipv6.megvii.com";
+    public static final String API_HOST_URL_CHINA_IDN = "https://api-idn.megvii.com";
+    public static final String API_HOST_URL_CHINA_SGP = "https://api-sgp.megvii.com";
 }

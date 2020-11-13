@@ -3,7 +3,7 @@ package com.megvii.faceid.model.base;
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.common.Const;
 
-public abstract class BaseSignModel extends BaseModel
+public abstract class BaseSignModel extends BaseRequestModel
 {
     @SerializedName("sign")
     private String sign;

@@ -1,12 +1,7 @@
 package com.megvii.faceid.model.detect;
 
-import com.megvii.faceid.model.base.BaseKeyModel;
+import com.megvii.faceid.model.base.BaseResponseModel;
 
-public class DetectResponse extends BaseKeyModel
+public class DetectResponse extends BaseResponseModel
 {
-    @Override
-    protected void toMap()
-    {
-        super.toMap();
-    }
 }

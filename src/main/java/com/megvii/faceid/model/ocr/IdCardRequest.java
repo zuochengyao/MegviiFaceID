@@ -6,7 +6,7 @@ import com.megvii.faceid.model.base.BaseKeyModel;
 
 import java.io.File;
 
-public class IDCardRequest extends BaseKeyModel
+public class IdCardRequest extends BaseKeyModel
 {
     private byte[] image;
     private String returnPortrait;
@@ -38,7 +38,7 @@ public class IDCardRequest extends BaseKeyModel
     }
 
     @Override
-    protected void toMap()
+    public void toMap()
     {
         super.toMap();
         this.addStringParam(Const.API_PARAM_RETURN_PORTRAIT, returnPortrait);

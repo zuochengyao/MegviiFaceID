@@ -82,6 +82,27 @@ public class Utils
         return flag;
     }
 
+    public static byte[] getResourceBytes(String resourcePath)
+    {
+        InputStream in;
+        byte[] data = null;
+        in = Utils.class.getClassLoader().getResourceAsStream(resourcePath);
+        try
+        {
+            if (in != null)
+            {
+                data = new byte[in.available()];
+                in.read(data);
+                in.close();
+            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
     /**
      * 获取文件数据流
      * @param file
