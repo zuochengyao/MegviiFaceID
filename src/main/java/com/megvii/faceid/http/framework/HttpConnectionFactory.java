@@ -1,9 +1,9 @@
-package com.megvii.faceid.network.http.framework;
+package com.megvii.faceid.http.framework;
 
 import com.megvii.faceid.common.Utils;
-import com.megvii.faceid.network.http.HttpConfig;
-import com.megvii.faceid.network.http.framework.ok.OkHttpConnection;
-import com.megvii.faceid.network.http.framework.origin.OriginHttpConnection;
+import com.megvii.faceid.http.HttpConfig;
+import com.megvii.faceid.http.framework.ok.OkHttpConnection;
+import com.megvii.faceid.http.framework.origin.OriginHttpConnection;
 
 /**
  * HttpConnection 工厂类

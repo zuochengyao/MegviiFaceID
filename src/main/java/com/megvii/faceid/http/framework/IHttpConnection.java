@@ -1,14 +1,14 @@
-package com.megvii.faceid.network.http.framework;
+package com.megvii.faceid.http.framework;
 
-import com.megvii.faceid.network.http.HttpConfig;
-import com.megvii.faceid.network.http.HttpRequest;
-import com.megvii.faceid.network.http.HttpResponse;
+import com.megvii.faceid.http.HttpConfig;
+import com.megvii.faceid.http.HttpRequest;
+import com.megvii.faceid.http.HttpResponse;
 
 import java.io.IOException;
 
 public abstract class IHttpConnection
 {
-    HttpConfig mHttpConfig;
+    protected HttpConfig mHttpConfig;
 
     public IHttpConnection(HttpConfig config)
     {

@@ -1,11 +1,13 @@
-package com.megvii.faceid.network.http.framework.ok;
+package com.megvii.faceid.http.framework.ok;
 
 import com.megvii.faceid.model.base.BaseRequestModel;
-import com.megvii.faceid.network.http.HttpConfig;
-import com.megvii.faceid.network.http.HttpRequest;
-import com.megvii.faceid.network.http.HttpResponse;
-import com.megvii.faceid.network.http.base.HttpMethod;
-import com.megvii.faceid.network.http.framework.IHttpConnection;
+import com.megvii.faceid.http.HttpConfig;
+import com.megvii.faceid.http.HttpRequest;
+import com.megvii.faceid.http.HttpResponse;
+import com.megvii.faceid.http.base.HttpMethod;
+import com.megvii.faceid.http.framework.IHttpConnection;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.Map;
@@ -34,7 +36,7 @@ public class OkHttpConnection extends IHttpConnection
     }
 
     @Override
-    public HttpResponse execute(HttpRequest request) throws IOException
+    public HttpResponse execute(@NotNull HttpRequest request) throws IOException
     {
         Call call;
         HttpMethod method = request.getHttpMethod();
@@ -53,8 +55,13 @@ public class OkHttpConnection extends IHttpConnection
                 break;
             }
         }
-        Response response = call.execute();
-        System.out.println(response.body().string());
+        Response okResponse = call.execute();
+        // HttpResponse realResponse = HttpResponse.newResponse();
+        if (okResponse.body() != null)
+        {
+            String respJson = okResponse.body().string();
+
+        }
         return null;
     }
 

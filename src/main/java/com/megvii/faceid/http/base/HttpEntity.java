@@ -1,4 +1,4 @@
-package com.megvii.faceid.network.http.base;
+package com.megvii.faceid.http.base;
 
 import java.util.HashMap;
 import java.util.Random;

@@ -6,6 +6,8 @@ import com.megvii.faceid.exception.ApiSecretNullException;
 
 public class FaceIdConfig
 {
+    private static final int TIMEOUT_SIGN = 3600;
+
     private final String apiKey;
     private final String apiSecret;
     private String apiSign;
@@ -16,7 +18,7 @@ public class FaceIdConfig
 
     public FaceIdConfig(String key, String secret)
     {
-        this(key, secret, 3600);
+        this(key, secret, TIMEOUT_SIGN);
     }
 
     public FaceIdConfig(String key, String secret, int apiSignTimeout)
@@ -27,7 +29,7 @@ public class FaceIdConfig
             throw new ApiSecretNullException();
         this.apiKey = key;
         this.apiSecret = secret;
-        this.apiSignTimeout = apiSignTimeout > 0 ? apiSignTimeout : 3600;
+        this.apiSignTimeout = apiSignTimeout > 0 ? apiSignTimeout : TIMEOUT_SIGN;
     }
 
     public void setApiSignTimeout(int timeout)

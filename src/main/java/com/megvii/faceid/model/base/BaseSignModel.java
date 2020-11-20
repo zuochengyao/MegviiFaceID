@@ -25,7 +25,7 @@ public abstract class BaseSignModel extends BaseRequestModel
     }
 
     @Override
-    protected void toMap()
+    public void toMap()
     {
         this.addStringParam(Const.API_PARAM_SIGN, sign);
         this.addStringParam(Const.API_PARAM_SIGN_VERSION, getSignVersion());

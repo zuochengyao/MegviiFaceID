@@ -1,4 +1,4 @@
-package com.megvii.faceid.network.http;
+package com.megvii.faceid.http;
 
 import java.net.Proxy;
 

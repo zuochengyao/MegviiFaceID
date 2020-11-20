@@ -1,8 +1,8 @@
-package com.megvii.faceid.network.http;
+package com.megvii.faceid.http;
 
+import com.megvii.faceid.http.base.HttpHeader;
+import com.megvii.faceid.http.base.HttpMethod;
 import com.megvii.faceid.model.base.BaseRequestModel;
-import com.megvii.faceid.network.http.base.HttpHeader;
-import com.megvii.faceid.network.http.base.HttpMethod;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -48,11 +48,6 @@ public final class HttpRequest implements Closeable
     public BaseRequestModel getData()
     {
         return data;
-    }
-
-    public void setData(BaseRequestModel data)
-    {
-        this.data = data;
     }
 
     @Override

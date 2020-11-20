@@ -1,9 +1,9 @@
-package com.megvii.faceid.network.http.framework.origin;
+package com.megvii.faceid.http.framework.origin;
 
-import com.megvii.faceid.network.http.HttpConfig;
-import com.megvii.faceid.network.http.HttpRequest;
-import com.megvii.faceid.network.http.HttpResponse;
-import com.megvii.faceid.network.http.framework.IHttpConnection;
+import com.megvii.faceid.http.HttpConfig;
+import com.megvii.faceid.http.HttpRequest;
+import com.megvii.faceid.http.HttpResponse;
+import com.megvii.faceid.http.framework.IHttpConnection;
 
 import java.io.IOException;
 
