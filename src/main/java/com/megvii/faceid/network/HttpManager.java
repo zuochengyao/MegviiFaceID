@@ -1,7 +1,7 @@
-package com.megvii.faceid.http;
+package com.megvii.faceid.network;
 
-import com.megvii.faceid.http.framework.HttpConnectionFactory;
-import com.megvii.faceid.http.framework.IHttpConnection;
+import com.megvii.faceid.network.framework.HttpConnectionFactory;
+import com.megvii.faceid.network.framework.IHttpConnection;
 
 import java.io.IOException;
 
@@ -16,7 +16,11 @@ public class HttpManager
 
     public HttpResponse execute(HttpRequest request) throws IOException
     {
-        mHttpConnection.execute(request);
-        return null;
+        return mHttpConnection.execute(request);
+    }
+
+    public void enqueue(HttpRequest request) throws IOException
+    {
+        mHttpConnection.enqueue(request);
     }
 }

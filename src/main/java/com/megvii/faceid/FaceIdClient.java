@@ -1,13 +1,13 @@
 package com.megvii.faceid;
 
-import com.megvii.faceid.model.base.BaseKeyModel;
-import com.megvii.faceid.model.base.BaseSignModel;
+import com.megvii.faceid.model.base.request.BaseKeyRequest;
+import com.megvii.faceid.model.base.request.BaseSignRequest;
 import com.megvii.faceid.model.detect.DetectRequest;
 import com.megvii.faceid.model.detect.DetectResponse;
-import com.megvii.faceid.http.HttpManager;
-import com.megvii.faceid.http.HttpConfig;
-import com.megvii.faceid.http.base.HttpMethod;
-import com.megvii.faceid.http.HttpRequest;
+import com.megvii.faceid.network.HttpConfig;
+import com.megvii.faceid.network.HttpManager;
+import com.megvii.faceid.network.HttpRequest;
+import com.megvii.faceid.network.HttpResponse;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +25,6 @@ public class FaceIdClient
     {
         this(new FaceIdConfig(apiKey, apiSecret));
     }
-
 
     public FaceIdClient(FaceIdConfig faceidConfig)
     {
@@ -46,25 +45,27 @@ public class FaceIdClient
     public DetectResponse detect(DetectRequest req) throws IOException
     {
         setKeyAndSecret(req);
-        HttpRequest request = new HttpRequest(host.getHostUrl().concat(DetectRequest.API_URL), req);
-        request.setHttpMethod(HttpMethod.POST);
-        httpManager.execute(request);
+        HttpRequest request = new HttpRequest(host.getHostUrl().concat(req.getUrl()), req);
+        HttpResponse response = httpManager.execute(request);
+        response.getStatusMessage();
         return null;
     }
 
-    public void detect(DetectRequest req, IFaceIdCallback<DetectResponse> callback)
+    public void detect(DetectRequest req, IFaceIdCallback<DetectResponse> callback) throws IOException
     {
-
+        setKeyAndSecret(req);
+        HttpRequest request = new HttpRequest(host.getHostUrl().concat(req.getUrl()), req);
+        httpManager.enqueue(request);
     }
 
-    private void setKeyAndSecret(@NotNull BaseKeyModel model)
+    private void setKeyAndSecret(@NotNull BaseKeyRequest model)
     {
         model.setApiKey(faceIdConfig.getApiKey());
         model.setApiSecret(faceIdConfig.getApiSecret());
         model.toMap();
     }
 
-    private void setSign(@NotNull BaseSignModel model)
+    private void setSign(@NotNull BaseSignRequest model)
     {
         model.setSign(faceIdConfig.getApiSign());
         model.toMap();

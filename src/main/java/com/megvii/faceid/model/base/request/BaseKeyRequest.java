@@ -1,9 +1,9 @@
-package com.megvii.faceid.model.base;
+package com.megvii.faceid.model.base.request;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.common.Const;
 
-public abstract class BaseKeyModel extends BaseRequestModel
+public abstract class BaseKeyRequest extends BaseRequest
 {
     @SerializedName("api_key")
     private String apiKey;

@@ -1,4 +1,4 @@
-package com.megvii.faceid.http.base;
+package com.megvii.faceid.network.http;
 
 public enum HttpStatus
 {

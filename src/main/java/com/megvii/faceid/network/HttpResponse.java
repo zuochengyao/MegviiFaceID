@@ -1,12 +1,12 @@
-package com.megvii.faceid.http;
+package com.megvii.faceid.network;
 
-import com.megvii.faceid.http.base.IHttpResponse;
+import com.megvii.faceid.network.http.base.IResponse;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.GZIPInputStream;
 
-public abstract class HttpResponse implements IHttpResponse
+public abstract class HttpResponse implements IResponse
 {
     private static final String GZIP = "gzip";
     private InputStream mGzipInStream;

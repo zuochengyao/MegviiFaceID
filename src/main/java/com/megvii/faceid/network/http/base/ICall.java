@@ -1,15 +1,17 @@
-package com.megvii.faceid.http.base;
+package com.megvii.faceid.network.http.base;
+
+import com.megvii.faceid.network.http.HttpMethod;
 
 import java.io.IOException;
 import java.net.URI;
 
-public interface IHttpCall
+public interface ICall
 {
     HttpMethod getMethod();
 
     URI getUri();
 
-    IHttpResponse execute() throws IOException;
+    IResponse execute() throws IOException;
 
     void enqueue() throws IOException;
 

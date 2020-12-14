@@ -1,9 +1,9 @@
-package com.megvii.faceid.http.framework;
+package com.megvii.faceid.network.framework;
 
 import com.megvii.faceid.common.Utils;
-import com.megvii.faceid.http.HttpConfig;
-import com.megvii.faceid.http.framework.ok.OkHttpConnection;
-import com.megvii.faceid.http.framework.origin.OriginHttpConnection;
+import com.megvii.faceid.network.HttpConfig;
+import com.megvii.faceid.network.framework.ok.OkHttpConnection;
+import com.megvii.faceid.network.framework.origin.OriginHttpConnection;
 
 /**
  * HttpConnection 工厂类
@@ -17,7 +17,6 @@ import com.megvii.faceid.http.framework.origin.OriginHttpConnection;
 public class HttpConnectionFactory
 {
     private static volatile HttpConnectionFactory mInstance;
-    private IHttpConnection mHttpConnection;
 
     private HttpConnectionFactory()
     { }
@@ -37,26 +36,22 @@ public class HttpConnectionFactory
 
     public IHttpConnection newHttpConnection(HttpConfig httpConfig)
     {
+        IHttpConnection httpConnection;
         if (Utils.isClassExist(httpConfig.getHttpClassName()))
         {
             switch (httpConfig.getHttpClassName())
             {
                 case HttpConfig.CLASSNAME_OKHTTP:
-                    this.mHttpConnection = new OkHttpConnection(httpConfig);
+                    httpConnection = new OkHttpConnection(httpConfig);
                     break;
                 default:
                 case HttpConfig.CLASSNAME_ORIGIN:
-                    this.mHttpConnection = new OriginHttpConnection(httpConfig);
+                    httpConnection = new OriginHttpConnection(httpConfig);
                     break;
             }
         }
         else
-            this.mHttpConnection = new OriginHttpConnection(httpConfig);
-        return this.mHttpConnection;
-    }
-
-    public IHttpConnection getHttpConnection()
-    {
-        return this.mHttpConnection;
+            httpConnection = new OriginHttpConnection(httpConfig);
+        return httpConnection;
     }
 }

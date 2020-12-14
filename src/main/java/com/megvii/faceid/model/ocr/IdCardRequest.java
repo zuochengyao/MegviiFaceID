@@ -2,11 +2,13 @@ package com.megvii.faceid.model.ocr;
 
 import com.megvii.faceid.common.Const;
 import com.megvii.faceid.common.Utils;
-import com.megvii.faceid.model.base.BaseKeyModel;
+import com.megvii.faceid.model.base.request.BaseKeyRequest;
+import com.megvii.faceid.network.http.HttpHeader;
+import com.megvii.faceid.network.http.HttpMethod;
 
 import java.io.File;
 
-public class IdCardRequest extends BaseKeyModel
+public class IdCardRequest extends BaseKeyRequest
 {
     private byte[] image;
     private String returnPortrait;
@@ -43,5 +45,23 @@ public class IdCardRequest extends BaseKeyModel
         super.toMap();
         this.addStringParam(Const.API_PARAM_RETURN_PORTRAIT, returnPortrait);
         this.addBinaryParam(Const.API_PARAM_IMAGE, image);
+    }
+
+    @Override
+    public String getUrl()
+    {
+        return null;
+    }
+
+    @Override
+    public HttpMethod method()
+    {
+        return null;
+    }
+
+    @Override
+    public HttpHeader headers()
+    {
+        return null;
     }
 }

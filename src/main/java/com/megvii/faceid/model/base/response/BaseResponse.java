@@ -1,8 +1,8 @@
-package com.megvii.faceid.model.base;
+package com.megvii.faceid.model.base.response;
 
 import com.google.gson.annotations.SerializedName;
 
-public abstract class BaseResponseModel extends BaseModel
+public abstract class BaseResponse
 {
     @SerializedName("request_id")
     private String requestId;

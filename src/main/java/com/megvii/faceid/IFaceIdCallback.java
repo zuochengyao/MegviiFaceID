@@ -1,10 +1,10 @@
 package com.megvii.faceid;
 
-import com.megvii.faceid.model.base.BaseResponseModel;
+import com.megvii.faceid.model.base.response.BaseResponse;
 
-public interface IFaceIdCallback<T extends BaseResponseModel>
+public interface IFaceIdCallback<T extends BaseResponse>
 {
     void onSuccess(T response);
 
-    void onFailed(String error);
+    void onFailed(int errorCode, String errorMessage);
 }

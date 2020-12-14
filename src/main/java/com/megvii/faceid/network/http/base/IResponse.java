@@ -1,10 +1,13 @@
-package com.megvii.faceid.http.base;
+package com.megvii.faceid.network.http.base;
+
+import com.megvii.faceid.network.http.HttpStatus;
+import com.megvii.faceid.network.http.HttpHeader;
 
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 
-public interface IHttpResponse extends Closeable
+public interface IResponse extends Closeable
 {
     long getContentLength();
 
