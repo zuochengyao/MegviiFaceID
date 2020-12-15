@@ -3,7 +3,6 @@ package com.megvii.faceid.model.ocr;
 import com.megvii.faceid.common.Const;
 import com.megvii.faceid.common.Utils;
 import com.megvii.faceid.model.base.request.BaseKeyRequest;
-import com.megvii.faceid.network.http.HttpHeader;
 import com.megvii.faceid.network.http.HttpMethod;
 
 import java.io.File;
@@ -40,28 +39,22 @@ public class IdCardRequest extends BaseKeyRequest
     }
 
     @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addStringParam(Const.API_PARAM_RETURN_PORTRAIT, returnPortrait);
-        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
-    }
-
-    @Override
     public String getUrl()
     {
-        return null;
+        return "/faceid/v3/ocridcard";
     }
 
     @Override
     public HttpMethod method()
     {
-        return null;
+        return HttpMethod.POST;
     }
 
     @Override
-    public HttpHeader headers()
+    public void toMap()
     {
-        return null;
+        super.toMap();
+        this.addStringParam(Const.API_PARAM_RETURN_PORTRAIT, returnPortrait);
+        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 }

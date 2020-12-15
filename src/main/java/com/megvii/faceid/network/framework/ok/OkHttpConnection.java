@@ -39,12 +39,7 @@ public class OkHttpConnection extends IHttpConnection
     public HttpResponse execute(@NotNull HttpRequest request) throws IOException
     {
         Response okResponse = newCall(request).execute();
-        // HttpResponse realResponse = HttpResponse.newResponse();
-        if (okResponse.body() != null)
-        {
-            String respJson = okResponse.body().string();
-        }
-        return null;
+        return new OkHttpResponse(okResponse);
     }
 
     @Override

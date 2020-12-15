@@ -21,11 +21,6 @@ public class FaceIdClient
 
 //    private HashMap<String, Object> KEY_MAP = new HashMap<>();
 
-    public FaceIdClient(String apiKey, String apiSecret)
-    {
-        this(new FaceIdConfig(apiKey, apiSecret));
-    }
-
     public FaceIdClient(FaceIdConfig faceidConfig)
     {
         this(faceidConfig, HttpConfig.getDefault());
@@ -47,16 +42,18 @@ public class FaceIdClient
         setKeyAndSecret(req);
         HttpRequest request = new HttpRequest(host.getHostUrl().concat(req.getUrl()), req);
         HttpResponse response = httpManager.execute(request);
-        response.getStatusMessage();
-        return null;
+        return response.toJsonObject(DetectResponse.class);
     }
 
+    /*
+    保留异步请求
     public void detect(DetectRequest req, IFaceIdCallback<DetectResponse> callback) throws IOException
     {
         setKeyAndSecret(req);
         HttpRequest request = new HttpRequest(host.getHostUrl().concat(req.getUrl()), req);
         httpManager.enqueue(request);
     }
+     */
 
     private void setKeyAndSecret(@NotNull BaseKeyRequest model)
     {

@@ -11,11 +11,11 @@ public interface IResponse extends Closeable
 {
     long getContentLength();
 
-    HttpStatus getStatus();
-
     HttpHeader getHeaders();
 
-    String getStatusMessage();
+    HttpStatus getStatus();
+
+    String getMessage();
 
     InputStream getBody() throws IOException;
 

@@ -48,8 +48,8 @@ public enum HttpStatus
 
     UNKNOWN(-1, "Unknown error");
 
-    private int mStatusCode;
-    private String mMessage;
+    private final int mStatusCode;
+    private final String mMessage;
 
     HttpStatus(int statusCode, String message)
     {

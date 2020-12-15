@@ -3,7 +3,6 @@ package com.megvii.faceid.model.detect;
 import com.megvii.faceid.common.Const;
 import com.megvii.faceid.common.Utils;
 import com.megvii.faceid.model.base.request.BaseKeyRequest;
-import com.megvii.faceid.network.http.HttpHeader;
 import com.megvii.faceid.network.http.HttpMethod;
 
 import java.io.File;
@@ -40,14 +39,6 @@ public class DetectRequest extends BaseKeyRequest
     }
 
     @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, 1);
-        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
-    }
-
-    @Override
     public String getUrl()
     {
         return "/faceid/v1/detect";
@@ -60,8 +51,10 @@ public class DetectRequest extends BaseKeyRequest
     }
 
     @Override
-    public HttpHeader headers()
+    public void toMap()
     {
-        return null;
+        super.toMap();
+        this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, 1);
+        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 }
