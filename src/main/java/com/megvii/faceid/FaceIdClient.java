@@ -19,7 +19,7 @@ public class FaceIdClient
     private final HttpManager httpManager;
     private FaceIdHost host = FaceIdHost.China;
 
-//    private HashMap<String, Object> KEY_MAP = new HashMap<>();
+    //    private HashMap<String, Object> KEY_MAP = new HashMap<>();
 
     public FaceIdClient(FaceIdConfig faceidConfig)
     {
@@ -45,6 +45,8 @@ public class FaceIdClient
         return response.toJsonObject(DetectResponse.class);
     }
 
+
+
     /*
     保留异步请求
     public void detect(DetectRequest req, IFaceIdCallback<DetectResponse> callback) throws IOException
@@ -53,7 +55,7 @@ public class FaceIdClient
         HttpRequest request = new HttpRequest(host.getHostUrl().concat(req.getUrl()), req);
         httpManager.enqueue(request);
     }
-     */
+    */
 
     private void setKeyAndSecret(@NotNull BaseKeyRequest model)
     {

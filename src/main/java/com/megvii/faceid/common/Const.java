@@ -1,6 +1,6 @@
 package com.megvii.faceid.common;
 
-public abstract class Const
+public final class Const
 {
     // region Base
     public static final String API_PARAM_API_KEY = "api_key";

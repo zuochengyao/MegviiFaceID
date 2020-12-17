@@ -49,14 +49,16 @@ public class OkHttpResponse extends HttpResponse
     @Override
     public String getMessage()
     {
+        String message;
         try
         {
-            return mResponse.body() != null ? mResponse.body().string() : mResponse.message();
+            message = mResponse.body() != null ? mResponse.body().string() : mResponse.message();
         }
         catch (IOException e)
         {
-            return mResponse.message();
+            message = mResponse.message();
         }
+        return message;
     }
 
     @Override
