@@ -1,7 +1,5 @@
 package com.megvii.faceid.network;
 
-import com.google.gson.Gson;
-import com.megvii.faceid.model.base.response.BaseResponse;
 import com.megvii.faceid.network.http.base.IResponse;
 
 import java.io.IOException;
@@ -39,13 +37,6 @@ public abstract class HttpResponse implements IResponse
         if (this.mGzipInStream == null)
             this.mGzipInStream = new GZIPInputStream(body);
         return this.mGzipInStream;
-    }
-
-    public <O extends BaseResponse> O toJsonObject(Class<O> clazz)
-    {
-        Gson gson = new Gson();
-        String ret = getMessage();
-        return gson.fromJson(ret, clazz);
     }
 
     protected abstract InputStream getBodyStream();

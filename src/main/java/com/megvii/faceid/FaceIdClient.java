@@ -4,10 +4,13 @@ import com.megvii.faceid.model.base.request.BaseKeyRequest;
 import com.megvii.faceid.model.base.request.BaseSignRequest;
 import com.megvii.faceid.model.detect.DetectRequest;
 import com.megvii.faceid.model.detect.DetectResponse;
+import com.megvii.faceid.model.ocr.idcard.v2.IdCardRequest;
+import com.megvii.faceid.model.ocr.idcard.v2.IdCardResponse;
 import com.megvii.faceid.network.HttpConfig;
 import com.megvii.faceid.network.HttpManager;
 import com.megvii.faceid.network.HttpRequest;
 import com.megvii.faceid.network.HttpResponse;
+import com.megvii.faceid.util.JsonUtils;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -37,15 +40,18 @@ public class FaceIdClient
         this.host = host;
     }
 
+    /**
+     * 人脸检测 Detect
+     *
+     * https://faceid.com/pages/documents/4173042
+     */
     public DetectResponse detect(DetectRequest req) throws IOException
     {
         setKeyAndSecret(req);
         HttpRequest request = new HttpRequest(host.getHostUrl().concat(req.getUrl()), req);
         HttpResponse response = httpManager.execute(request);
-        return response.toJsonObject(DetectResponse.class);
+        return JsonUtils.parse(response.getMessage(), DetectResponse.class);
     }
-
-
 
     /*
     保留异步请求
@@ -56,6 +62,18 @@ public class FaceIdClient
         httpManager.enqueue(request);
     }
     */
+
+    /**
+     * 身份证 OCR
+     * https://faceid.com/pages/documents/10881005
+     */
+    public IdCardResponse idCardV2(IdCardRequest req) throws IOException
+    {
+        setKeyAndSecret(req);
+        HttpRequest request = new HttpRequest(host.getHostUrl().concat(req.getUrl()), req);
+        HttpResponse response = httpManager.execute(request);
+        return JsonUtils.parse(response.getMessage(), IdCardResponse.class);
+    }
 
     private void setKeyAndSecret(@NotNull BaseKeyRequest model)
     {

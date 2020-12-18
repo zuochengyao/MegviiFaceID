@@ -1,7 +1,7 @@
 package com.megvii.faceid.model.base.request;
 
 import com.google.gson.annotations.SerializedName;
-import com.megvii.faceid.common.Const;
+import com.megvii.faceid.util.Const;
 
 public abstract class BaseKeyRequest extends BaseRequest
 {

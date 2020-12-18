@@ -1,4 +1,4 @@
-package com.megvii.faceid.common;
+package com.megvii.faceid.util;
 
 public final class Const
 {

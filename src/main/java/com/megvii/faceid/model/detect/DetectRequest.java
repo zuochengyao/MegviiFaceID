@@ -1,7 +1,7 @@
 package com.megvii.faceid.model.detect;
 
-import com.megvii.faceid.common.Const;
-import com.megvii.faceid.common.Utils;
+import com.megvii.faceid.util.Const;
+import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.model.base.request.BaseKeyRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 
@@ -20,7 +20,7 @@ public class DetectRequest extends BaseKeyRequest
     public void setImage(File image)
     {
         if (image != null)
-            setImage(Utils.getFileBytes(image));
+            setImage(CommonUtils.getFileBytes(image));
     }
 
     public void setImage(byte[] image)

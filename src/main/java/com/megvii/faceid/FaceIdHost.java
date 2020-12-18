@@ -1,6 +1,6 @@
 package com.megvii.faceid;
 
-import com.megvii.faceid.common.Const;
+import com.megvii.faceid.util.Const;
 
 public enum FaceIdHost
 {

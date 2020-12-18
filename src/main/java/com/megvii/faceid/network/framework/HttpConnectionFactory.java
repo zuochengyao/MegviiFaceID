@@ -1,6 +1,6 @@
 package com.megvii.faceid.network.framework;
 
-import com.megvii.faceid.common.Utils;
+import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.network.HttpConfig;
 import com.megvii.faceid.network.framework.ok.OkHttpConnection;
 import com.megvii.faceid.network.framework.origin.OriginHttpConnection;
@@ -37,7 +37,7 @@ public class HttpConnectionFactory
     public IHttpConnection newHttpConnection(HttpConfig httpConfig)
     {
         IHttpConnection httpConnection;
-        if (Utils.isClassExist(httpConfig.getHttpClassName()))
+        if (CommonUtils.isClassExist(httpConfig.getHttpClassName()))
         {
             switch (httpConfig.getHttpClassName())
             {

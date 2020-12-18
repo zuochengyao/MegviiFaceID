@@ -1,6 +1,6 @@
 package com.megvii.faceid;
 
-import com.megvii.faceid.common.Utils;
+import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.exception.ApiKeyNullException;
 import com.megvii.faceid.exception.ApiSecretNullException;
 
@@ -23,9 +23,9 @@ public class FaceIdConfig
 
     public FaceIdConfig(String key, String secret, int apiSignTimeout)
     {
-        if (Utils.isNullOrEmpty(key))
+        if (CommonUtils.isNullOrEmpty(key))
             throw new ApiKeyNullException();
-        if (Utils.isNullOrEmpty(secret))
+        if (CommonUtils.isNullOrEmpty(secret))
             throw new ApiSecretNullException();
         this.apiKey = key;
         this.apiSecret = secret;
@@ -53,7 +53,7 @@ public class FaceIdConfig
         if (now >= apiSignExpired)
         {
             this.apiSignExpired = now + apiSignTimeout;
-            this.apiSign = Utils.genSign(apiKey, apiSecret, apiSignExpired);
+            this.apiSign = CommonUtils.genSign(apiKey, apiSecret, apiSignExpired);
         }
         return apiSign;
     }

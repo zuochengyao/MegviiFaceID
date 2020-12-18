@@ -8,7 +8,7 @@ public abstract class BaseResponse
     private String requestId;
 
     @SerializedName("time_used")
-    private String timeUsed;
+    private int timeUsed;
 
     @SerializedName(value = "error", alternate = {"error_message"})
     private String error;
@@ -23,12 +23,12 @@ public abstract class BaseResponse
         this.requestId = requestId;
     }
 
-    public String getTimeUsed()
+    public int getTimeUsed()
     {
         return timeUsed;
     }
 
-    public void setTimeUsed(String timeUsed)
+    public void setTimeUsed(int timeUsed)
     {
         this.timeUsed = timeUsed;
     }

@@ -1,4 +1,4 @@
-package com.megvii.faceid.common;
+package com.megvii.faceid.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -13,7 +13,7 @@ import java.util.Random;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-public class Utils
+public class CommonUtils
 {
     /**
      * 生成签名字段
@@ -86,7 +86,7 @@ public class Utils
     {
         InputStream in;
         byte[] data = null;
-        in = Utils.class.getClassLoader().getResourceAsStream(resourcePath);
+        in = CommonUtils.class.getClassLoader().getResourceAsStream(resourcePath);
         try
         {
             if (in != null)
