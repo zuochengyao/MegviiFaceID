@@ -1,32 +1,12 @@
 package com.megvii.faceid.model.ocr.idcard.v2;
 
-import com.megvii.faceid.util.Const;
-import com.megvii.faceid.util.CommonUtils;
-import com.megvii.faceid.model.base.request.BaseKeyRequest;
+import com.megvii.faceid.model.ocr.idcard.BaseIDCardRequest;
 import com.megvii.faceid.network.http.HttpMethod;
+import com.megvii.faceid.util.Const;
 
-import java.io.File;
-
-public class IdCardRequest extends BaseKeyRequest
+public class IDCardV2Request extends BaseIDCardRequest
 {
-    private byte[] image;
     private String returnPortrait;
-
-    public byte[] getImage()
-    {
-        return this.image;
-    }
-
-    public void setImage(File image)
-    {
-        if (image != null)
-            setImage(CommonUtils.getFileBytes(image));
-    }
-
-    public void setImage(byte[] image)
-    {
-        this.image = image;
-    }
 
     public String getReturnPortrait()
     {
@@ -54,7 +34,6 @@ public class IdCardRequest extends BaseKeyRequest
     public void toMap()
     {
         super.toMap();
-        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
         this.addStringParam(Const.API_PARAM_RETURN_PORTRAIT, returnPortrait);
     }
 }

@@ -5,7 +5,7 @@ import com.megvii.faceid.model.base.response.BaseResponse;
 import com.megvii.faceid.model.ocr.idcard.Legality;
 import com.megvii.faceid.model.ocr.idcard.Rect;
 
-public class IdCardResponse extends BaseResponse
+public class IDCardV2Response extends BaseResponse
 {
     private Integer result;
     private Integer side;

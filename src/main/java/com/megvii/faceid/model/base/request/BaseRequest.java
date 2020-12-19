@@ -38,9 +38,9 @@ public abstract class BaseRequest// implements IRequest
         this.mHeader.put(key, value);
     }
 
-    protected abstract void toMap();
+    public abstract void toMap();
 
-    protected abstract String getUrl();
+    public abstract String getUrl();
 
-    protected abstract HttpMethod method();
+    public abstract HttpMethod method();
 }
