@@ -1,8 +1,8 @@
 package com.megvii.faceid;
 
 import com.megvii.faceid.model.base.request.ApiKeyRequest;
-import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.model.base.request.ApiSignRequest;
+import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.model.detect.DetectRequest;
 import com.megvii.faceid.model.detect.DetectResponse;
 import com.megvii.faceid.model.ocr.bankcard.BankCardRequest;
@@ -11,6 +11,8 @@ import com.megvii.faceid.model.ocr.idcard.v1.IdCardV1Request;
 import com.megvii.faceid.model.ocr.idcard.v1.IdCardV1Response;
 import com.megvii.faceid.model.ocr.idcard.v2.IdCardV2Request;
 import com.megvii.faceid.model.ocr.idcard.v2.IdCardV2Response;
+import com.megvii.faceid.model.verify.v3.GetBizTokenRequest;
+import com.megvii.faceid.model.verify.v3.GetBizTokenResponse;
 import com.megvii.faceid.network.HttpConfig;
 import com.megvii.faceid.network.HttpManager;
 import com.megvii.faceid.network.HttpRequest;
@@ -91,10 +93,15 @@ public class FaceIdClient
     {
         HttpResponse response = doKeyRequest(req);
         String message = response.getMessage();
-        System.out.println(message);
         return JsonUtils.parse(message, BankCardResponse.class);
     }
 
+    public GetBizTokenResponse appGetBizToken(GetBizTokenRequest req) throws IOException
+    {
+        HttpResponse response = doSignRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, GetBizTokenResponse.class);
+    }
 
     private HttpResponse doKeyRequest(@NotNull ApiKeyRequest model) throws IOException
     {

@@ -54,7 +54,8 @@ public class DetectRequest extends ApiKeyRequest
     public void toMap()
     {
         super.toMap();
-        this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, 1);
         this.addBinaryParam(Const.API_PARAM_IMAGE, image);
+        if (!CommonUtils.isNullOrEmpty(multiOrientedDetection))
+            this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, multiOrientedDetection);
     }
 }

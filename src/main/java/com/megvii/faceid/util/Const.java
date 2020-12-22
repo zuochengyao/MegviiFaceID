@@ -57,11 +57,18 @@ public final class Const
     public static final String API_PARAM_POSITION = "position";
     // endregion
 
-    // region Verify
+    // region App-GetBizToken & Verify
+    public static final String API_PARAM_LIVENESS_TYPE = "liveness_type";
+    public static final String API_PARAM_BIZ_NO = "biz_no";
+    public static final String API_PARAM_LIVENESS_TIMEOUT = "liveness_timeout";
+    public static final String API_PARAM_LIVENESS_ACTION_COUNT = "liveness_action_count";
+    public static final String API_PARAM_FACE_REPLACE_DETECTION = "face_replace_detection";
+    public static final String API_PARAM_EYES_CLOSE_DETECTION = "eyes_close_detection";
+    public static final String API_PARAM_FLASH_LIVENESS_TIMEOUT = "flash_liveness_timeout";
     public static final String API_PARAM_COMPARISON_TYPE = "comparison_type";
     public static final String API_PARAM_FACE_IMAGE_TYPE = "face_image_type";
     public static final String API_PARAM_IDCARD_NAME = "idcard_name";
-    public static final String API_PARAM_IMAGE_REF = "image_ref";
+    private static final String API_PARAM_IMAGE_REF = "image_ref";
     public static final String API_PARAM_IMAGE_REF1 = API_PARAM_IMAGE_REF + "1";
     public static final String API_PARAM_IMAGE_REF2 = API_PARAM_IMAGE_REF + "2";
     public static final String API_PARAM_IMAGE_REF3 = API_PARAM_IMAGE_REF + "3";
@@ -103,6 +110,11 @@ public final class Const
     public static final String API_PARAM_SCREEN_REPLAY_CONFIDENCE = "screen_replay_confidence";
     public static final String API_PARAM_SCREEN_REPLAY_THRESHOLD = "screen_replay_threshold";
     public static final String API_PARAM_FACE_REPLACED = "face_replaced";
+    public static final String API_PARAM_VERBOSE = "verbose";
+    public static final String API_PARAM_SECURITY_LEVEL = "security_level";
+    public static final String API_PARAM_FORCE_COMPARE = "force_compare";
+    public static final String API_PARAM_LIVENESS_LEVEL = "liveness_level";
+    public static final String API_PARAM_MAXIMUM_BRIGHTNESS = "maximum_brightness";
     // endregion
 
     // region Common
