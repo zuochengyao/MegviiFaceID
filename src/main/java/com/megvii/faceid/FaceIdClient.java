@@ -13,6 +13,8 @@ import com.megvii.faceid.model.ocr.idcard.v2.IdCardV2Request;
 import com.megvii.faceid.model.ocr.idcard.v2.IdCardV2Response;
 import com.megvii.faceid.model.verify.v3.GetBizTokenRequest;
 import com.megvii.faceid.model.verify.v3.GetBizTokenResponse;
+import com.megvii.faceid.model.verify.v3.VerifyV3Request;
+import com.megvii.faceid.model.verify.v3.VerifyV3Response;
 import com.megvii.faceid.network.HttpConfig;
 import com.megvii.faceid.network.HttpManager;
 import com.megvii.faceid.network.HttpRequest;
@@ -101,6 +103,13 @@ public class FaceIdClient
         HttpResponse response = doSignRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, GetBizTokenResponse.class);
+    }
+
+    public VerifyV3Response appVerifyV3(VerifyV3Request req) throws IOException
+    {
+        HttpResponse response = doSignRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, VerifyV3Response.class);
     }
 
     private HttpResponse doKeyRequest(@NotNull ApiKeyRequest model) throws IOException

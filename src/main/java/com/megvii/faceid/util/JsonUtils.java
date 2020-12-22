@@ -13,7 +13,7 @@ public final class JsonUtils
 
     static
     {
-        gson = builder().setPrettyPrinting().create();
+        gson = builder().setPrettyPrinting().disableHtmlEscaping().create();
     }
 
     /**

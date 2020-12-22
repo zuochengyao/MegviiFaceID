@@ -58,6 +58,7 @@ public final class Const
     // endregion
 
     // region App-GetBizToken & Verify
+    public static final String API_PARAM_BIZ_TOKEN = "biz_token";
     public static final String API_PARAM_LIVENESS_TYPE = "liveness_type";
     public static final String API_PARAM_BIZ_NO = "biz_no";
     public static final String API_PARAM_LIVENESS_TIMEOUT = "liveness_timeout";
@@ -115,6 +116,7 @@ public final class Const
     public static final String API_PARAM_FORCE_COMPARE = "force_compare";
     public static final String API_PARAM_LIVENESS_LEVEL = "liveness_level";
     public static final String API_PARAM_MAXIMUM_BRIGHTNESS = "maximum_brightness";
+    public static final String API_PARAM_MEGLIVE_DATA = "meglive_data";
     // endregion
 
     // region Common
