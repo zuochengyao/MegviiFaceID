@@ -1,10 +1,10 @@
 package com.megvii.faceid.model.ocr.idcard.v1;
 
-import com.megvii.faceid.model.ocr.idcard.BaseIDCardRequest;
+import com.megvii.faceid.model.ocr.idcard.BaseIdCardRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.Const;
 
-public class IDCardV1Request extends BaseIDCardRequest
+public class IdCardV1Request extends BaseIdCardRequest
 {
     private String legality;
 

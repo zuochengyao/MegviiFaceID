@@ -1,12 +1,13 @@
-package com.megvii.faceid.model.ocr.idcard;
+package com.megvii.faceid.model.ocr.bankcard;
 
-import com.megvii.faceid.model.base.request.BaseKeyRequest;
+import com.megvii.faceid.model.base.request.ApiKeyRequest;
+import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public abstract class BaseIDCardRequest extends BaseKeyRequest
+public class BankCardRequest extends ApiKeyRequest
 {
     private byte[] image;
 
@@ -24,6 +25,18 @@ public abstract class BaseIDCardRequest extends BaseKeyRequest
     public void setImage(byte[] image)
     {
         this.image = image;
+    }
+
+    @Override
+    public String getUrl()
+    {
+        return "/faceid/v3/ocrbankcard";
+    }
+
+    @Override
+    public HttpMethod method()
+    {
+        return HttpMethod.POST;
     }
 
     @Override

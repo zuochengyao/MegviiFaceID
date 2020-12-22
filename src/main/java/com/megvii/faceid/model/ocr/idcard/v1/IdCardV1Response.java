@@ -3,9 +3,9 @@ package com.megvii.faceid.model.ocr.idcard.v1;
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.response.BaseResponse;
 import com.megvii.faceid.model.ocr.idcard.Legality;
-import com.megvii.faceid.model.ocr.idcard.RectF;
+import com.megvii.faceid.model.ocr.RectF;
 
-public class IDCardV1Response extends BaseResponse
+public class IdCardV1Response extends BaseResponse
 {
     private String address;
     private Birthday birthday;

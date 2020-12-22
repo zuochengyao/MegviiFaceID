@@ -1,14 +1,16 @@
 package com.megvii.faceid;
 
-import com.megvii.faceid.model.base.request.BaseKeyRequest;
+import com.megvii.faceid.model.base.request.ApiKeyRequest;
 import com.megvii.faceid.model.base.request.BaseRequest;
-import com.megvii.faceid.model.base.request.BaseSignRequest;
+import com.megvii.faceid.model.base.request.ApiSignRequest;
 import com.megvii.faceid.model.detect.DetectRequest;
 import com.megvii.faceid.model.detect.DetectResponse;
-import com.megvii.faceid.model.ocr.idcard.v1.IDCardV1Request;
-import com.megvii.faceid.model.ocr.idcard.v1.IDCardV1Response;
-import com.megvii.faceid.model.ocr.idcard.v2.IDCardV2Request;
-import com.megvii.faceid.model.ocr.idcard.v2.IDCardV2Response;
+import com.megvii.faceid.model.ocr.bankcard.BankCardRequest;
+import com.megvii.faceid.model.ocr.bankcard.BankCardResponse;
+import com.megvii.faceid.model.ocr.idcard.v1.IdCardV1Request;
+import com.megvii.faceid.model.ocr.idcard.v1.IdCardV1Response;
+import com.megvii.faceid.model.ocr.idcard.v2.IdCardV2Request;
+import com.megvii.faceid.model.ocr.idcard.v2.IdCardV2Response;
 import com.megvii.faceid.network.HttpConfig;
 import com.megvii.faceid.network.HttpManager;
 import com.megvii.faceid.network.HttpRequest;
@@ -45,7 +47,6 @@ public class FaceIdClient
 
     /**
      * 人脸检测 Detect
-     *
      * https://faceid.com/pages/documents/4173042
      */
     public DetectResponse detect(DetectRequest req) throws IOException
@@ -68,30 +69,41 @@ public class FaceIdClient
      * 身份证 OCR V1.0.0
      * http://bj-faceid-prod-asset.oss-cn-beijing.aliyuncs.com/WIKI_SYNC_PICS/DOCS/OCRIDCard_v1.0.0.pdf
      */
-    public IDCardV1Response idCardV1(IDCardV1Request req) throws IOException
+    public IdCardV1Response ocrIdCardV1(IdCardV1Request req) throws IOException
     {
         HttpResponse response = doKeyRequest(req);
-        return JsonUtils.parse(response.getMessage(), IDCardV1Response.class);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, IdCardV1Response.class);
     }
 
     /**
      * 身份证 OCR V2.0.0 推荐
      * https://faceid.com/pages/documents/10881005
      */
-    public IDCardV2Response idCardV2(IDCardV2Request req) throws IOException
+    public IdCardV2Response ocrIdCardV2(IdCardV2Request req) throws IOException
     {
         HttpResponse response = doKeyRequest(req);
-        return JsonUtils.parse(response.getMessage(), IDCardV2Response.class);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, IdCardV2Response.class);
     }
 
-    private HttpResponse doKeyRequest(@NotNull BaseKeyRequest model) throws IOException
+    public BankCardResponse ocrBankCard(BankCardRequest req) throws IOException
+    {
+        HttpResponse response = doKeyRequest(req);
+        String message = response.getMessage();
+        System.out.println(message);
+        return JsonUtils.parse(message, BankCardResponse.class);
+    }
+
+
+    private HttpResponse doKeyRequest(@NotNull ApiKeyRequest model) throws IOException
     {
         model.setApiKey(faceIdConfig.getApiKey());
         model.setApiSecret(faceIdConfig.getApiSecret());
         return doInternalRequest(model);
     }
 
-    private HttpResponse doSignRequest(@NotNull BaseSignRequest model) throws IOException
+    private HttpResponse doSignRequest(@NotNull ApiSignRequest model) throws IOException
     {
         model.setSign(faceIdConfig.getApiSign());
         return doInternalRequest(model);

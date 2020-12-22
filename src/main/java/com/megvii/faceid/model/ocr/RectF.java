@@ -1,4 +1,4 @@
-package com.megvii.faceid.model.ocr.idcard;
+package com.megvii.faceid.model.ocr;
 
 public class RectF
 {

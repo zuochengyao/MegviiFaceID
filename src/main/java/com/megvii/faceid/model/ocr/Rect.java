@@ -1,11 +1,17 @@
-package com.megvii.faceid.model.ocr.idcard;
+package com.megvii.faceid.model.ocr;
+
+import com.google.gson.annotations.SerializedName;
 
 public class Rect
 {
-    private Point rt;
+    @SerializedName(value = "lt", alternate = "left_top")
     private Point lt;
+    @SerializedName(value = "lb", alternate = "left_bottom")
     private Point lb;
+    @SerializedName(value = "rb", alternate = "right_bottom")
     private Point rb;
+    @SerializedName(value = "rt", alternate = "right_top")
+    private Point rt;
 
     public Point getRt()
     {

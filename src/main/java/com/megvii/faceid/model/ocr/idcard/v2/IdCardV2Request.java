@@ -1,10 +1,10 @@
 package com.megvii.faceid.model.ocr.idcard.v2;
 
-import com.megvii.faceid.model.ocr.idcard.BaseIDCardRequest;
+import com.megvii.faceid.model.ocr.idcard.BaseIdCardRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.Const;
 
-public class IDCardV2Request extends BaseIDCardRequest
+public class IdCardV2Request extends BaseIdCardRequest
 {
     private String returnPortrait;
 

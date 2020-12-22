@@ -3,9 +3,9 @@ package com.megvii.faceid.model.ocr.idcard.v2;
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.response.BaseResponse;
 import com.megvii.faceid.model.ocr.idcard.Legality;
-import com.megvii.faceid.model.ocr.idcard.Rect;
+import com.megvii.faceid.model.ocr.Rect;
 
-public class IDCardV2Response extends BaseResponse
+public class IdCardV2Response extends BaseResponse
 {
     private Integer result;
     private Integer side;
