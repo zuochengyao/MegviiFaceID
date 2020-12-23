@@ -2,8 +2,11 @@ package com.megvii.faceid.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializer;
 import com.google.gson.reflect.TypeToken;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +16,14 @@ public final class JsonUtils
 
     static
     {
-        gson = builder().setPrettyPrinting().disableHtmlEscaping().create();
+        gson = builder().setPrettyPrinting() // 设置格式
+                        .disableHtmlEscaping() // html标签
+                        .registerTypeAdapter(Double.class, (JsonSerializer<Double>) (src, typeOfSrc, context) ->
+                        {
+                            BigDecimal value = BigDecimal.valueOf(src);
+                            return new JsonPrimitive(value);
+                        }) // 禁用科学技术法
+                        .create();
     }
 
     /**

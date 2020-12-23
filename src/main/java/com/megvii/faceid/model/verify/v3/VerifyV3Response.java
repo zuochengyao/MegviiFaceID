@@ -9,7 +9,7 @@ public class VerifyV3Response extends BaseResponse
     @SerializedName("biz_no")
     private String bizNo;
     @SerializedName("result_code")
-    private int resultCode;
+    private Integer resultCode;
     @SerializedName("result_message")
     private String resultMessage;
     private Verification verification;
@@ -116,16 +116,16 @@ public class VerifyV3Response extends BaseResponse
 
     public static class AttackResult
     {
-        private float score;
+        private double score;
         private float threshold;
         private boolean result;
 
-        public float getScore()
+        public double getScore()
         {
             return score;
         }
 
-        public void setScore(float score)
+        public void setScore(double score)
         {
             this.score = score;
         }
