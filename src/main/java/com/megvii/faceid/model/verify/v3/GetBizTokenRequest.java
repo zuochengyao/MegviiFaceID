@@ -1,30 +1,20 @@
 package com.megvii.faceid.model.verify.v3;
 
-import com.megvii.faceid.model.base.request.ApiSignRequest;
+import com.megvii.faceid.model.base.verify.CompareSignRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public class GetBizTokenRequest extends ApiSignRequest
+public class GetBizTokenRequest extends CompareSignRequest
 {
     private static final String LIVENESS_TYPE_MEGLIVE = "meglive";
     private static final String LIVENESS_TYPE_STILL = "still";
     private static final String LIVENESS_TYPE_FLASH = "flash";
     private static final String LIVENESS_TYPE_RAW_IMAGE = "raw_image";
 
-    private static final String COMPARISON_TYPE_COMPARE = "0";
-    private static final String COMPARISON_TYPE_KYC = "1";
-
-
     private String livenessType;
-    private String comparisonType;
-    private String idcardName;
-    private String idcardNumber;
-    private String uuid;
-    private byte[] imageRef1;
-    private byte[] imageRef2;
     private String bizNo;
     private String livenessTimeout;
     private String livenessActionCount;
@@ -38,7 +28,6 @@ public class GetBizTokenRequest extends ApiSignRequest
     private String verbose;
     private String securityLevel;
     private String forceCompare;
-    private String multiOrientedDetection;
     private String livenessLevel;
     private String maximumBrightness;
 
@@ -50,78 +39,6 @@ public class GetBizTokenRequest extends ApiSignRequest
     public void setLivenessType(String livenessType)
     {
         this.livenessType = livenessType;
-    }
-
-    public String getComparisonType()
-    {
-        return comparisonType;
-    }
-
-    public void setComparisonType(String comparisonType)
-    {
-        this.comparisonType = comparisonType;
-    }
-
-    public String getIdcardName()
-    {
-        return idcardName;
-    }
-
-    public void setIdcardName(String idcardName)
-    {
-        this.idcardName = idcardName;
-    }
-
-    public String getIdcardNumber()
-    {
-        return idcardNumber;
-    }
-
-    public void setIdcardNumber(String idcardNumber)
-    {
-        this.idcardNumber = idcardNumber;
-    }
-
-    public String getUuid()
-    {
-        return uuid;
-    }
-
-    public void setUuid(String uuid)
-    {
-        this.uuid = uuid;
-    }
-
-    public byte[] getImageRef1()
-    {
-        return imageRef1;
-    }
-
-    public void setImageRef1(File imageRef1)
-    {
-        if (imageRef1 != null)
-            setImageRef1(CommonUtils.getFileBytes(imageRef1));
-    }
-
-    public void setImageRef1(byte[] imageRef1)
-    {
-        this.imageRef1 = imageRef1;
-    }
-
-    public byte[] getImageRef2()
-    {
-        return imageRef2;
-    }
-
-    public void setImageRef2(File imageRef2)
-    {
-        if (imageRef2 != null)
-            setImageRef2(CommonUtils.getFileBytes(imageRef2));
-    }
-
-    public void setImageRef2(byte[] imageRef2)
-    {
-        this.imageRef2 = imageRef2;
     }
 
     public String getBizNo()
@@ -260,16 +177,6 @@ public class GetBizTokenRequest extends ApiSignRequest
         this.forceCompare = forceCompare;
     }
 
-    public String getMultiOrientedDetection()
-    {
-        return multiOrientedDetection;
-    }
-
-    public void setMultiOrientedDetection(String multiOrientedDetection)
-    {
-        this.multiOrientedDetection = multiOrientedDetection;
-    }
-
     public String getLivenessLevel()
     {
         return livenessLevel;
@@ -341,23 +248,6 @@ public class GetBizTokenRequest extends ApiSignRequest
                 break;
             }
         }
-        this.addStringParam(Const.API_PARAM_COMPARISON_TYPE, comparisonType);
-        if (COMPARISON_TYPE_KYC.equals(comparisonType))
-        {
-            this.addStringParam(Const.API_PARAM_IDCARD_NAME, idcardName);
-            this.addStringParam(Const.API_PARAM_IDCARD_NUMBER, idcardNumber);
-            if (imageRef1 != null && imageRef1.length > 0)
-                this.addBinaryParam(Const.API_PARAM_IMAGE_REF1, imageRef1);
-            if (imageRef2 != null && imageRef2.length > 0)
-                this.addBinaryParam(Const.API_PARAM_IMAGE_REF2, imageRef2);
-        }
-        else if (COMPARISON_TYPE_COMPARE.equals(comparisonType))
-        {
-            this.addStringParam(Const.API_PARAM_UUID, uuid);
-            this.addBinaryParam(Const.API_PARAM_IMAGE_REF1, imageRef1);
-            if (imageRef2 != null && imageRef2.length > 0)
-                this.addBinaryParam(Const.API_PARAM_IMAGE_REF2, imageRef2);
-        }
         if (!CommonUtils.isNullOrEmpty(bizNo))
             this.addStringParam(Const.API_PARAM_BIZ_NO, bizNo);
         if (!CommonUtils.isNullOrEmpty(livenessTimeout))
@@ -368,8 +258,6 @@ public class GetBizTokenRequest extends ApiSignRequest
             this.addStringParam(Const.API_PARAM_SECURITY_LEVEL, securityLevel);
         if (!CommonUtils.isNullOrEmpty(forceCompare))
             this.addStringParam(Const.API_PARAM_FORCE_COMPARE, forceCompare);
-        if (!CommonUtils.isNullOrEmpty(multiOrientedDetection))
-            this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, multiOrientedDetection);
         if (!CommonUtils.isNullOrEmpty(livenessLevel))
             this.addStringParam(Const.API_PARAM_LIVENESS_LEVEL, livenessLevel);
         if (!CommonUtils.isNullOrEmpty(maximumBrightness))

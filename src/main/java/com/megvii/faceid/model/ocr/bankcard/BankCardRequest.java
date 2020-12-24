@@ -1,13 +1,13 @@
 package com.megvii.faceid.model.ocr.bankcard;
 
-import com.megvii.faceid.model.base.request.ApiKeyRequest;
+import com.megvii.faceid.model.base.auth.KeyRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public class BankCardRequest extends ApiKeyRequest
+public class BankCardRequest extends KeyRequest
 {
     private byte[] image;
 

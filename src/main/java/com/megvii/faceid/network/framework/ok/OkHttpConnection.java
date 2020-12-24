@@ -1,6 +1,6 @@
 package com.megvii.faceid.network.framework.ok;
 
-import com.megvii.faceid.model.base.request.BaseRequest;
+import com.megvii.faceid.model.base.BaseRequest;
 import com.megvii.faceid.network.HttpConfig;
 import com.megvii.faceid.network.HttpRequest;
 import com.megvii.faceid.network.HttpResponse;

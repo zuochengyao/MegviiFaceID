@@ -2,12 +2,12 @@ package com.megvii.faceid.model.detect;
 
 import com.megvii.faceid.util.Const;
 import com.megvii.faceid.util.CommonUtils;
-import com.megvii.faceid.model.base.request.ApiKeyRequest;
+import com.megvii.faceid.model.base.auth.KeyRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 
 import java.io.File;
 
-public class DetectRequest extends ApiKeyRequest
+public class DetectRequest extends KeyRequest
 {
     private byte[] image;
     private String multiOrientedDetection;

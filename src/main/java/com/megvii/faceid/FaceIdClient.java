@@ -1,8 +1,8 @@
 package com.megvii.faceid;
 
-import com.megvii.faceid.model.base.request.ApiKeyRequest;
-import com.megvii.faceid.model.base.request.ApiSignRequest;
-import com.megvii.faceid.model.base.request.BaseRequest;
+import com.megvii.faceid.model.base.auth.KeyRequest;
+import com.megvii.faceid.model.base.auth.SignRequest;
+import com.megvii.faceid.model.base.BaseRequest;
 import com.megvii.faceid.model.detect.DetectRequest;
 import com.megvii.faceid.model.detect.DetectResponse;
 import com.megvii.faceid.model.ocr.bankcard.BankCardRequest;
@@ -112,14 +112,14 @@ public class FaceIdClient
         return JsonUtils.parse(message, VerifyV3Response.class);
     }
 
-    private HttpResponse doKeyRequest(@NotNull ApiKeyRequest model) throws IOException
+    private HttpResponse doKeyRequest(@NotNull KeyRequest model) throws IOException
     {
         model.setApiKey(faceIdConfig.getApiKey());
         model.setApiSecret(faceIdConfig.getApiSecret());
         return doInternalRequest(model);
     }
 
-    private HttpResponse doSignRequest(@NotNull ApiSignRequest model) throws IOException
+    private HttpResponse doSignRequest(@NotNull SignRequest model) throws IOException
     {
         model.setSign(faceIdConfig.getApiSign());
         return doInternalRequest(model);

@@ -1,7 +1,7 @@
 package com.megvii.faceid.model.detect;
 
 import com.google.gson.annotations.SerializedName;
-import com.megvii.faceid.model.base.response.BaseResponse;
+import com.megvii.faceid.model.base.BaseResponse;
 
 import java.util.List;
 
