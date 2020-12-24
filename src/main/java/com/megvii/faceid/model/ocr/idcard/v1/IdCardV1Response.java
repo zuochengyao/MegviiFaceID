@@ -2,8 +2,8 @@ package com.megvii.faceid.model.ocr.idcard.v1;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.BaseResponse;
-import com.megvii.faceid.model.ocr.idcard.Legality;
-import com.megvii.faceid.model.ocr.RectF;
+import com.megvii.faceid.model.common.Legality;
+import com.megvii.faceid.model.common.PointRectF;
 
 public class IdCardV1Response extends BaseResponse
 {
@@ -21,7 +21,7 @@ public class IdCardV1Response extends BaseResponse
     private String validDate;
     private Legality legality;
     @SerializedName("head_rect")
-    private RectF headRect;
+    private PointRectF headRect;
 
     public static class Birthday
     {

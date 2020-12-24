@@ -2,7 +2,7 @@ package com.megvii.faceid.model.ocr.bankcard;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.BaseResponse;
-import com.megvii.faceid.model.ocr.Rect;
+import com.megvii.faceid.model.common.PointRect;
 
 public class BankCardResponse extends BaseResponse
 {
@@ -13,7 +13,7 @@ public class BankCardResponse extends BaseResponse
     @SerializedName("valid_date")
     private String validDate;
     private String name;
-    private Rect position;
+    private PointRect position;
 
     public int getResult()
     {
@@ -75,12 +75,12 @@ public class BankCardResponse extends BaseResponse
         this.name = name;
     }
 
-    public Rect getPosition()
+    public PointRect getPosition()
     {
         return position;
     }
 
-    public void setPosition(Rect position)
+    public void setPosition(PointRect position)
     {
         this.position = position;
     }

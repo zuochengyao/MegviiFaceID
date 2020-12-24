@@ -2,8 +2,8 @@ package com.megvii.faceid.model.ocr.idcard.v2;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.BaseResponse;
-import com.megvii.faceid.model.ocr.idcard.Legality;
-import com.megvii.faceid.model.ocr.Rect;
+import com.megvii.faceid.model.common.Legality;
+import com.megvii.faceid.model.common.PointRect;
 
 public class IdCardV2Response extends BaseResponse
 {
@@ -196,7 +196,7 @@ public class IdCardV2Response extends BaseResponse
         private String result;
         private float quality;
         private int logic;
-        private Rect rect;
+        private PointRect rect;
 
         public String getResult()
         {
@@ -228,12 +228,12 @@ public class IdCardV2Response extends BaseResponse
             this.logic = logic;
         }
 
-        public Rect getRect()
+        public PointRect getRect()
         {
             return rect;
         }
 
-        public void setRect(Rect rect)
+        public void setRect(PointRect rect)
         {
             this.rect = rect;
         }

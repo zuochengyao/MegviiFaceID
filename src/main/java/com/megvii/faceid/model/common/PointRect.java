@@ -1,8 +1,8 @@
-package com.megvii.faceid.model.ocr;
+package com.megvii.faceid.model.common;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Rect
+public class PointRect
 {
     @SerializedName(value = "lt", alternate = "left_top")
     private Point lt;

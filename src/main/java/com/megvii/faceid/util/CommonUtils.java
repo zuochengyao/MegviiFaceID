@@ -1,8 +1,10 @@
 package com.megvii.faceid.util;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.InvalidKeyException;
@@ -101,6 +103,26 @@ public class CommonUtils
             e.printStackTrace();
         }
         return data;
+    }
+
+    public static String getResourceContent(String resourcePath)
+    {
+        InputStream in;
+        in = CommonUtils.class.getClassLoader().getResourceAsStream(resourcePath);
+        StringBuilder builder = new StringBuilder();
+        try
+        {
+            BufferedReader reader = new BufferedReader(new FileReader(resourcePath));
+            String line;
+            while ((line = reader.readLine()) != null)
+                builder.append(line);
+            reader.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return builder.toString();
     }
 
     /**

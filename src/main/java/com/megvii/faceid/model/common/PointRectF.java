@@ -1,6 +1,6 @@
-package com.megvii.faceid.model.ocr;
+package com.megvii.faceid.model.common;
 
-public class RectF
+public class PointRectF
 {
     private PointF rt;
     private PointF lt;

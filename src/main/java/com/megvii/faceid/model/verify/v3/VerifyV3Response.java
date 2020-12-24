@@ -2,7 +2,7 @@ package com.megvii.faceid.model.verify.v3;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.BaseResponse;
-import com.megvii.faceid.model.verify.Result;
+import com.megvii.faceid.model.common.Result;
 
 public class VerifyV3Response extends BaseResponse
 {
