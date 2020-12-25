@@ -3,6 +3,7 @@ package com.megvii.faceid.model.ocr.bankcard;
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.BaseResponse;
 import com.megvii.faceid.model.common.PointRect;
+import com.megvii.faceid.util.Const;
 
 public class BankCardResponse extends BaseResponse
 {
@@ -10,7 +11,7 @@ public class BankCardResponse extends BaseResponse
     private String number;
     private String bank;
     private String organization;
-    @SerializedName("valid_date")
+    @SerializedName(Const.API_PARAM_VALID_DATE)
     private String validDate;
     private String name;
     private PointRect position;

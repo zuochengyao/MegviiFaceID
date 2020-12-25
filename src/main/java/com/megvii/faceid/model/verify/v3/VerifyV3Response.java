@@ -2,20 +2,22 @@ package com.megvii.faceid.model.verify.v3;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.BaseResponse;
+import com.megvii.faceid.model.common.ImageList;
 import com.megvii.faceid.model.common.Result;
+import com.megvii.faceid.util.Const;
 
 public class VerifyV3Response extends BaseResponse
 {
-    @SerializedName("biz_no")
+    @SerializedName(Const.API_PARAM_BIZ_NO)
     private String bizNo;
-    @SerializedName("result_code")
+    @SerializedName(Const.API_PARAM_RESULT_CODE)
     private Integer resultCode;
-    @SerializedName("result_message")
+    @SerializedName(Const.API_PARAM_RESULT_MESSAGE)
     private String resultMessage;
     private Verification verification;
-    @SerializedName("attack_result")
+    @SerializedName(Const.API_PARAM_ATTACK_RESULT)
     private AttackResult attackResult;
-    private Images images;
+    private ImageList images;
 
     public String getBizNo()
     {
@@ -67,12 +69,12 @@ public class VerifyV3Response extends BaseResponse
         this.attackResult = attackResult;
     }
 
-    public Images getImages()
+    public ImageList getImages()
     {
         return images;
     }
 
-    public void setImages(Images images)
+    public void setImages(ImageList images)
     {
         this.images = images;
     }
@@ -148,22 +150,6 @@ public class VerifyV3Response extends BaseResponse
         public void setResult(boolean result)
         {
             this.result = result;
-        }
-    }
-
-    public static class Images
-    {
-        @SerializedName("image_best")
-        private String imageBest;
-
-        public String getImageBest()
-        {
-            return imageBest;
-        }
-
-        public void setImageBest(String imageBest)
-        {
-            this.imageBest = imageBest;
         }
     }
 }

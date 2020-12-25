@@ -1,11 +1,12 @@
 package com.megvii.faceid.model.common;
 
 import com.google.gson.annotations.SerializedName;
+import com.megvii.faceid.util.Const;
 
 public class FaceInfo
 {
     private float quality;
-    @SerializedName("quality_threshold")
+    @SerializedName(Const.API_PARAM_QUALITY_THRESHOLD)
     private float qualityThreshold;
     private RectF rect;
     private int orientation;

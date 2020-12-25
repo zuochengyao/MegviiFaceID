@@ -5,7 +5,7 @@ import com.megvii.faceid.util.Const;
 public enum FaceIdHost
 {
     China(Const.API_HOST_URL_CHINA),
-    ChinaIPV6(Const.API_HOST_URL_CHINA_IPV6),
+//    ChinaIPV6(Const.API_HOST_URL_CHINA_IPV6),
     Indonesia(Const.API_HOST_URL_CHINA_IDN),
     Singapore(Const.API_HOST_URL_CHINA_SGP);
 

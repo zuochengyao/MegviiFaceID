@@ -5,6 +5,8 @@ import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 
 public class GetBizTokenRequest extends CompareSignRequest
@@ -197,6 +199,7 @@ public class GetBizTokenRequest extends CompareSignRequest
         this.maximumBrightness = maximumBrightness;
     }
 
+    @NotNull
     @Override
     public String getUrl()
     {

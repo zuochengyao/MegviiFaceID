@@ -5,6 +5,8 @@ import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
+import org.jetbrains.annotations.NotNull;
+
 public class IdCardV1Request extends BaseIdCardRequest
 {
     private String legality;
@@ -19,6 +21,7 @@ public class IdCardV1Request extends BaseIdCardRequest
         this.legality = legality;
     }
 
+    @NotNull
     @Override
     public String getUrl()
     {

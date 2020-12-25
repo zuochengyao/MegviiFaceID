@@ -1,6 +1,7 @@
 package com.megvii.faceid.model.common;
 
 import com.google.gson.annotations.SerializedName;
+import com.megvii.faceid.util.Const;
 
 public class Result
 {
@@ -29,13 +30,13 @@ public class Result
 
     public static class Thresholds
     {
-        @SerializedName("1e-3")
+        @SerializedName(Const.API_PARAM_THRESHOLDS_1E_3)
         private float e3;
-        @SerializedName("1e-4")
+        @SerializedName(Const.API_PARAM_THRESHOLDS_1E_4)
         private float e4;
-        @SerializedName("1e-5")
+        @SerializedName(Const.API_PARAM_THRESHOLDS_1E_5)
         private float e5;
-        @SerializedName("1e-6")
+        @SerializedName(Const.API_PARAM_THRESHOLDS_1E_6)
         private float e6;
 
         public float getE3()

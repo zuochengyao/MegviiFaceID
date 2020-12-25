@@ -4,23 +4,24 @@ import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.BaseResponse;
 import com.megvii.faceid.model.common.Legality;
 import com.megvii.faceid.model.common.PointRectF;
+import com.megvii.faceid.util.Const;
 
 public class IdCardV1Response extends BaseResponse
 {
     private String address;
     private Birthday birthday;
     private String gender;
-    @SerializedName("id_card_number")
+    @SerializedName(Const.API_PARAM_ID_CARD_NUMBER)
     private String idcardNumber;
     private String name;
     private String race;
     private String side;
-    @SerializedName("issued_by")
+    @SerializedName(Const.API_PARAM_ISSUED_BY)
     private String issuedBy;
-    @SerializedName("valid_date")
+    @SerializedName(Const.API_PARAM_VALID_DATE)
     private String validDate;
     private Legality legality;
-    @SerializedName("head_rect")
+    @SerializedName(Const.API_PARAM_HEAD_RECT)
     private PointRectF headRect;
 
     public static class Birthday

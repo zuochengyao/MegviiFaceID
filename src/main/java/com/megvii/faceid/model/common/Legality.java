@@ -1,20 +1,21 @@
 package com.megvii.faceid.model.common;
 
 import com.google.gson.annotations.SerializedName;
+import com.megvii.faceid.util.Const;
 
 public class Legality
 {
-    @SerializedName(value = "ID_Photo", alternate = "ID Photo")
+    @SerializedName(value = Const.API_PARAM_LEGALITY_ID_PHOTO_V2, alternate = Const.API_PARAM_LEGALITY_ID_PHOTO_V1)
     private float idPhoto;
-    @SerializedName(value = "Temporary_ID_Photo", alternate = "Temporary ID Photo")
+    @SerializedName(value = Const.API_PARAM_LEGALITY_TEMPORARY_ID_PHOTO_V2, alternate = Const.API_PARAM_LEGALITY_TEMPORARY_ID_PHOTO_V1)
     private float temporaryIdPhoto;
-    @SerializedName("Photocopy")
+    @SerializedName(Const.API_PARAM_LEGALITY_PHOTOCOPY)
     private float photocopy;
-    @SerializedName("Screen")
+    @SerializedName(Const.API_PARAM_LEGALITY_SCREEN)
     private float screen;
-    @SerializedName("Edited")
+    @SerializedName(Const.API_PARAM_LEGALITY_EDITED)
     private float edited;
-    @SerializedName("ID_Photo_Threshold")
+    @SerializedName(Const.API_PARAM_LEGALITY_ID_PHOTO_THRESHOLD)
     private float idPhotoThreshold;
 
     public float getIdPhoto()

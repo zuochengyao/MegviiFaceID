@@ -1,12 +1,10 @@
 package com.megvii.faceid.model.base.auth;
 
-import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.BaseRequest;
 import com.megvii.faceid.util.Const;
 
 public abstract class SignRequest extends BaseRequest
 {
-    @SerializedName("sign")
     private String sign;
 
     public String getSign()

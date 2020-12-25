@@ -1,16 +1,17 @@
 package com.megvii.faceid.model.common;
 
 import com.google.gson.annotations.SerializedName;
+import com.megvii.faceid.util.Const;
 
 public class PointRect
 {
-    @SerializedName(value = "lt", alternate = "left_top")
+    @SerializedName(value = Const.API_PARAM_LT, alternate = Const.API_PARAM_LEFT_TOP)
     private Point lt;
-    @SerializedName(value = "lb", alternate = "left_bottom")
+    @SerializedName(value = Const.API_PARAM_LB, alternate = Const.API_PARAM_LEFT_BOTTOM)
     private Point lb;
-    @SerializedName(value = "rb", alternate = "right_bottom")
+    @SerializedName(value = Const.API_PARAM_RB, alternate = Const.API_PARAM_RIGHT_BOTTOM)
     private Point rb;
-    @SerializedName(value = "rt", alternate = "right_top")
+    @SerializedName(value = Const.API_PARAM_RT, alternate = Const.API_PARAM_RIGHT_TOP)
     private Point rt;
 
     public Point getRt()

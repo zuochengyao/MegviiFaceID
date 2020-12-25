@@ -1,16 +1,15 @@
 package com.megvii.faceid.model.base;
 
 import com.google.gson.annotations.SerializedName;
+import com.megvii.faceid.util.Const;
 
 public abstract class BaseResponse
 {
-    @SerializedName("request_id")
+    @SerializedName(Const.API_PARAM_REQUEST_ID)
     private String requestId;
-
-    @SerializedName("time_used")
+    @SerializedName(Const.API_PARAM_TIME_USED)
     private int timeUsed;
-
-    @SerializedName(value = "error", alternate = {"error_message"})
+    @SerializedName(value = Const.API_PARAM_ERROR, alternate = Const.API_PARAM_ERROR_MESSAGE)
     private String error;
 
     public String getRequestId()

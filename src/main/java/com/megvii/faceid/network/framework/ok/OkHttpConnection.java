@@ -10,10 +10,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.HttpUrl;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -64,27 +66,28 @@ public class OkHttpConnection extends IHttpConnection
     private Call newCall(HttpRequest request)
     {
         Call call;
-        mRequestBuilder = new Request.Builder().url(request.getUrl());
+        mRequestBuilder = new Request.Builder();
         switch (request.method())
         {
             default:
             case GET:
             {
-                call = newGetCall(request.getData());
+                call = newGetCall(request);
                 break;
             }
             case POST:
             {
-                call = newPostCall(request.getData());
+                call = newPostCall(request);
                 break;
             }
         }
         return call;
     }
 
-    private Call newPostCall(BaseRequest model)
+    private Call newPostCall(HttpRequest request)
     {
         MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+        BaseRequest model = request.getData();
         for (Map.Entry<String, Object> entry : model.getParams().entrySet())
         {
             Object val = entry.getValue();
@@ -94,12 +97,16 @@ public class OkHttpConnection extends IHttpConnection
                 builder.addFormDataPart(entry.getKey(), entry.getKey(), RequestBody.create(MultipartBody.FORM, (byte[]) val));
         }
         MultipartBody body = builder.build();
-        return mOkHttpClient.newCall(mRequestBuilder.post(body).build());
+        return mOkHttpClient.newCall(mRequestBuilder.url(request.getUrl()).post(body).build());
     }
 
-    private Call newGetCall(BaseRequest model)
+    private Call newGetCall(HttpRequest request)
     {
-        return mOkHttpClient.newCall(mRequestBuilder.build());
+        BaseRequest model = request.getData();
+        HttpUrl.Builder urlBuilder = Objects.requireNonNull(HttpUrl.parse(request.getUrl())).newBuilder();
+        for (Map.Entry<String, Object> entry : model.getParams().entrySet())
+            urlBuilder.addQueryParameter(entry.getKey(), String.valueOf(entry.getValue()));
+        return mOkHttpClient.newCall(mRequestBuilder.url(urlBuilder.build()).get().build());
     }
 
 }

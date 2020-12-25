@@ -60,7 +60,6 @@ public final class Const
     // region App-GetBizToken & Verify
     public static final String API_PARAM_BIZ_TOKEN = "biz_token";
     public static final String API_PARAM_LIVENESS_TYPE = "liveness_type";
-    public static final String API_PARAM_BIZ_NO = "biz_no";
     public static final String API_PARAM_LIVENESS_TIMEOUT = "liveness_timeout";
     public static final String API_PARAM_LIVENESS_ACTION_COUNT = "liveness_action_count";
     public static final String API_PARAM_FACE_REPLACE_DETECTION = "face_replace_detection";
@@ -78,18 +77,18 @@ public final class Const
     public static final String API_PARAM_IMAGE_BEST = "image_best";
     public static final String API_PARAM_IMAGE_ENV = "image_env";
     private static final String API_PARAM_IMAGE_ACTION = "image_action";
-    public static final String API_PARAM_IMAGE_ACTION1 = API_PARAM_IMAGE_ACTION.concat("1");
-    public static final String API_PARAM_IMAGE_ACTION2 = API_PARAM_IMAGE_ACTION.concat("2");
-    public static final String API_PARAM_IMAGE_ACTION3 = API_PARAM_IMAGE_ACTION.concat("3");
-    public static final String API_PARAM_IMAGE_ACTION4 = API_PARAM_IMAGE_ACTION.concat("4");
-    public static final String API_PARAM_IMAGE_ACTION5 = API_PARAM_IMAGE_ACTION.concat("5");
+    public static final String API_PARAM_IMAGE_ACTION1 = API_PARAM_IMAGE_ACTION + "1";
+    public static final String API_PARAM_IMAGE_ACTION2 = API_PARAM_IMAGE_ACTION + "2";
+    public static final String API_PARAM_IMAGE_ACTION3 = API_PARAM_IMAGE_ACTION + "3";
+    public static final String API_PARAM_IMAGE_ACTION4 = API_PARAM_IMAGE_ACTION + "4";
+    public static final String API_PARAM_IMAGE_ACTION5 = API_PARAM_IMAGE_ACTION + "5";
     public static final String API_PARAM_CHECK_DELTA = "check_delta";
     public static final String API_PARAM_FACE_TOKEN = "face_token";
     public static final String API_PARAM_FAIL_WHEN_MULTIPLE_FACES = "fail_when_multiple_faces";
+    public static final String API_PARAM_FAIL_WHEN_REF_MULTIPLE_FACES = "fail_when_ref_multiple_faces";
     public static final String API_PARAM_FACE_QUALITY_THRESHOLD = "face_quality_threshold";
     public static final String API_PARAM_RETURN_FACES = "return_faces";
     public static final String API_PARAM_MEGLIVE_FLASH_RESULT = "meglive_flash_result";
-    public static final String API_PARAM_MULTI_ORIENTED_DETECTION = "multi_oriented_detection";
     public static final String API_PARAM_CONFIDENCE = "confidence";
     public static final String API_PARAM_THRESHOLDS = "thresholds";
     public static final String API_PARAM_THRESHOLDS_1E_3 = "1e-3";
@@ -117,9 +116,27 @@ public final class Const
     public static final String API_PARAM_LIVENESS_LEVEL = "liveness_level";
     public static final String API_PARAM_MAXIMUM_BRIGHTNESS = "maximum_brightness";
     public static final String API_PARAM_MEGLIVE_DATA = "meglive_data";
+    public static final String API_PARAM_RESULT_CODE = "result_code";
+    public static final String API_PARAM_RESULT_MESSAGE = "result_message";
+    public static final String API_PARAM_ATTACK_RESULT = "attack_result";
+    // endregion
+
+    // region PC
+    public static final String API_PARAM_BIZ_EXTRA_DATA = "biz_extra_data";
+    public static final String API_PARAM_SCENE_ID = "scene_id";
+    public static final String API_PARAM_SCREEN_REPLAY = "screen_replay";
+    public static final String API_PARAM_EXPIRED_TIME = "expired_time";
+    public static final String API_PARAM_BIZ_ID = "biz_id";
+    public static final String API_PARAM_GET_IMAGE_TYPE = "get_image_type";
+    public static final String API_PARAM_LIVENESS_RESULT = "liveness_result";
+    public static final String API_PARAM_FAILURE_REASON = "failure_reason";
+    public static final String API_PARAM_VERIFY_RESULT = "verify_result";
     // endregion
 
     // region Common
+    public static final String API_PARAM_ERROR = "error";
+    public static final String API_PARAM_ERROR_MESSAGE = "error_message";
+
     public static final String API_PARAM_NAME = "name";
     public static final String API_PARAM_SIDE = "side";
     public static final String API_PARAM_IMAGE = "image";
@@ -127,12 +144,12 @@ public final class Const
     public static final String API_PARAM_QUALITY = "quality";
     public static final String API_PARAM_QUALITY_THRESHOLD = "quality_threshold";
     public static final String API_PARAM_RECT = "rect";
-    public static final String API_PARAM_RECT_RT = "rt";
-    public static final String API_PARAM_RECT_LT = "lt";
-    public static final String API_PARAM_RECT_RB = "rb";
-    public static final String API_PARAM_RECT_LB = "lb";
-    public static final String API_PARAM_RECT_X = "x";
-    public static final String API_PARAM_RECT_Y = "y";
+    public static final String API_PARAM_RT = "rt";
+    public static final String API_PARAM_LT = "lt";
+    public static final String API_PARAM_RB = "rb";
+    public static final String API_PARAM_LB = "lb";
+    public static final String API_PARAM_X = "x";
+    public static final String API_PARAM_Y = "y";
     public static final String API_PARAM_ISSUED_BY = "issued_by";
     public static final String API_PARAM_LEGALITY = "legality";
     public static final String API_PARAM_LEGALITY_EDITED = "Edited";
@@ -148,10 +165,14 @@ public final class Const
     public static final String API_PARAM_TOP = "top";
     public static final String API_PARAM_WIDTH = "width";
     public static final String API_PARAM_HEIGHT = "height";
+    public static final String API_PARAM_BIZ_NO = "biz_no";
+    public static final String API_PARAM_MULTI_ORIENTED_DETECTION = "multi_oriented_detection";
+    public static final String API_PARAM_RETURN_URL = "return_url";
+    public static final String API_PARAM_NOTIFY_URL = "notify_url";
     // endregion
 
     public static final String API_HOST_URL_CHINA = "https://api.megvii.com";
-    public static final String API_HOST_URL_CHINA_IPV6 = "https://api-ipv6.megvii.com";
+    //    public static final String API_HOST_URL_CHINA_IPV6 = "https://api-ipv6.megvii.com";
     public static final String API_HOST_URL_CHINA_IDN = "https://api-idn.megvii.com";
     public static final String API_HOST_URL_CHINA_SGP = "https://api-sgp.megvii.com";
 }

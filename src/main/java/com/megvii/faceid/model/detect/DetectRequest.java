@@ -5,6 +5,8 @@ import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.model.base.auth.KeyRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 
 public class DetectRequest extends KeyRequest
@@ -38,6 +40,7 @@ public class DetectRequest extends KeyRequest
         this.multiOrientedDetection = multiOrientedDetection;
     }
 
+    @NotNull
     @Override
     public String getUrl()
     {

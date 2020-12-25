@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.BaseResponse;
 import com.megvii.faceid.model.common.Legality;
 import com.megvii.faceid.model.common.PointRect;
+import com.megvii.faceid.util.Const;
 
 public class IdCardV2Response extends BaseResponse
 {
@@ -12,21 +13,21 @@ public class IdCardV2Response extends BaseResponse
     private Dict name;
     private Dict gender;
     private Dict nationality;
-    @SerializedName("birth_year")
+    @SerializedName(Const.API_PARAM_BIRTH_YEAR)
     private Dict birthYear;
-    @SerializedName("birth_month")
+    @SerializedName(Const.API_PARAM_BIRTH_MONTH)
     private Dict birthMonth;
-    @SerializedName("birth_day")
+    @SerializedName(Const.API_PARAM_BIRTH_DAY)
     private Dict birthDay;
-    @SerializedName("idcard_number")
+    @SerializedName(Const.API_PARAM_IDCARD_NUMBER)
     private Dict idcardNumber;
     private Dict address;
     private Dict portrait;
-    @SerializedName("issued_by")
+    @SerializedName(Const.API_PARAM_ISSUED_BY)
     private Dict issuedBy;
-    @SerializedName("valid_date_start")
+    @SerializedName(Const.API_PARAM_VALID_DATE_START)
     private Dict validDateStart;
-    @SerializedName("valid_date_end")
+    @SerializedName(Const.API_PARAM_VALID_DATE_END)
     private Dict validDateEnd;
     private Legality legality;
     private Integer completeness;

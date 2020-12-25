@@ -11,6 +11,10 @@ import com.megvii.faceid.model.ocr.idcard.v1.IdCardV1Request;
 import com.megvii.faceid.model.ocr.idcard.v1.IdCardV1Response;
 import com.megvii.faceid.model.ocr.idcard.v2.IdCardV2Request;
 import com.megvii.faceid.model.ocr.idcard.v2.IdCardV2Response;
+import com.megvii.faceid.model.pc.PcGetResultRequest;
+import com.megvii.faceid.model.pc.PcGetResultResponse;
+import com.megvii.faceid.model.pc.PcGetTokenRequest;
+import com.megvii.faceid.model.pc.PcGetTokenResponse;
 import com.megvii.faceid.model.verify.v2.VerifyV2Request;
 import com.megvii.faceid.model.verify.v2.VerifyV2Response;
 import com.megvii.faceid.model.verify.v3.GetBizTokenRequest;
@@ -119,6 +123,20 @@ public class FaceIdClient
         HttpResponse response = doKeyRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, VerifyV2Response.class);
+    }
+
+    public PcGetTokenResponse pcGetToken(PcGetTokenRequest req) throws IOException
+    {
+        HttpResponse response = doKeyRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, PcGetTokenResponse.class);
+    }
+
+    public PcGetResultResponse pcGetResult(PcGetResultRequest req) throws IOException
+    {
+        HttpResponse response = doKeyRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, PcGetResultResponse.class);
     }
 
     private HttpResponse doKeyRequest(@NotNull KeyRequest model) throws IOException

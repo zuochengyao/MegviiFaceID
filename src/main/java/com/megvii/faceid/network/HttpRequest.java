@@ -19,13 +19,13 @@ public final class HttpRequest implements IRequest
     @Override
     public String getUrl()
     {
-        return url;
+        return this.url;
     }
 
     @Override
     public HttpMethod method()
     {
-        return HttpMethod.POST;
+        return this.data.method();
     }
 
     @Override

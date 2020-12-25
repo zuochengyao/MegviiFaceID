@@ -6,6 +6,8 @@ import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 
 public class VerifyV3Request extends SignRequest
@@ -41,6 +43,7 @@ public class VerifyV3Request extends SignRequest
             setMegliveData(CommonUtils.getFileBytes(megliveData));
     }
 
+    @NotNull
     @Override
     public String getUrl()
     {

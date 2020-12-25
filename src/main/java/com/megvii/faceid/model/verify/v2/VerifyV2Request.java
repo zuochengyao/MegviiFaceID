@@ -5,6 +5,8 @@ import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 
 public class VerifyV2Request extends CompareKeyRequest
@@ -16,6 +18,7 @@ public class VerifyV2Request extends CompareKeyRequest
 
     private String faceImageType;
     private String failWhenRefMultipleFaces;
+    private byte[] imageRef3;
 
     // region Meglive SDK
     private String delta;
@@ -63,6 +66,22 @@ public class VerifyV2Request extends CompareKeyRequest
     public void setFailWhenRefMultipleFaces(String failWhenRefMultipleFaces)
     {
         this.failWhenRefMultipleFaces = failWhenRefMultipleFaces;
+    }
+
+    public byte[] getImageRef3()
+    {
+        return imageRef3;
+    }
+
+    public void setImageRef3(byte[] imageRef3)
+    {
+        this.imageRef3 = imageRef3;
+    }
+
+    public void setImageRef3(File imageRef3)
+    {
+        if (imageRef3 != null)
+            setImageRef3(CommonUtils.getFileBytes(imageRef3));
     }
 
     public String getDelta()
@@ -269,6 +288,7 @@ public class VerifyV2Request extends CompareKeyRequest
             setMegliveFlashResult(CommonUtils.getFileBytes(megliveFlashResult));
     }
 
+    @NotNull
     @Override
     public String getUrl()
     {
@@ -286,6 +306,10 @@ public class VerifyV2Request extends CompareKeyRequest
     {
         super.toMap();
         this.addStringParam(Const.API_PARAM_FACE_IMAGE_TYPE, faceImageType);
+        if (!CommonUtils.isNullOrEmpty(failWhenRefMultipleFaces))
+            this.addStringParam(Const.API_PARAM_FAIL_WHEN_REF_MULTIPLE_FACES, failWhenRefMultipleFaces);
+        if (imageRef3 != null && imageRef3.length > 0)
+            this.addBinaryParam(Const.API_PARAM_IMAGE_REF3, imageRef3);
         switch (faceImageType)
         {
             case FACE_IMAGE_TYPE_MEGLIVE:
