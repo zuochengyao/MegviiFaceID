@@ -1,7 +1,7 @@
 package com.megvii.faceid.model.verify.v2;
 
 import com.google.gson.annotations.SerializedName;
-import com.megvii.faceid.model.base.BaseResponse;
+import com.megvii.faceid.model.base.response.BaseResponse;
 import com.megvii.faceid.model.common.FaceGenuineness;
 import com.megvii.faceid.model.common.FaceInfo;
 import com.megvii.faceid.model.common.IdExceptions;

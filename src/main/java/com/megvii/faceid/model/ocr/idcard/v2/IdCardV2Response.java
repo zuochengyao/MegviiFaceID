@@ -1,7 +1,7 @@
 package com.megvii.faceid.model.ocr.idcard.v2;
 
 import com.google.gson.annotations.SerializedName;
-import com.megvii.faceid.model.base.BaseResponse;
+import com.megvii.faceid.model.base.response.BaseResponse;
 import com.megvii.faceid.model.common.Legality;
 import com.megvii.faceid.model.common.PointRect;
 import com.megvii.faceid.util.Const;

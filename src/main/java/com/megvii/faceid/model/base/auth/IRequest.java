@@ -1,4 +1,4 @@
-package com.megvii.faceid.network.http.base;
+package com.megvii.faceid.model.base.auth;
 
 import com.megvii.faceid.network.http.HttpHeader;
 import com.megvii.faceid.network.http.HttpMethod;

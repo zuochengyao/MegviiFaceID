@@ -1,4 +1,4 @@
-package com.megvii.faceid.model.base;
+package com.megvii.faceid.model.base.response;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.util.Const;

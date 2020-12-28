@@ -1,13 +1,14 @@
 package com.megvii.faceid.model.verify.v3;
 
-import com.megvii.faceid.model.base.sdk.VerifySignRequest;
+import com.megvii.faceid.model.base.auth.ISignRequest;
+import com.megvii.faceid.model.base.request.ComparisonRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public class GetBizTokenRequest extends VerifySignRequest
+public class GetBizTokenRequest extends ComparisonRequest implements ISignRequest
 {
     private String livenessType;
     private String bizNo;
@@ -218,5 +219,19 @@ public class GetBizTokenRequest extends VerifySignRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
+    }
+
+    @Override
+    public void setSign(String sign)
+    {
+        this.sign = sign;
+        this.addStringParam(Const.API_PARAM_SIGN, sign);
+    }
+
+    @Override
+    public void setSignVersion(String signVersion)
+    {
+        this.signVersion = signVersion;
+        this.addStringParam(Const.API_PARAM_SIGN_VERSION, signVersion);
     }
 }

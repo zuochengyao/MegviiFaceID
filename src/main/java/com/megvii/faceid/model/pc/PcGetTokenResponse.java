@@ -1,7 +1,7 @@
 package com.megvii.faceid.model.pc;
 
 import com.google.gson.annotations.SerializedName;
-import com.megvii.faceid.model.base.BaseResponse;
+import com.megvii.faceid.model.base.response.BaseResponse;
 import com.megvii.faceid.util.Const;
 
 public class PcGetTokenResponse extends BaseResponse

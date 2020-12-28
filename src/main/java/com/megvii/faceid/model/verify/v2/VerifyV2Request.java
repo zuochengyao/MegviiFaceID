@@ -1,6 +1,7 @@
 package com.megvii.faceid.model.verify.v2;
 
-import com.megvii.faceid.model.base.sdk.VerifyKeyRequest;
+import com.megvii.faceid.model.base.auth.IKeyRequest;
+import com.megvii.faceid.model.base.request.ComparisonRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
@@ -9,13 +10,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
-public class VerifyV2Request extends VerifyKeyRequest
+public class VerifyV2Request extends ComparisonRequest implements IKeyRequest
 {
-    private static final String FACE_IMAGE_TYPE_MEGLIVE = "meglive";
-    private static final String FACE_IMAGE_TYPE_FACETOKEN = "facetoken";
-    private static final String FACE_IMAGE_TYPE_RAW_IMAGE = "raw_image";
-    private static final String FACE_IMAGE_TYPE_MEGLIVE_FLASH = "meglive_flash";
-
     private String faceImageType;
     private String failWhenRefMultipleFaces;
     private byte[] imageRef3;
@@ -317,5 +313,19 @@ public class VerifyV2Request extends VerifyKeyRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
+    }
+
+    @Override
+    public void setApiKey(String apiKey)
+    {
+        this.apiKey = apiKey;
+        this.addStringParam(Const.API_PARAM_API_KEY, apiKey);
+    }
+
+    @Override
+    public void setApiSecret(String apiSecret)
+    {
+        this.apiSecret = apiSecret;
+        this.addStringParam(Const.API_PARAM_API_SECRET, apiSecret);
     }
 }

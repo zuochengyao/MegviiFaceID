@@ -1,6 +1,5 @@
 package com.megvii.faceid.network.framework.ok;
 
-import com.megvii.faceid.model.base.BaseRequest;
 import com.megvii.faceid.network.HttpConfig;
 import com.megvii.faceid.network.HttpRequest;
 import com.megvii.faceid.network.HttpResponse;
@@ -87,8 +86,7 @@ public class OkHttpConnection extends IHttpConnection
     private Call newPostCall(HttpRequest request)
     {
         MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
-        BaseRequest model = request.getData();
-        for (Map.Entry<String, Object> entry : model.getParams().entrySet())
+        for (Map.Entry<String, Object> entry : request.getData().entrySet())
         {
             Object val = entry.getValue();
             if (val instanceof String)
@@ -102,9 +100,8 @@ public class OkHttpConnection extends IHttpConnection
 
     private Call newGetCall(HttpRequest request)
     {
-        BaseRequest model = request.getData();
         HttpUrl.Builder urlBuilder = Objects.requireNonNull(HttpUrl.parse(request.getUrl())).newBuilder();
-        for (Map.Entry<String, Object> entry : model.getParams().entrySet())
+        for (Map.Entry<String, Object> entry : request.getData().entrySet())
             urlBuilder.addQueryParameter(entry.getKey(), String.valueOf(entry.getValue()));
         return mOkHttpClient.newCall(mRequestBuilder.url(urlBuilder.build()).get().build());
     }

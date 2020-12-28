@@ -1,8 +1,8 @@
 package com.megvii.faceid;
 
-import com.megvii.faceid.model.base.auth.KeyRequest;
-import com.megvii.faceid.model.base.auth.SignRequest;
-import com.megvii.faceid.model.base.BaseRequest;
+import com.megvii.faceid.model.base.auth.IKeyRequest;
+import com.megvii.faceid.model.base.auth.ISignRequest;
+import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.model.detect.DetectRequest;
 import com.megvii.faceid.model.detect.DetectResponse;
 import com.megvii.faceid.model.ocr.bankcard.BankCardRequest;
@@ -139,22 +139,27 @@ public class FaceIdClient
         return JsonUtils.parse(message, PcGetResultResponse.class);
     }
 
-    private HttpResponse doKeyRequest(@NotNull KeyRequest model) throws IOException
+    private HttpResponse doKeyRequest(@NotNull IKeyRequest model) throws IOException
     {
         model.setApiKey(faceIdConfig.getApiKey());
         model.setApiSecret(faceIdConfig.getApiSecret());
-        return doInternalRequest(model);
+        return doInternalRequest((BaseRequest) model);
     }
 
-    private HttpResponse doSignRequest(@NotNull SignRequest model) throws IOException
+    private HttpResponse doSignRequest(@NotNull ISignRequest model) throws IOException
     {
         model.setSign(faceIdConfig.getApiSign());
-        return doInternalRequest(model);
+        model.setSignVersion("hmac_sha1");
+        return doInternalRequest((BaseRequest) model);
     }
 
     private HttpResponse doInternalRequest(BaseRequest model) throws IOException
     {
-        HttpRequest request = new HttpRequest(host.getHostUrl().concat(model.getUrl()), model);
+        HttpRequest request = new HttpRequest();
+        request.setUrl(this.host.getHostUrl().concat(model.getUrl()));
+        request.setData(model.getParams());
+        request.setHeader(model.headers());
+        request.setHttpMethod(model.method());
         return httpManager.execute(request);
     }
 }

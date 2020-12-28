@@ -1,12 +1,11 @@
-package com.megvii.faceid.model.base.sdk;
+package com.megvii.faceid.model.base.request;
 
-import com.megvii.faceid.model.base.auth.SignRequest;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public abstract class VerifySignRequest extends SignRequest
+public abstract class ComparisonRequest extends BaseRequest
 {
     protected String comparisonType;
     protected String idcardName;

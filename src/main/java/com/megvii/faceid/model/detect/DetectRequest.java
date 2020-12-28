@@ -1,15 +1,16 @@
 package com.megvii.faceid.model.detect;
 
+import com.megvii.faceid.model.base.auth.IKeyRequest;
+import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.util.Const;
 import com.megvii.faceid.util.CommonUtils;
-import com.megvii.faceid.model.base.auth.KeyRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
-public class DetectRequest extends KeyRequest
+public class DetectRequest extends BaseRequest implements IKeyRequest
 {
     private byte[] image;
     private String multiOrientedDetection;
@@ -53,5 +54,19 @@ public class DetectRequest extends KeyRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
+    }
+
+    @Override
+    public void setApiKey(String apiKey)
+    {
+        this.apiKey = apiKey;
+        this.addStringParam(Const.API_PARAM_API_KEY, apiKey);
+    }
+
+    @Override
+    public void setApiSecret(String apiSecret)
+    {
+        this.apiSecret = apiSecret;
+        this.addStringParam(Const.API_PARAM_API_SECRET, apiSecret);
     }
 }

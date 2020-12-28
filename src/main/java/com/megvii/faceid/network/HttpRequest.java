@@ -1,47 +1,54 @@
 package com.megvii.faceid.network;
 
-import com.megvii.faceid.model.base.BaseRequest;
 import com.megvii.faceid.network.http.HttpHeader;
 import com.megvii.faceid.network.http.HttpMethod;
-import com.megvii.faceid.network.http.base.IRequest;
 
-public final class HttpRequest implements IRequest
+import java.util.Map;
+
+public class HttpRequest
 {
-    private final String url;
-    private final BaseRequest data;
+    private String url;
+    private HttpMethod httpMethod;
+    private Map<String, Object> data;
+    private HttpHeader header;
 
-    public HttpRequest(String url, BaseRequest data)
+    public String getUrl()
+    {
+        return url;
+    }
+
+    public void setUrl(String url)
     {
         this.url = url;
+    }
+
+    public HttpMethod method()
+    {
+        return httpMethod;
+    }
+
+    public void setHttpMethod(HttpMethod method)
+    {
+        this.httpMethod = method;
+    }
+
+    public Map<String, Object> getData()
+    {
+        return data;
+    }
+
+    public void setData(Map<String, Object> data)
+    {
         this.data = data;
     }
 
-    @Override
-    public String getUrl()
+    public HttpHeader getHeader()
     {
-        return this.url;
+        return header;
     }
 
-    @Override
-    public HttpMethod method()
+    public void setHeader(HttpHeader header)
     {
-        return this.data.method();
-    }
-
-    @Override
-    public HttpHeader headers()
-    {
-        return this.data.headers();
-    }
-
-    @Override
-    public void addHeader(String key, String value)
-    {
-        this.data.addHeader(key, value);
-    }
-
-    public BaseRequest getData()
-    {
-        return data;
+        this.header = header;
     }
 }

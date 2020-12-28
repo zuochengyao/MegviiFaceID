@@ -1,9 +1,8 @@
-package com.megvii.faceid.model.base.h5;
+package com.megvii.faceid.model.base.request;
 
-import com.megvii.faceid.model.base.sdk.VerifyKeyRequest;
 import com.megvii.faceid.util.Const;
 
-public abstract class H5KeyRequest extends VerifyKeyRequest
+public abstract class H5Request extends ComparisonRequest
 {
     private String returnUrl;
     private String notifyUrl;
@@ -65,4 +64,6 @@ public abstract class H5KeyRequest extends VerifyKeyRequest
         this.sceneId = sceneId;
         this.addStringParam(Const.API_PARAM_SCENE_ID, sceneId);
     }
+
+
 }

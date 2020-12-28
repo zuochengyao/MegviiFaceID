@@ -1,14 +1,15 @@
 package com.megvii.faceid.model.verify.v3;
 
 import com.google.gson.annotations.SerializedName;
-import com.megvii.faceid.model.base.auth.SignRequest;
+import com.megvii.faceid.model.base.auth.ISignRequest;
+import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public class VerifyV3Request extends SignRequest
+public class VerifyV3Request extends BaseRequest implements ISignRequest
 {
     @SerializedName("biz_token")
     private String bizToken;
@@ -53,5 +54,19 @@ public class VerifyV3Request extends SignRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
+    }
+
+    @Override
+    public void setSign(String sign)
+    {
+        this.sign = sign;
+        this.addStringParam(Const.API_PARAM_SIGN, sign);
+    }
+
+    @Override
+    public void setSignVersion(String signVersion)
+    {
+        this.signVersion = signVersion;
+        this.addStringParam(Const.API_PARAM_SIGN_VERSION, signVersion);
     }
 }
