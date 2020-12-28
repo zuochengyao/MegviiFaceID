@@ -5,8 +5,8 @@ import com.megvii.faceid.util.Const;
 
 public abstract class KeyRequest extends BaseRequest
 {
-    private String apiKey;
-    private String apiSecret;
+    protected String apiKey;
+    protected String apiSecret;
 
     public String getApiKey()
     {
@@ -16,6 +16,7 @@ public abstract class KeyRequest extends BaseRequest
     public void setApiKey(String apiKey)
     {
         this.apiKey = apiKey;
+        this.addStringParam(Const.API_PARAM_API_KEY, apiKey);
     }
 
     public String getApiSecret()
@@ -26,12 +27,6 @@ public abstract class KeyRequest extends BaseRequest
     public void setApiSecret(String apiSecret)
     {
         this.apiSecret = apiSecret;
-    }
-
-    @Override
-    public void toMap()
-    {
-        this.addStringParam(Const.API_PARAM_API_KEY, apiKey);
         this.addStringParam(Const.API_PARAM_API_SECRET, apiSecret);
     }
 }

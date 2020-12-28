@@ -5,11 +5,15 @@ import com.megvii.faceid.network.http.HttpMethod;
 
 import java.util.HashMap;
 
-public abstract class BaseRequest// implements IRequest
+public abstract class BaseRequest // implements IRequest
 {
     protected HttpHeader mHeader = new HttpHeader();
-
     protected HashMap<String, Object> mParams = new HashMap<>();
+
+    private String apiKey;
+    private String apiSecret;
+    private String sign;
+    private String signVersion;
 
     protected <T> void addStringParam(String key, T value)
     {
@@ -37,8 +41,6 @@ public abstract class BaseRequest// implements IRequest
     {
         this.mHeader.put(key, value);
     }
-
-    public abstract void toMap();
 
     public abstract String getUrl();
 

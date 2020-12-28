@@ -154,7 +154,6 @@ public class FaceIdClient
 
     private HttpResponse doInternalRequest(BaseRequest model) throws IOException
     {
-        model.toMap();
         HttpRequest request = new HttpRequest(host.getHostUrl().concat(model.getUrl()), model);
         return httpManager.execute(request);
     }

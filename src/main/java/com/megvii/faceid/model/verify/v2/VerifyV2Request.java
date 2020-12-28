@@ -56,6 +56,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setFaceImageType(String faceImageType)
     {
         this.faceImageType = faceImageType;
+        this.addStringParam(Const.API_PARAM_FACE_IMAGE_TYPE, faceImageType);
     }
 
     public String getFailWhenRefMultipleFaces()
@@ -66,6 +67,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setFailWhenRefMultipleFaces(String failWhenRefMultipleFaces)
     {
         this.failWhenRefMultipleFaces = failWhenRefMultipleFaces;
+        this.addStringParam(Const.API_PARAM_FAIL_WHEN_REF_MULTIPLE_FACES, failWhenRefMultipleFaces);
     }
 
     public byte[] getImageRef3()
@@ -76,6 +78,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setImageRef3(byte[] imageRef3)
     {
         this.imageRef3 = imageRef3;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_REF3, imageRef3);
     }
 
     public void setImageRef3(File imageRef3)
@@ -92,6 +95,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setDelta(String delta)
     {
         this.delta = delta;
+        this.addStringParam(Const.API_PARAM_DELTA, delta);
     }
 
     public byte[] getImageBest()
@@ -102,6 +106,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setImageBest(byte[] imageBest)
     {
         this.imageBest = imageBest;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_BEST, imageBest);
     }
 
     public void setImageBest(File imageBest)
@@ -118,6 +123,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setImageEnv(byte[] imageEnv)
     {
         this.imageEnv = imageEnv;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_ENV, imageEnv);
     }
 
     public void setImageEnv(File imageEnv)
@@ -134,6 +140,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setImageAction1(byte[] imageAction1)
     {
         this.imageAction1 = imageAction1;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION1, imageAction1);
     }
 
     public void setImageAction1(File imageAction1)
@@ -150,6 +157,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setImageAction2(byte[] imageAction2)
     {
         this.imageAction2 = imageAction2;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION2, imageAction2);
     }
 
     public void setImageAction2(File imageAction2)
@@ -166,6 +174,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setImageAction3(byte[] imageAction3)
     {
         this.imageAction3 = imageAction3;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION3, imageAction3);
     }
 
     public void setImageAction3(File imageAction3)
@@ -182,6 +191,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setImageAction4(byte[] imageAction4)
     {
         this.imageAction4 = imageAction4;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION4, imageAction4);
     }
 
     public void setImageAction4(File imageAction4)
@@ -198,6 +208,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setImageAction5(byte[] imageAction5)
     {
         this.imageAction5 = imageAction5;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION5, imageAction5);
     }
 
     public void setImageAction5(File imageAction5)
@@ -214,6 +225,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setCheckDelta(String checkDelta)
     {
         this.checkDelta = checkDelta;
+        this.addStringParam(Const.API_PARAM_CHECK_DELTA, checkDelta);
     }
 
     public String getFaceToken()
@@ -224,6 +236,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setFaceToken(String faceToken)
     {
         this.faceToken = faceToken;
+        this.addStringParam(Const.API_PARAM_FACE_TOKEN, faceToken);
     }
 
     public byte[] getImage()
@@ -234,6 +247,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setImage(byte[] image)
     {
         this.image = image;
+        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 
     public void setImage(File image)
@@ -250,6 +264,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setFailWhenMultipleFaces(String failWhenMultipleFaces)
     {
         this.failWhenMultipleFaces = failWhenMultipleFaces;
+        this.addStringParam(Const.API_PARAM_FAIL_WHEN_MULTIPLE_FACES, failWhenMultipleFaces);
     }
 
     public String getFaceQualityThreshold()
@@ -260,6 +275,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setFaceQualityThreshold(String faceQualityThreshold)
     {
         this.faceQualityThreshold = faceQualityThreshold;
+        this.addStringParam(Const.API_PARAM_FACE_QUALITY_THRESHOLD, faceQualityThreshold);
     }
 
     public String getReturnFaces()
@@ -270,6 +286,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setReturnFaces(String returnFaces)
     {
         this.returnFaces = returnFaces;
+        this.addStringParam(Const.API_PARAM_RETURN_FACES, returnFaces);
     }
 
     public byte[] getMegliveFlashResult()
@@ -280,6 +297,7 @@ public class VerifyV2Request extends VerifyKeyRequest
     public void setMegliveFlashResult(byte[] megliveFlashResult)
     {
         this.megliveFlashResult = megliveFlashResult;
+        this.addBinaryParam(Const.API_PARAM_MEGLIVE_FLASH_RESULT, megliveFlashResult);
     }
 
     public void setMegliveFlashResult(File megliveFlashResult)
@@ -299,61 +317,5 @@ public class VerifyV2Request extends VerifyKeyRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addStringParam(Const.API_PARAM_FACE_IMAGE_TYPE, faceImageType);
-        if (!CommonUtils.isNullOrEmpty(failWhenRefMultipleFaces))
-            this.addStringParam(Const.API_PARAM_FAIL_WHEN_REF_MULTIPLE_FACES, failWhenRefMultipleFaces);
-        if (imageRef3 != null && imageRef3.length > 0)
-            this.addBinaryParam(Const.API_PARAM_IMAGE_REF3, imageRef3);
-        switch (faceImageType)
-        {
-            case FACE_IMAGE_TYPE_MEGLIVE:
-            {
-                this.addStringParam(Const.API_PARAM_DELTA, delta);
-                this.addBinaryParam(Const.API_PARAM_IMAGE_BEST, imageBest);
-                if (imageEnv != null && imageEnv.length > 0)
-                    this.addBinaryParam(Const.API_PARAM_IMAGE_ENV, imageEnv);
-                if (imageAction1 != null && imageAction1.length > 0)
-                    this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION1, imageAction1);
-                if (imageAction2 != null && imageAction2.length > 0)
-                    this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION2, imageAction2);
-                if (imageAction3 != null && imageAction3.length > 0)
-                    this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION3, imageAction3);
-                if (imageAction4 != null && imageAction4.length > 0)
-                    this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION4, imageAction4);
-                if (imageAction5 != null && imageAction5.length > 0)
-                    this.addBinaryParam(Const.API_PARAM_IMAGE_ACTION5, imageAction5);
-                if (!CommonUtils.isNullOrEmpty(checkDelta))
-                    this.addStringParam(Const.API_PARAM_CHECK_DELTA, checkDelta);
-                break;
-            }
-            case FACE_IMAGE_TYPE_FACETOKEN:
-            {
-                if (!CommonUtils.isNullOrEmpty(faceToken))
-                    this.addStringParam(Const.API_PARAM_FACE_TOKEN, faceToken);
-                break;
-            }
-            case FACE_IMAGE_TYPE_RAW_IMAGE:
-            {
-                this.addBinaryParam(Const.API_PARAM_IMAGE, image);
-                if (!CommonUtils.isNullOrEmpty(failWhenMultipleFaces))
-                    this.addStringParam(Const.API_PARAM_FAIL_WHEN_MULTIPLE_FACES, failWhenMultipleFaces);
-                if (!CommonUtils.isNullOrEmpty(faceQualityThreshold))
-                    this.addStringParam(Const.API_PARAM_FACE_QUALITY_THRESHOLD, faceQualityThreshold);
-                if (!CommonUtils.isNullOrEmpty(returnFaces))
-                    this.addStringParam(Const.API_PARAM_RETURN_FACES, returnFaces);
-                break;
-            }
-            case FACE_IMAGE_TYPE_MEGLIVE_FLASH:
-            {
-                this.addBinaryParam(Const.API_PARAM_MEGLIVE_FLASH_RESULT, megliveFlashResult);
-                break;
-            }
-        }
     }
 }

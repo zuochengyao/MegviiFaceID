@@ -2,7 +2,6 @@ package com.megvii.faceid.model.ocr.idcard.v1;
 
 import com.megvii.faceid.model.ocr.idcard.BaseIdCardRequest;
 import com.megvii.faceid.network.http.HttpMethod;
-import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 import org.jetbrains.annotations.NotNull;
@@ -19,6 +18,7 @@ public class IdCardV1Request extends BaseIdCardRequest
     public void setLegality(String legality)
     {
         this.legality = legality;
+        this.addStringParam(Const.API_PARAM_LEGALITY, legality);
     }
 
     @NotNull
@@ -32,13 +32,5 @@ public class IdCardV1Request extends BaseIdCardRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        if (!CommonUtils.isNullOrEmpty(legality))
-            this.addStringParam(Const.API_PARAM_LEGALITY, legality);
     }
 }

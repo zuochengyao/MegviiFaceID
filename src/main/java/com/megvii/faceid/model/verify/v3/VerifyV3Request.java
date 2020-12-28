@@ -6,8 +6,6 @@ import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.File;
 
 public class VerifyV3Request extends SignRequest
@@ -25,6 +23,7 @@ public class VerifyV3Request extends SignRequest
     public void setBizToken(String bizToken)
     {
         this.bizToken = bizToken;
+        this.addStringParam(Const.API_PARAM_BIZ_TOKEN, bizToken);
     }
 
     public byte[] getMegliveData()
@@ -35,6 +34,7 @@ public class VerifyV3Request extends SignRequest
     public void setMegliveData(byte[] megliveData)
     {
         this.megliveData = megliveData;
+        this.addBinaryParam(Const.API_PARAM_MEGLIVE_DATA, megliveData);
     }
 
     public void setMegliveData(File megliveData)
@@ -43,7 +43,6 @@ public class VerifyV3Request extends SignRequest
             setMegliveData(CommonUtils.getFileBytes(megliveData));
     }
 
-    @NotNull
     @Override
     public String getUrl()
     {
@@ -54,14 +53,5 @@ public class VerifyV3Request extends SignRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addStringParam(Const.API_PARAM_BIZ_TOKEN, bizToken);
-        if (megliveData != null && megliveData.length > 0)
-            this.addBinaryParam(Const.API_PARAM_MEGLIVE_DATA, megliveData);
     }
 }

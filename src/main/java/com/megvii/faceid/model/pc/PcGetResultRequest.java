@@ -19,6 +19,7 @@ public class PcGetResultRequest extends KeyRequest
     public void setBizId(String bizId)
     {
         this.bizId = bizId;
+        this.addStringParam(Const.API_PARAM_BIZ_ID, bizId);
     }
 
     public int getGetImageType()
@@ -29,6 +30,7 @@ public class PcGetResultRequest extends KeyRequest
     public void setGetImageType(int getImageType)
     {
         this.getImageType = getImageType;
+        this.addStringParam(Const.API_PARAM_GET_IMAGE_TYPE, getImageType);
     }
 
     @NotNull
@@ -42,14 +44,5 @@ public class PcGetResultRequest extends KeyRequest
     public HttpMethod method()
     {
         return HttpMethod.GET;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addStringParam(Const.API_PARAM_BIZ_ID, bizId);
-        if (getImageType != 0)
-            this.addStringParam(Const.API_PARAM_GET_IMAGE_TYPE, getImageType);
     }
 }

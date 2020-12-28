@@ -5,17 +5,10 @@ import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.File;
 
 public class GetBizTokenRequest extends VerifySignRequest
 {
-    private static final String LIVENESS_TYPE_MEGLIVE = "meglive";
-    private static final String LIVENESS_TYPE_STILL = "still";
-    private static final String LIVENESS_TYPE_FLASH = "flash";
-    private static final String LIVENESS_TYPE_RAW_IMAGE = "raw_image";
-
     private String livenessType;
     private String bizNo;
     private String livenessTimeout;
@@ -41,6 +34,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setLivenessType(String livenessType)
     {
         this.livenessType = livenessType;
+        this.addStringParam(Const.API_PARAM_LIVENESS_TYPE, livenessType);
     }
 
     public String getBizNo()
@@ -51,6 +45,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setBizNo(String bizNo)
     {
         this.bizNo = bizNo;
+        this.addStringParam(Const.API_PARAM_BIZ_NO, bizNo);
     }
 
     public String getLivenessTimeout()
@@ -61,6 +56,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setLivenessTimeout(String livenessTimeout)
     {
         this.livenessTimeout = livenessTimeout;
+        this.addStringParam(Const.API_PARAM_LIVENESS_TIMEOUT, livenessTimeout);
     }
 
     public String getLivenessActionCount()
@@ -71,6 +67,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setLivenessActionCount(String livenessActionCount)
     {
         this.livenessActionCount = livenessActionCount;
+        this.addStringParam(Const.API_PARAM_LIVENESS_ACTION_COUNT, livenessActionCount);
     }
 
     public String getFaceReplaceDetection()
@@ -81,6 +78,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setFaceReplaceDetection(String faceReplaceDetection)
     {
         this.faceReplaceDetection = faceReplaceDetection;
+        this.addStringParam(Const.API_PARAM_FACE_REPLACE_DETECTION, faceReplaceDetection);
     }
 
     public String getEyesCloseDetection()
@@ -91,6 +89,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setEyesCloseDetection(String eyesCloseDetection)
     {
         this.eyesCloseDetection = eyesCloseDetection;
+        this.addStringParam(Const.API_PARAM_EYES_CLOSE_DETECTION, eyesCloseDetection);
     }
 
     public String getFlashLivenessTimeout()
@@ -101,6 +100,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setFlashLivenessTimeout(String flashLivenessTimeout)
     {
         this.flashLivenessTimeout = flashLivenessTimeout;
+        this.addStringParam(Const.API_PARAM_FLASH_LIVENESS_TIMEOUT, flashLivenessTimeout);
     }
 
     public byte[] getImage()
@@ -117,6 +117,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setImage(byte[] image)
     {
         this.image = image;
+        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 
     public String getFailWhenMultipleFaces()
@@ -127,6 +128,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setFailWhenMultipleFaces(String failWhenMultipleFaces)
     {
         this.failWhenMultipleFaces = failWhenMultipleFaces;
+        this.addStringParam(Const.API_PARAM_FAIL_WHEN_MULTIPLE_FACES, failWhenMultipleFaces);
     }
 
     public String getFaceQualityThreshold()
@@ -137,6 +139,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setFaceQualityThreshold(String faceQualityThreshold)
     {
         this.faceQualityThreshold = faceQualityThreshold;
+        this.addStringParam(Const.API_PARAM_FACE_QUALITY_THRESHOLD, faceQualityThreshold);
     }
 
     public String getReturnFaces()
@@ -147,6 +150,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setReturnFaces(String returnFaces)
     {
         this.returnFaces = returnFaces;
+        this.addStringParam(Const.API_PARAM_RETURN_FACES, returnFaces);
     }
 
     public String getVerbose()
@@ -157,6 +161,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setVerbose(String verbose)
     {
         this.verbose = verbose;
+        this.addStringParam(Const.API_PARAM_VERBOSE, verbose);
     }
 
     public String getSecurityLevel()
@@ -167,6 +172,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setSecurityLevel(String securityLevel)
     {
         this.securityLevel = securityLevel;
+        this.addStringParam(Const.API_PARAM_SECURITY_LEVEL, securityLevel);
     }
 
     public String getForceCompare()
@@ -177,6 +183,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setForceCompare(String forceCompare)
     {
         this.forceCompare = forceCompare;
+        this.addStringParam(Const.API_PARAM_FORCE_COMPARE, forceCompare);
     }
 
     public String getLivenessLevel()
@@ -187,6 +194,7 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setLivenessLevel(String livenessLevel)
     {
         this.livenessLevel = livenessLevel;
+        this.addStringParam(Const.API_PARAM_LIVENESS_LEVEL, livenessLevel);
     }
 
     public String getMaximumBrightness()
@@ -197,9 +205,9 @@ public class GetBizTokenRequest extends VerifySignRequest
     public void setMaximumBrightness(String maximumBrightness)
     {
         this.maximumBrightness = maximumBrightness;
+        this.addStringParam(Const.API_PARAM_MAXIMUM_BRIGHTNESS, maximumBrightness);
     }
 
-    @NotNull
     @Override
     public String getUrl()
     {
@@ -210,60 +218,5 @@ public class GetBizTokenRequest extends VerifySignRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addStringParam(Const.API_PARAM_LIVENESS_TYPE, livenessType);
-        switch (livenessType)
-        {
-            case LIVENESS_TYPE_MEGLIVE:
-            {
-                if (!CommonUtils.isNullOrEmpty(livenessActionCount))
-                    this.addStringParam(Const.API_PARAM_LIVENESS_ACTION_COUNT, livenessActionCount);
-                if (!CommonUtils.isNullOrEmpty(faceReplaceDetection))
-                    this.addStringParam(Const.API_PARAM_FACE_REPLACE_DETECTION, faceReplaceDetection);
-                break;
-            }
-            case LIVENESS_TYPE_STILL:
-            {
-                if (!CommonUtils.isNullOrEmpty(eyesCloseDetection))
-                    this.addStringParam(Const.API_PARAM_EYES_CLOSE_DETECTION, eyesCloseDetection);
-                break;
-            }
-            case LIVENESS_TYPE_FLASH:
-            {
-                if (!CommonUtils.isNullOrEmpty(flashLivenessTimeout))
-                    this.addStringParam(Const.API_PARAM_FLASH_LIVENESS_TIMEOUT, flashLivenessTimeout);
-                break;
-            }
-            case LIVENESS_TYPE_RAW_IMAGE:
-            {
-                this.addBinaryParam(Const.API_PARAM_IMAGE, image);
-                if (!CommonUtils.isNullOrEmpty(failWhenMultipleFaces))
-                    this.addStringParam(Const.API_PARAM_FAIL_WHEN_MULTIPLE_FACES, failWhenMultipleFaces);
-                if (!CommonUtils.isNullOrEmpty(faceQualityThreshold))
-                    this.addStringParam(Const.API_PARAM_FACE_QUALITY_THRESHOLD, faceQualityThreshold);
-                if (!CommonUtils.isNullOrEmpty(returnFaces))
-                    this.addStringParam(Const.API_PARAM_RETURN_FACES, returnFaces);
-                break;
-            }
-        }
-        if (!CommonUtils.isNullOrEmpty(bizNo))
-            this.addStringParam(Const.API_PARAM_BIZ_NO, bizNo);
-        if (!CommonUtils.isNullOrEmpty(livenessTimeout))
-            this.addStringParam(Const.API_PARAM_LIVENESS_TIMEOUT, livenessTimeout);
-        if (!CommonUtils.isNullOrEmpty(verbose))
-            this.addStringParam(Const.API_PARAM_VERBOSE, verbose);
-        if (!CommonUtils.isNullOrEmpty(securityLevel))
-            this.addStringParam(Const.API_PARAM_SECURITY_LEVEL, securityLevel);
-        if (!CommonUtils.isNullOrEmpty(forceCompare))
-            this.addStringParam(Const.API_PARAM_FORCE_COMPARE, forceCompare);
-        if (!CommonUtils.isNullOrEmpty(livenessLevel))
-            this.addStringParam(Const.API_PARAM_LIVENESS_LEVEL, livenessLevel);
-        if (!CommonUtils.isNullOrEmpty(maximumBrightness))
-            this.addStringParam(Const.API_PARAM_MAXIMUM_BRIGHTNESS, maximumBrightness);
     }
 }

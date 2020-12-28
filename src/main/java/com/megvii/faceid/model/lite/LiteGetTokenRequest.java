@@ -2,7 +2,6 @@ package com.megvii.faceid.model.lite;
 
 import com.megvii.faceid.model.base.h5.H5KeyRequest;
 import com.megvii.faceid.network.http.HttpMethod;
-import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 public class LiteGetTokenRequest extends H5KeyRequest
@@ -22,6 +21,7 @@ public class LiteGetTokenRequest extends H5KeyRequest
     public void setWebTitle(String webTitle)
     {
         this.webTitle = webTitle;
+        this.addStringParam(Const.API_PARAM_WEB_TITLE, webTitle);
     }
 
     public String getProcedureType()
@@ -32,6 +32,7 @@ public class LiteGetTokenRequest extends H5KeyRequest
     public void setProcedureType(String procedureType)
     {
         this.procedureType = procedureType;
+        this.addStringParam(Const.API_PARAM_PROCEDURE_TYPE, procedureType);
     }
 
     public String getLivenessPreferences()
@@ -42,6 +43,7 @@ public class LiteGetTokenRequest extends H5KeyRequest
     public void setLivenessPreferences(String livenessPreferences)
     {
         this.livenessPreferences = livenessPreferences;
+        this.addStringParam(Const.API_PARAM_LIVENESS_PREFERENCES, livenessPreferences);
     }
 
     public String getIdcardMode()
@@ -52,6 +54,7 @@ public class LiteGetTokenRequest extends H5KeyRequest
     public void setIdcardMode(String idcardMode)
     {
         this.idcardMode = idcardMode;
+        this.addStringParam(Const.API_PARAM_IDCARD_MODE, idcardMode);
     }
 
     public String getIdcardUnEditableField()
@@ -62,6 +65,7 @@ public class LiteGetTokenRequest extends H5KeyRequest
     public void setIdcardUnEditableField(String idcardUnEditableField)
     {
         this.idcardUnEditableField = idcardUnEditableField;
+        this.addStringParam(Const.API_PARAM_IDCARD_UNEDITABLE_FIELD, idcardUnEditableField);
     }
 
     public String getFmpMode()
@@ -72,6 +76,7 @@ public class LiteGetTokenRequest extends H5KeyRequest
     public void setFmpMode(String fmpMode)
     {
         this.fmpMode = fmpMode;
+        this.addStringParam(Const.API_PARAM_FMP_MODE, livenessPreferences);
     }
 
     @Override
@@ -84,25 +89,5 @@ public class LiteGetTokenRequest extends H5KeyRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        if (!CommonUtils.isNullOrEmpty(webTitle))
-            this.addStringParam(Const.API_PARAM_WEB_TITLE, webTitle);
-        if (!CommonUtils.isNullOrEmpty(procedureType))
-            this.addStringParam(Const.API_PARAM_PROCEDURE_TYPE, procedureType);
-        if (!CommonUtils.isNullOrEmpty(livenessPreferences))
-            this.addStringParam(Const.API_PARAM_LIVENESS_PREFERENCES, livenessPreferences);
-        if (COMPARISON_TYPE_KYC.equals(comparisonType))
-        {
-            this.addStringParam(Const.API_PARAM_IDCARD_MODE, idcardMode);
-            if (!CommonUtils.isNullOrEmpty(idcardUnEditableField))
-                this.addStringParam(Const.API_PARAM_IDCARD_UNEDITABLE_FIELD, idcardUnEditableField);
-        }
-        if (!CommonUtils.isNullOrEmpty(fmpMode))
-            this.addStringParam(Const.API_PARAM_FMP_MODE, livenessPreferences);
     }
 }

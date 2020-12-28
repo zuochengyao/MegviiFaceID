@@ -1,7 +1,6 @@
 package com.megvii.faceid.model.base.h5;
 
 import com.megvii.faceid.model.base.sdk.VerifyKeyRequest;
-import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 public abstract class H5KeyRequest extends VerifyKeyRequest
@@ -20,6 +19,7 @@ public abstract class H5KeyRequest extends VerifyKeyRequest
     public void setReturnUrl(String returnUrl)
     {
         this.returnUrl = returnUrl;
+        this.addStringParam(Const.API_PARAM_RETURN_URL, returnUrl);
     }
 
     public String getNotifyUrl()
@@ -30,6 +30,7 @@ public abstract class H5KeyRequest extends VerifyKeyRequest
     public void setNotifyUrl(String notifyUrl)
     {
         this.notifyUrl = notifyUrl;
+        this.addStringParam(Const.API_PARAM_NOTIFY_URL, notifyUrl);
     }
 
     public String getBizNo()
@@ -40,6 +41,7 @@ public abstract class H5KeyRequest extends VerifyKeyRequest
     public void setBizNo(String bizNo)
     {
         this.bizNo = bizNo;
+        this.addStringParam(Const.API_PARAM_BIZ_NO, bizNo);
     }
 
     public String getBizExtraData()
@@ -50,6 +52,7 @@ public abstract class H5KeyRequest extends VerifyKeyRequest
     public void setBizExtraData(String bizExtraData)
     {
         this.bizExtraData = bizExtraData;
+        this.addStringParam(Const.API_PARAM_BIZ_EXTRA_DATA, bizExtraData);
     }
 
     public String getSceneId()
@@ -60,18 +63,6 @@ public abstract class H5KeyRequest extends VerifyKeyRequest
     public void setSceneId(String sceneId)
     {
         this.sceneId = sceneId;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addStringParam(Const.API_PARAM_RETURN_URL, returnUrl);
-        this.addStringParam(Const.API_PARAM_NOTIFY_URL, notifyUrl);
-        this.addStringParam(Const.API_PARAM_BIZ_NO, bizNo);
-        if (!CommonUtils.isNullOrEmpty(bizExtraData))
-            this.addStringParam(Const.API_PARAM_BIZ_EXTRA_DATA, bizExtraData);
-        if (!CommonUtils.isNullOrEmpty(sceneId))
-            this.addStringParam(Const.API_PARAM_SCENE_ID, sceneId);
+        this.addStringParam(Const.API_PARAM_SCENE_ID, sceneId);
     }
 }

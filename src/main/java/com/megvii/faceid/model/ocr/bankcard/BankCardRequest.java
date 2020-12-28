@@ -27,6 +27,7 @@ public class BankCardRequest extends KeyRequest
     public void setImage(byte[] image)
     {
         this.image = image;
+        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 
     @NotNull
@@ -40,12 +41,5 @@ public class BankCardRequest extends KeyRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 }

@@ -8,9 +8,6 @@ import java.io.File;
 
 public abstract class VerifySignRequest extends SignRequest
 {
-    protected static final String COMPARISON_TYPE_COMPARE = "0";
-    protected static final String COMPARISON_TYPE_KYC = "1";
-
     protected String comparisonType;
     protected String idcardName;
     protected String idcardNumber;
@@ -27,6 +24,7 @@ public abstract class VerifySignRequest extends SignRequest
     public void setComparisonType(String comparisonType)
     {
         this.comparisonType = comparisonType;
+        this.addStringParam(Const.API_PARAM_COMPARISON_TYPE, comparisonType);
     }
 
     public String getIdcardName()
@@ -37,6 +35,7 @@ public abstract class VerifySignRequest extends SignRequest
     public void setIdcardName(String idcardName)
     {
         this.idcardName = idcardName;
+        this.addStringParam(Const.API_PARAM_IDCARD_NAME, idcardName);
     }
 
     public String getIdcardNumber()
@@ -47,6 +46,7 @@ public abstract class VerifySignRequest extends SignRequest
     public void setIdcardNumber(String idcardNumber)
     {
         this.idcardNumber = idcardNumber;
+        this.addStringParam(Const.API_PARAM_IDCARD_NUMBER, idcardNumber);
     }
 
     public String getUuid()
@@ -57,6 +57,7 @@ public abstract class VerifySignRequest extends SignRequest
     public void setUuid(String uuid)
     {
         this.uuid = uuid;
+        this.addStringParam(Const.API_PARAM_UUID, uuid);
     }
 
     public byte[] getImageRef1()
@@ -67,12 +68,12 @@ public abstract class VerifySignRequest extends SignRequest
     public void setImageRef1(byte[] imageRef1)
     {
         this.imageRef1 = imageRef1;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_REF1, imageRef1);
     }
 
     public void setImageRef1(File imageRef1)
     {
-        if (imageRef1 != null)
-            setImageRef1(CommonUtils.getFileBytes(imageRef1));
+        setImageRef1(CommonUtils.getFileBytes(imageRef1));
     }
 
     public byte[] getImageRef2()
@@ -83,12 +84,12 @@ public abstract class VerifySignRequest extends SignRequest
     public void setImageRef2(byte[] imageRef2)
     {
         this.imageRef2 = imageRef2;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_REF2, imageRef2);
     }
 
     public void setImageRef2(File imageRef2)
     {
-        if (imageRef2 != null)
-            setImageRef2(CommonUtils.getFileBytes(imageRef2));
+        setImageRef2(CommonUtils.getFileBytes(imageRef2));
     }
 
     public String getMultiOrientedDetection()
@@ -99,30 +100,6 @@ public abstract class VerifySignRequest extends SignRequest
     public void setMultiOrientedDetection(String multiOrientedDetection)
     {
         this.multiOrientedDetection = multiOrientedDetection;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addStringParam(Const.API_PARAM_COMPARISON_TYPE, comparisonType);
-        if (COMPARISON_TYPE_KYC.equals(comparisonType))
-        {
-            this.addStringParam(Const.API_PARAM_IDCARD_NAME, idcardName);
-            this.addStringParam(Const.API_PARAM_IDCARD_NUMBER, idcardNumber);
-            if (imageRef1 != null && imageRef1.length > 0)
-                this.addBinaryParam(Const.API_PARAM_IMAGE_REF1, imageRef1);
-            if (imageRef2 != null && imageRef2.length > 0)
-                this.addBinaryParam(Const.API_PARAM_IMAGE_REF2, imageRef2);
-        }
-        else if (COMPARISON_TYPE_COMPARE.equals(comparisonType))
-        {
-            this.addStringParam(Const.API_PARAM_UUID, uuid);
-            this.addBinaryParam(Const.API_PARAM_IMAGE_REF1, imageRef1);
-            if (imageRef2 != null && imageRef2.length > 0)
-                this.addBinaryParam(Const.API_PARAM_IMAGE_REF2, imageRef2);
-        }
-        if (!CommonUtils.isNullOrEmpty(multiOrientedDetection))
-            this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, multiOrientedDetection);
+        this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, multiOrientedDetection);
     }
 }

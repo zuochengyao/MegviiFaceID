@@ -5,7 +5,8 @@ import com.megvii.faceid.util.Const;
 
 public abstract class SignRequest extends BaseRequest
 {
-    private String sign;
+    protected String sign;
+    protected String signVersion;
 
     public String getSign()
     {
@@ -15,6 +16,7 @@ public abstract class SignRequest extends BaseRequest
     public void setSign(String sign)
     {
         this.sign = sign;
+        this.addStringParam(Const.API_PARAM_SIGN, sign);
     }
 
     public String getSignVersion()
@@ -22,10 +24,9 @@ public abstract class SignRequest extends BaseRequest
         return "hmac_sha1";
     }
 
-    @Override
-    public void toMap()
+    public void setSignVersion(String signVersion)
     {
-        this.addStringParam(Const.API_PARAM_SIGN, sign);
+        this.signVersion = signVersion;
         this.addStringParam(Const.API_PARAM_SIGN_VERSION, getSignVersion());
     }
 }

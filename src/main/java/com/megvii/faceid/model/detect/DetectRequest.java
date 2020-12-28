@@ -28,6 +28,7 @@ public class DetectRequest extends KeyRequest
     public void setImage(byte[] image)
     {
         this.image = image;
+        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 
     public String getMultiOrientedDetection()
@@ -38,6 +39,7 @@ public class DetectRequest extends KeyRequest
     public void setMultiOrientedDetection(String multiOrientedDetection)
     {
         this.multiOrientedDetection = multiOrientedDetection;
+        this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, multiOrientedDetection);
     }
 
     @NotNull
@@ -51,14 +53,5 @@ public class DetectRequest extends KeyRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        this.addBinaryParam(Const.API_PARAM_IMAGE, image);
-        if (!CommonUtils.isNullOrEmpty(multiOrientedDetection))
-            this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, multiOrientedDetection);
     }
 }

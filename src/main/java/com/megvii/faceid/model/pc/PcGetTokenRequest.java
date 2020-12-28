@@ -22,6 +22,7 @@ public class PcGetTokenRequest extends H5KeyRequest
     public void setImageRef3(byte[] imageRef3)
     {
         this.imageRef3 = imageRef3;
+        this.addBinaryParam(Const.API_PARAM_IMAGE_REF3, imageRef3);
     }
 
     public void setImageRef3(File imageRef3)
@@ -38,6 +39,7 @@ public class PcGetTokenRequest extends H5KeyRequest
     public void setScreenReplay(String screenReplay)
     {
         this.screenReplay = screenReplay;
+        this.addStringParam(Const.API_PARAM_SCREEN_REPLAY, screenReplay);
     }
 
     @NotNull
@@ -51,15 +53,5 @@ public class PcGetTokenRequest extends H5KeyRequest
     public HttpMethod method()
     {
         return HttpMethod.POST;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
-        if (imageRef3 != null && imageRef3.length > 0)
-            this.addBinaryParam(Const.API_PARAM_IMAGE_REF3, imageRef3);
-        if (!CommonUtils.isNullOrEmpty(screenReplay))
-            this.addStringParam(Const.API_PARAM_SCREEN_REPLAY, screenReplay);
     }
 }

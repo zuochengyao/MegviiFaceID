@@ -24,12 +24,6 @@ public abstract class BaseIdCardRequest extends KeyRequest
     public void setImage(byte[] image)
     {
         this.image = image;
-    }
-
-    @Override
-    public void toMap()
-    {
-        super.toMap();
         this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 }
