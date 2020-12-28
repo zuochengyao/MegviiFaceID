@@ -1,6 +1,6 @@
 package com.megvii.faceid.model.verify.v3;
 
-import com.megvii.faceid.model.base.verify.CompareSignRequest;
+import com.megvii.faceid.model.base.sdk.VerifySignRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
-public class GetBizTokenRequest extends CompareSignRequest
+public class GetBizTokenRequest extends VerifySignRequest
 {
     private static final String LIVENESS_TYPE_MEGLIVE = "meglive";
     private static final String LIVENESS_TYPE_STILL = "still";

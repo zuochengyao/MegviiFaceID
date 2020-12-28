@@ -6,11 +6,11 @@ import com.megvii.faceid.util.Const;
 public abstract class BaseResponse
 {
     @SerializedName(Const.API_PARAM_REQUEST_ID)
-    private String requestId;
+    protected String requestId;
     @SerializedName(Const.API_PARAM_TIME_USED)
-    private int timeUsed;
+    protected int timeUsed;
     @SerializedName(value = Const.API_PARAM_ERROR, alternate = Const.API_PARAM_ERROR_MESSAGE)
-    private String error;
+    protected String error;
 
     public String getRequestId()
     {

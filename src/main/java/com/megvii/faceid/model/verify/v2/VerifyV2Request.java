@@ -1,6 +1,6 @@
 package com.megvii.faceid.model.verify.v2;
 
-import com.megvii.faceid.model.base.verify.CompareKeyRequest;
+import com.megvii.faceid.model.base.sdk.VerifyKeyRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
-public class VerifyV2Request extends CompareKeyRequest
+public class VerifyV2Request extends VerifyKeyRequest
 {
     private static final String FACE_IMAGE_TYPE_MEGLIVE = "meglive";
     private static final String FACE_IMAGE_TYPE_FACETOKEN = "facetoken";

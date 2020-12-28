@@ -133,6 +133,15 @@ public final class Const
     public static final String API_PARAM_VERIFY_RESULT = "verify_result";
     // endregion
 
+    // region Lite
+    public static final String API_PARAM_WEB_TITLE = "web_title";
+    public static final String API_PARAM_IDCARD_MODE = "idcard_mode";
+    public static final String API_PARAM_PROCEDURE_TYPE = "procedure_type";
+    public static final String API_PARAM_LIVENESS_PREFERENCES = "liveness_preferences";
+    public static final String API_PARAM_IDCARD_UNEDITABLE_FIELD = "idcard_uneditable_field";
+    public static final String API_PARAM_FMP_MODE = "fmp_mode";
+    // endregion
+
     // region Common
     public static final String API_PARAM_ERROR = "error";
     public static final String API_PARAM_ERROR_MESSAGE = "error_message";
