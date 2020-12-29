@@ -2,33 +2,33 @@ package com.megvii.faceid.model.ocr.idcard.v2;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.response.BaseResponse;
+import com.megvii.faceid.model.common.IdcardDict;
 import com.megvii.faceid.model.common.Legality;
-import com.megvii.faceid.model.common.PointRect;
 import com.megvii.faceid.util.Const;
 
 public class IdCardV2Response extends BaseResponse
 {
     private Integer result;
     private Integer side;
-    private Dict name;
-    private Dict gender;
-    private Dict nationality;
+    private IdcardDict name;
+    private IdcardDict gender;
+    private IdcardDict nationality;
     @SerializedName(Const.API_PARAM_BIRTH_YEAR)
-    private Dict birthYear;
+    private IdcardDict birthYear;
     @SerializedName(Const.API_PARAM_BIRTH_MONTH)
-    private Dict birthMonth;
+    private IdcardDict birthMonth;
     @SerializedName(Const.API_PARAM_BIRTH_DAY)
-    private Dict birthDay;
+    private IdcardDict birthDay;
     @SerializedName(Const.API_PARAM_IDCARD_NUMBER)
-    private Dict idcardNumber;
-    private Dict address;
-    private Dict portrait;
+    private IdcardDict idcardNumber;
+    private IdcardDict address;
+    private IdcardDict portrait;
     @SerializedName(Const.API_PARAM_ISSUED_BY)
-    private Dict issuedBy;
+    private IdcardDict issuedBy;
     @SerializedName(Const.API_PARAM_VALID_DATE_START)
-    private Dict validDateStart;
+    private IdcardDict validDateStart;
     @SerializedName(Const.API_PARAM_VALID_DATE_END)
-    private Dict validDateEnd;
+    private IdcardDict validDateEnd;
     private Legality legality;
     private Integer completeness;
 
@@ -52,122 +52,122 @@ public class IdCardV2Response extends BaseResponse
         this.side = side;
     }
 
-    public Dict getName()
+    public IdcardDict getName()
     {
         return name;
     }
 
-    public void setName(Dict name)
+    public void setName(IdcardDict name)
     {
         this.name = name;
     }
 
-    public Dict getGender()
+    public IdcardDict getGender()
     {
         return gender;
     }
 
-    public void setGender(Dict gender)
+    public void setGender(IdcardDict gender)
     {
         this.gender = gender;
     }
 
-    public Dict getNationality()
+    public IdcardDict getNationality()
     {
         return nationality;
     }
 
-    public void setNationality(Dict nationality)
+    public void setNationality(IdcardDict nationality)
     {
         this.nationality = nationality;
     }
 
-    public Dict getBirthYear()
+    public IdcardDict getBirthYear()
     {
         return birthYear;
     }
 
-    public void setBirthYear(Dict birthYear)
+    public void setBirthYear(IdcardDict birthYear)
     {
         this.birthYear = birthYear;
     }
 
-    public Dict getBirthMonth()
+    public IdcardDict getBirthMonth()
     {
         return birthMonth;
     }
 
-    public void setBirthMonth(Dict birthMonth)
+    public void setBirthMonth(IdcardDict birthMonth)
     {
         this.birthMonth = birthMonth;
     }
 
-    public Dict getBirthDay()
+    public IdcardDict getBirthDay()
     {
         return birthDay;
     }
 
-    public void setBirthDay(Dict birthDay)
+    public void setBirthDay(IdcardDict birthDay)
     {
         this.birthDay = birthDay;
     }
 
-    public Dict getIdcardNumber()
+    public IdcardDict getIdcardNumber()
     {
         return idcardNumber;
     }
 
-    public void setIdcardNumber(Dict idcardNumber)
+    public void setIdcardNumber(IdcardDict idcardNumber)
     {
         this.idcardNumber = idcardNumber;
     }
 
-    public Dict getAddress()
+    public IdcardDict getAddress()
     {
         return address;
     }
 
-    public void setAddress(Dict address)
+    public void setAddress(IdcardDict address)
     {
         this.address = address;
     }
 
-    public Dict getPortrait()
+    public IdcardDict getPortrait()
     {
         return portrait;
     }
 
-    public void setPortrait(Dict portrait)
+    public void setPortrait(IdcardDict portrait)
     {
         this.portrait = portrait;
     }
 
-    public Dict getIssuedBy()
+    public IdcardDict getIssuedBy()
     {
         return issuedBy;
     }
 
-    public void setIssuedBy(Dict issuedBy)
+    public void setIssuedBy(IdcardDict issuedBy)
     {
         this.issuedBy = issuedBy;
     }
 
-    public Dict getValidDateStart()
+    public IdcardDict getValidDateStart()
     {
         return validDateStart;
     }
 
-    public void setValidDateStart(Dict validDateStart)
+    public void setValidDateStart(IdcardDict validDateStart)
     {
         this.validDateStart = validDateStart;
     }
 
-    public Dict getValidDateEnd()
+    public IdcardDict getValidDateEnd()
     {
         return validDateEnd;
     }
 
-    public void setValidDateEnd(Dict validDateEnd)
+    public void setValidDateEnd(IdcardDict validDateEnd)
     {
         this.validDateEnd = validDateEnd;
     }
@@ -190,53 +190,5 @@ public class IdCardV2Response extends BaseResponse
     public void setCompleteness(int completeness)
     {
         this.completeness = completeness;
-    }
-
-    public static class Dict
-    {
-        private String result;
-        private float quality;
-        private int logic;
-        private PointRect rect;
-
-        public String getResult()
-        {
-            return result;
-        }
-
-        public void setResult(String result)
-        {
-            this.result = result;
-        }
-
-        public float getQuality()
-        {
-            return quality;
-        }
-
-        public void setQuality(float quality)
-        {
-            this.quality = quality;
-        }
-
-        public int getLogic()
-        {
-            return logic;
-        }
-
-        public void setLogic(int logic)
-        {
-            this.logic = logic;
-        }
-
-        public PointRect getRect()
-        {
-            return rect;
-        }
-
-        public void setRect(PointRect rect)
-        {
-            this.rect = rect;
-        }
     }
 }

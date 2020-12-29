@@ -1,10 +1,11 @@
 package com.megvii.faceid.model.lite;
 
+import com.megvii.faceid.model.base.auth.IKeyRequest;
 import com.megvii.faceid.model.base.request.H5Request;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.Const;
 
-public class LiteGetTokenRequest extends H5Request
+public class LiteGetTokenRequest extends H5Request implements IKeyRequest
 {
     private String webTitle;
     private String procedureType;
@@ -89,5 +90,19 @@ public class LiteGetTokenRequest extends H5Request
     public HttpMethod method()
     {
         return HttpMethod.POST;
+    }
+
+    @Override
+    public void setApiKey(String apiKey)
+    {
+        this.apiKey = apiKey;
+        this.addStringParam(Const.API_PARAM_API_KEY, apiKey);
+    }
+
+    @Override
+    public void setApiSecret(String apiSecret)
+    {
+        this.apiSecret = apiSecret;
+        this.addStringParam(Const.API_PARAM_API_SECRET, apiSecret);
     }
 }

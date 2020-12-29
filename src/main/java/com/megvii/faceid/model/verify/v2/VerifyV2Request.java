@@ -1,7 +1,7 @@
 package com.megvii.faceid.model.verify.v2;
 
 import com.megvii.faceid.model.base.auth.IKeyRequest;
-import com.megvii.faceid.model.base.request.ComparisonRequest;
+import com.megvii.faceid.model.base.request.CompareRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
-public class VerifyV2Request extends ComparisonRequest implements IKeyRequest
+public class VerifyV2Request extends CompareRequest implements IKeyRequest
 {
     private String faceImageType;
     private String failWhenRefMultipleFaces;

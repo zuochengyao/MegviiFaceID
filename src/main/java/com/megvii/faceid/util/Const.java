@@ -16,8 +16,8 @@ public final class Const
     // endregion
 
     // region IDCard OCR V1
-    public static final String API_PARAM_SIDE_FRONT = "front";
-    public static final String API_PARAM_SIDE_BACK = "back";
+    public static final String API_PARAM_FRONT = "front";
+    public static final String API_PARAM_BACK = "back";
     public static final String API_PARAM_BIRTHDAY_YEAR = "year";
     public static final String API_PARAM_BIRTHDAY_MONTH = "month";
     public static final String API_PARAM_BIRTHDAY_DAY = "day";
@@ -139,7 +139,46 @@ public final class Const
     public static final String API_PARAM_PROCEDURE_TYPE = "procedure_type";
     public static final String API_PARAM_LIVENESS_PREFERENCES = "liveness_preferences";
     public static final String API_PARAM_IDCARD_UNEDITABLE_FIELD = "idcard_uneditable_field";
+    public static final String API_PARAM_IDCARD_VALID_DATE = "idcard_valid_date";
+    public static final String API_PARAM_IDCARD_ISSUED_BY = "idcard_issued_by";
     public static final String API_PARAM_FMP_MODE = "fmp_mode";
+    public static final String API_PARAM_BIZ_INFO = "biz_info";
+    public static final String API_PARAM_IDCARD_INFO = "idcard_info";
+    public static final String API_PARAM_IDCARD_MODE_USER = "idcard_mode_user";
+    public static final String API_PARAM_RETURN_IMAGE = "return_image";
+    public static final String API_PARAM_FRONT_SIDE = "front_side";
+    public static final String API_PARAM_BACK_SIDE = "back_side";
+    public static final String API_PARAM_OCR_RESULT = "ocr_result";
+    public static final String API_PARAM_UPLOAD_TIMES_LOWERCASE = "upload_times";
+    public static final String API_PARAM_OCR_FRONT_QUALITY = "ocr_front_quality";
+    public static final String API_PARAM_OCR_BACK_QUALITY = "ocr_back_quality";
+    public static final String API_PARAM_UPLOAD_TIMES_UPPERCASE = "UPLOAD_TIMES";
+    public static final String API_PARAM_FACE_NOT_FOUND_UPPERCASE = "FACE_NOT_FOUND";
+    public static final String API_PARAM_LOW_FACE_QUALITY_UPPERCASE = "LOW_FACE_QUALITY";
+    public static final String API_PARAM_INVALID_VIDEO_DURATION_UPPERCASE = "INVALID_VIDEO_DURATION";
+    public static final String API_PARAM_SR_ERROR_UPPERCASE = "SR_ERROR";
+    public static final String API_PARAM_NOT_SYNCHRONIZED_UPPERCASE = "NOT_SYNCHRONIZED";
+    public static final String API_PARAM_NO_AUDIO_UPPERCASE = "NO_AUDIO";
+    public static final String API_PARAM_VIDEO_FORMAT_UNSUPPORTED_UPPERCASE = "VIDEO_FORMAT_UNSUPPORTED";
+    public static final String API_PARAM_FACE_FRONT = "face_front";
+    public static final String API_PARAM_FACE_SIDE = "face_side";
+    public static final String API_PARAM_FACE_UPLOAD_TIMES_UPPERCASE = "FACE_UPLOAD_TIMES";
+    public static final String API_PARAM_FACE_BLURRED_UPPERCASE = "FACE_BLURRED";
+    public static final String API_PARAM_FACE_MULTIPLE_FACES_UPPERCASE = "FACE_MULTIPLE_FACES";
+    public static final String API_PARAM_FACE_POOR_LIGHT_UPPERCASE = "FACE_POOR_LIGHT";
+    public static final String API_PARAM_FACE_NOT_FRONT_UPPERCASE = "FACE_NOT_FRONT";
+    public static final String API_PARAM_FACE_NOT_SIDE_UPPERCASE = "FACE_NOT_SIDE";
+    public static final String API_PARAM_FACE_NOT_PROPER_POSITION_UPPERCASE = "FACE_NOT_PROPER_POSITION";
+    public static final String API_PARAM_UNSUPPORTED_FORMAT_UPPERCASE = "UNSUPPORTED_FORMAT";
+    public static final String API_PARAM_VIDEO_FACE_INCONSISTENT_UPPERCASE = "VIDEO_FACE_INCONSISTENT";
+    public static final String API_PARAM_SELFIE_INCONSISTENT = "selfie_inconsistent";
+    public static final String API_PARAM_SELFIE_METADATA_INCONSISTENT = "selfie_metadata_inconsistent";
+    public static final String API_PARAM_RESULT_IDCARD_PHOTO = "result_idcard_photo";
+    public static final String API_PARAM_RESULT_IDCARD_DATASOURCE = "result_idcard_datasource";
+    public static final String API_PARAM_IMAGE_IDCARD_BACK = "image_idcard_back";
+    public static final String API_PARAM_IMAGE_IDCARD_FRONT = "image_idcard_front";
+    public static final String API_PARAM_IMAGE_FACE_FRONT = "image_face_front";
+    public static final String API_PARAM_IMAGE_FACE_SIDE = "image_face_side";
     // endregion
 
     // region Common

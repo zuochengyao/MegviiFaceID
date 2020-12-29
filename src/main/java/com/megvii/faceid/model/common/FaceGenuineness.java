@@ -19,6 +19,10 @@ public class FaceGenuineness
     private float screenReplayThreshold;
     @SerializedName(Const.API_PARAM_FACE_REPLACED)
     private Integer faceReplaced;
+    @SerializedName(Const.API_PARAM_SELFIE_INCONSISTENT)
+    private Integer selfieInconsistent;
+    @SerializedName(Const.API_PARAM_SELFIE_METADATA_INCONSISTENT)
+    private Integer selfieMetadataInconsistent;
 
     public float getSyntheticFaceConfidence()
     {
@@ -80,13 +84,33 @@ public class FaceGenuineness
         this.screenReplayThreshold = screenReplayThreshold;
     }
 
-    public int getFaceReplaced()
+    public Integer getFaceReplaced()
     {
         return faceReplaced;
     }
 
-    public void setFaceReplaced(int faceReplaced)
+    public void setFaceReplaced(Integer faceReplaced)
     {
         this.faceReplaced = faceReplaced;
+    }
+
+    public Integer getSelfieInconsistent()
+    {
+        return selfieInconsistent;
+    }
+
+    public void setSelfieInconsistent(Integer selfieInconsistent)
+    {
+        this.selfieInconsistent = selfieInconsistent;
+    }
+
+    public Integer getSelfieMetadataInconsistent()
+    {
+        return selfieMetadataInconsistent;
+    }
+
+    public void setSelfieMetadataInconsistent(Integer selfieMetadataInconsistent)
+    {
+        this.selfieMetadataInconsistent = selfieMetadataInconsistent;
     }
 }

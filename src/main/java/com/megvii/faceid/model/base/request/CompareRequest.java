@@ -5,7 +5,7 @@ import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public abstract class ComparisonRequest extends BaseRequest
+public abstract class CompareRequest extends BaseRequest
 {
     protected String comparisonType;
     protected String idcardName;

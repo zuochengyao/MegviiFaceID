@@ -5,6 +5,10 @@ import com.megvii.faceid.model.base.auth.ISignRequest;
 import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.model.detect.DetectRequest;
 import com.megvii.faceid.model.detect.DetectResponse;
+import com.megvii.faceid.model.lite.LiteGetResultRequest;
+import com.megvii.faceid.model.lite.LiteGetResultResponse;
+import com.megvii.faceid.model.lite.LiteGetTokenRequest;
+import com.megvii.faceid.model.lite.LiteGetTokenResponse;
 import com.megvii.faceid.model.ocr.bankcard.BankCardRequest;
 import com.megvii.faceid.model.ocr.bankcard.BankCardResponse;
 import com.megvii.faceid.model.ocr.idcard.v1.IdCardV1Request;
@@ -137,6 +141,20 @@ public class FaceIdClient
         HttpResponse response = doKeyRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, PcGetResultResponse.class);
+    }
+
+    public LiteGetTokenResponse liteGetToken(LiteGetTokenRequest req) throws IOException
+    {
+        HttpResponse response = doKeyRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, LiteGetTokenResponse.class);
+    }
+
+    public LiteGetResultResponse liteGetResult(LiteGetResultRequest req) throws IOException
+    {
+        HttpResponse response = doKeyRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, LiteGetResultResponse.class);
     }
 
     private HttpResponse doKeyRequest(@NotNull IKeyRequest model) throws IOException

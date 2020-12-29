@@ -8,7 +8,7 @@ public abstract class BaseResponse
     @SerializedName(Const.API_PARAM_REQUEST_ID)
     protected String requestId;
     @SerializedName(Const.API_PARAM_TIME_USED)
-    protected int timeUsed;
+    protected Integer timeUsed;
     @SerializedName(value = Const.API_PARAM_ERROR, alternate = Const.API_PARAM_ERROR_MESSAGE)
     protected String error;
 
@@ -22,12 +22,12 @@ public abstract class BaseResponse
         this.requestId = requestId;
     }
 
-    public int getTimeUsed()
+    public Integer getTimeUsed()
     {
         return timeUsed;
     }
 
-    public void setTimeUsed(int timeUsed)
+    public void setTimeUsed(Integer timeUsed)
     {
         this.timeUsed = timeUsed;
     }

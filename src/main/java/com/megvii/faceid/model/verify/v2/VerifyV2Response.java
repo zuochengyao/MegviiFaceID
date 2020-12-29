@@ -18,10 +18,10 @@ public class VerifyV2Response extends BaseResponse
     private Result resultRef1;
     @SerializedName(Const.API_PARAM_RESULT_REF2)
     private Result resultRef2;
-    @SerializedName(Const.API_PARAM_RESULT_REF3)
-    private Result resultRef3;
     @SerializedName(Const.API_PARAM_ID_EXCEPTIONS)
     private IdExceptions idExceptions;
+    @SerializedName(Const.API_PARAM_RESULT_REF3)
+    private Result resultRef3;
     private List<FaceInfo> faces;
     @SerializedName(Const.API_PARAM_FACE_GENUINENESS)
     private FaceGenuineness faceGenuineness;
@@ -56,16 +56,6 @@ public class VerifyV2Response extends BaseResponse
         this.resultRef2 = resultRef2;
     }
 
-    public Result getResultRef3()
-    {
-        return resultRef3;
-    }
-
-    public void setResultRef3(Result resultRef3)
-    {
-        this.resultRef3 = resultRef3;
-    }
-
     public IdExceptions getIdExceptions()
     {
         return idExceptions;
@@ -74,6 +64,16 @@ public class VerifyV2Response extends BaseResponse
     public void setIdExceptions(IdExceptions idExceptions)
     {
         this.idExceptions = idExceptions;
+    }
+
+    public Result getResultRef3()
+    {
+        return resultRef3;
+    }
+
+    public void setResultRef3(Result resultRef3)
+    {
+        this.resultRef3 = resultRef3;
     }
 
     public List<FaceInfo> getFaces()
@@ -95,6 +95,4 @@ public class VerifyV2Response extends BaseResponse
     {
         this.faceGenuineness = faceGenuineness;
     }
-
-
 }

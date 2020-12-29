@@ -24,6 +24,116 @@ public class IdCardV1Response extends BaseResponse
     @SerializedName(Const.API_PARAM_HEAD_RECT)
     private PointRectF headRect;
 
+    public String getAddress()
+    {
+        return address;
+    }
+
+    public void setAddress(String address)
+    {
+        this.address = address;
+    }
+
+    public Birthday getBirthday()
+    {
+        return birthday;
+    }
+
+    public void setBirthday(Birthday birthday)
+    {
+        this.birthday = birthday;
+    }
+
+    public String getGender()
+    {
+        return gender;
+    }
+
+    public void setGender(String gender)
+    {
+        this.gender = gender;
+    }
+
+    public String getIdcardNumber()
+    {
+        return idcardNumber;
+    }
+
+    public void setIdcardNumber(String idcardNumber)
+    {
+        this.idcardNumber = idcardNumber;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getRace()
+    {
+        return race;
+    }
+
+    public void setRace(String race)
+    {
+        this.race = race;
+    }
+
+    public String getSide()
+    {
+        return side;
+    }
+
+    public void setSide(String side)
+    {
+        this.side = side;
+    }
+
+    public String getIssuedBy()
+    {
+        return issuedBy;
+    }
+
+    public void setIssuedBy(String issuedBy)
+    {
+        this.issuedBy = issuedBy;
+    }
+
+    public String getValidDate()
+    {
+        return validDate;
+    }
+
+    public void setValidDate(String validDate)
+    {
+        this.validDate = validDate;
+    }
+
+    public Legality getLegality()
+    {
+        return legality;
+    }
+
+    public void setLegality(Legality legality)
+    {
+        this.legality = legality;
+    }
+
+    public PointRectF getHeadRect()
+    {
+        return headRect;
+    }
+
+    public void setHeadRect(PointRectF headRect)
+    {
+        this.headRect = headRect;
+    }
+
     public static class Birthday
     {
         private String year;

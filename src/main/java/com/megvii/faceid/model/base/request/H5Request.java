@@ -2,7 +2,7 @@ package com.megvii.faceid.model.base.request;
 
 import com.megvii.faceid.util.Const;
 
-public abstract class H5Request extends ComparisonRequest
+public abstract class H5Request extends CompareRequest
 {
     private String returnUrl;
     private String notifyUrl;
