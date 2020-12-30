@@ -19,6 +19,10 @@ import com.megvii.faceid.model.pc.PcGetResultRequest;
 import com.megvii.faceid.model.pc.PcGetResultResponse;
 import com.megvii.faceid.model.pc.PcGetTokenRequest;
 import com.megvii.faceid.model.pc.PcGetTokenResponse;
+import com.megvii.faceid.model.raw.RawGetRandomNumberRequest;
+import com.megvii.faceid.model.raw.RawGetRandomNumberResponse;
+import com.megvii.faceid.model.raw.RawValidateVideoRequest;
+import com.megvii.faceid.model.raw.RawValidateVideoResponse;
 import com.megvii.faceid.model.verify.v2.VerifyV2Request;
 import com.megvii.faceid.model.verify.v2.VerifyV2Response;
 import com.megvii.faceid.model.verify.v3.GetBizTokenRequest;
@@ -30,8 +34,6 @@ import com.megvii.faceid.network.HttpManager;
 import com.megvii.faceid.network.HttpRequest;
 import com.megvii.faceid.network.HttpResponse;
 import com.megvii.faceid.util.JsonUtils;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
@@ -65,7 +67,7 @@ public class FaceIdClient
      */
     public DetectResponse detect(DetectRequest req) throws IOException
     {
-        HttpResponse response = doKeyRequest(req);
+        HttpResponse response = doInternalRequest(req);
         return JsonUtils.parse(response.getMessage(), DetectResponse.class);
     }
 
@@ -85,7 +87,7 @@ public class FaceIdClient
      */
     public IdCardV1Response ocrIdCardV1(IdCardV1Request req) throws IOException
     {
-        HttpResponse response = doKeyRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, IdCardV1Response.class);
     }
@@ -96,83 +98,133 @@ public class FaceIdClient
      */
     public IdCardV2Response ocrIdCardV2(IdCardV2Request req) throws IOException
     {
-        HttpResponse response = doKeyRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, IdCardV2Response.class);
     }
 
+    /**
+     * 银行卡 OCR
+     * https://faceid.com/pages/documents/10881161
+     */
     public BankCardResponse ocrBankCard(BankCardRequest req) throws IOException
     {
-        HttpResponse response = doKeyRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, BankCardResponse.class);
     }
 
+    /**
+     * SDK - 获取 biz_token
+     * https://faceid.com/pages/documents/37661898
+     */
     public GetBizTokenResponse appGetBizToken(GetBizTokenRequest req) throws IOException
     {
-        HttpResponse response = doSignRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, GetBizTokenResponse.class);
     }
 
+    /**
+     * Verify V3.0.0
+     * https://faceid.com/pages/documents/37662519
+     */
     public VerifyV3Response appVerifyV3(VerifyV3Request req) throws IOException
     {
-        HttpResponse response = doSignRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, VerifyV3Response.class);
     }
 
+    /**
+     * Verify V2.0.6
+     * https://faceid.com/pages/documents/4173286
+     */
     public VerifyV2Response appVerifyV2(VerifyV2Request req) throws IOException
     {
-        HttpResponse response = doKeyRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, VerifyV2Response.class);
     }
 
+    /**
+     * PC 网页 KYC 验证服务 - 获取 token
+     * https://faceid.com/pages/documents/5680502
+     */
     public PcGetTokenResponse pcGetToken(PcGetTokenRequest req) throws IOException
     {
-        HttpResponse response = doKeyRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, PcGetTokenResponse.class);
     }
 
+    /**
+     * PC 网页 KYC 验证服务 - 获取验证结果
+     * https://faceid.com/pages/documents/5680508
+     */
     public PcGetResultResponse pcGetResult(PcGetResultRequest req) throws IOException
     {
-        HttpResponse response = doKeyRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, PcGetResultResponse.class);
     }
 
+    /**
+     * 移动端网页 KYC 验证服务 Lite - 获取 token
+     * https://faceid.com/pages/documents/5680475
+     */
     public LiteGetTokenResponse liteGetToken(LiteGetTokenRequest req) throws IOException
     {
-        HttpResponse response = doKeyRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, LiteGetTokenResponse.class);
     }
 
+    /**
+     * 移动端网页 KYC 验证服务 Lite - 获取验证结果
+     * https://faceid.com/pages/documents/5680488
+     */
     public LiteGetResultResponse liteGetResult(LiteGetResultRequest req) throws IOException
     {
-        HttpResponse response = doKeyRequest(req);
+        HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, LiteGetResultResponse.class);
     }
 
-    private HttpResponse doKeyRequest(@NotNull IKeyRequest model) throws IOException
+    /**
+     * 移动端网页 KYC 验证服务 Raw - 获取 token
+     * https://faceid.com/pages/documents/7775613
+     */
+    public RawGetRandomNumberResponse rawGetRandomNumber(RawGetRandomNumberRequest req) throws IOException
     {
-        model.setApiKey(faceIdConfig.getApiKey());
-        model.setApiSecret(faceIdConfig.getApiSecret());
-        return doInternalRequest((BaseRequest) model);
+        HttpResponse response = doInternalRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, RawGetRandomNumberResponse.class);
     }
 
-    private HttpResponse doSignRequest(@NotNull ISignRequest model) throws IOException
+    /**
+     * 移动端网页 KYC 验证服务 Raw - 上传读数视频
+     * https://faceid.com/pages/documents/7775631
+     */
+    public RawValidateVideoResponse rawValidateVideo(RawValidateVideoRequest req) throws IOException
     {
-        model.setSign(faceIdConfig.getApiSign());
-        model.setSignVersion("hmac_sha1");
-        return doInternalRequest((BaseRequest) model);
+        HttpResponse response = doInternalRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, RawValidateVideoResponse.class);
     }
 
     private HttpResponse doInternalRequest(BaseRequest model) throws IOException
     {
+        if (model instanceof IKeyRequest)
+        {
+            ((IKeyRequest) model).setApiKey(faceIdConfig.getApiKey());
+            ((IKeyRequest) model).setApiSecret(faceIdConfig.getApiSecret());
+        }
+        else if (model instanceof ISignRequest)
+        {
+            ((ISignRequest) model).setSign(faceIdConfig.getApiSign());
+            ((ISignRequest) model).setSignVersion("hmac_sha1");
+        }
         HttpRequest request = new HttpRequest();
         request.setUrl(this.host.getHostUrl().concat(model.getUrl()));
         request.setData(model.getParams());

@@ -74,7 +74,7 @@ public final class Const
     public static final String API_PARAM_IMAGE_REF3 = API_PARAM_IMAGE_REF + "3";
     public static final String API_PARAM_UUID = "uuid";
     public static final String API_PARAM_DELTA = "delta";
-    public static final String API_PARAM_IMAGE_BEST = "image_best";
+
     public static final String API_PARAM_IMAGE_ENV = "image_env";
     private static final String API_PARAM_IMAGE_ACTION = "image_action";
     public static final String API_PARAM_IMAGE_ACTION1 = API_PARAM_IMAGE_ACTION + "1";
@@ -145,7 +145,7 @@ public final class Const
     public static final String API_PARAM_BIZ_INFO = "biz_info";
     public static final String API_PARAM_IDCARD_INFO = "idcard_info";
     public static final String API_PARAM_IDCARD_MODE_USER = "idcard_mode_user";
-    public static final String API_PARAM_RETURN_IMAGE = "return_image";
+
     public static final String API_PARAM_FRONT_SIDE = "front_side";
     public static final String API_PARAM_BACK_SIDE = "back_side";
     public static final String API_PARAM_OCR_RESULT = "ocr_result";
@@ -181,10 +181,17 @@ public final class Const
     public static final String API_PARAM_IMAGE_FACE_SIDE = "image_face_side";
     // endregion
 
+    // region Raw
+    public static final String API_PARAM_TOKEN_RANDOM_NUMBER = "token_random_number";
+    public static final String API_PARAM_RANDOM_NUMBER = "random_number";
+    public static final String API_PARAM_VIDEO = "video";
+    public static final String API_PARAM_TOKEN_VIDEO = "token_video";
+    // endregion
+
     // region Common
     public static final String API_PARAM_ERROR = "error";
     public static final String API_PARAM_ERROR_MESSAGE = "error_message";
-
+    public static final String API_PARAM_IMAGE_BEST = "image_best";
     public static final String API_PARAM_NAME = "name";
     public static final String API_PARAM_SIDE = "side";
     public static final String API_PARAM_IMAGE = "image";
@@ -217,10 +224,13 @@ public final class Const
     public static final String API_PARAM_MULTI_ORIENTED_DETECTION = "multi_oriented_detection";
     public static final String API_PARAM_RETURN_URL = "return_url";
     public static final String API_PARAM_NOTIFY_URL = "notify_url";
+    public static final String API_PARAM_RETURN_IMAGE = "return_image";
     // endregion
 
+    // region Host URL
     public static final String API_HOST_URL_CHINA = "https://api.megvii.com";
-    //    public static final String API_HOST_URL_CHINA_IPV6 = "https://api-ipv6.megvii.com";
+    // public static final String API_HOST_URL_CHINA_IPV6 = "https://api-ipv6.megvii.com";
     public static final String API_HOST_URL_CHINA_IDN = "https://api-idn.megvii.com";
     public static final String API_HOST_URL_CHINA_SGP = "https://api-sgp.megvii.com";
+    // endregion
 }
