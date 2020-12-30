@@ -23,6 +23,7 @@ public final class JsonUtils
                             BigDecimal value = BigDecimal.valueOf(src);
                             return new JsonPrimitive(value);
                         }) // 禁用科学技术法
+                        /*.setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE_WITH_SPACES)*/
                         .create();
     }
 

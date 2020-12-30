@@ -23,6 +23,8 @@ import com.megvii.faceid.model.raw.RawGetRandomNumberRequest;
 import com.megvii.faceid.model.raw.RawGetRandomNumberResponse;
 import com.megvii.faceid.model.raw.RawValidateVideoRequest;
 import com.megvii.faceid.model.raw.RawValidateVideoResponse;
+import com.megvii.faceid.model.raw.RawVerifyRequest;
+import com.megvii.faceid.model.raw.RawVerifyResponse;
 import com.megvii.faceid.model.verify.v2.VerifyV2Request;
 import com.megvii.faceid.model.verify.v2.VerifyV2Response;
 import com.megvii.faceid.model.verify.v3.GetBizTokenRequest;
@@ -211,6 +213,17 @@ public class FaceIdClient
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, RawValidateVideoResponse.class);
+    }
+
+    /**
+     * 移动端网页 KYC 验证服务 Raw - Verify 验证
+     * https://faceid.com/pages/documents/7775652
+     */
+    public RawVerifyResponse rawVerify(RawVerifyRequest req) throws IOException
+    {
+        HttpResponse response = doInternalRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, RawVerifyResponse.class);
     }
 
     private HttpResponse doInternalRequest(BaseRequest model) throws IOException

@@ -137,7 +137,6 @@ public final class Const
     public static final String API_PARAM_WEB_TITLE = "web_title";
     public static final String API_PARAM_IDCARD_MODE = "idcard_mode";
     public static final String API_PARAM_PROCEDURE_TYPE = "procedure_type";
-    public static final String API_PARAM_LIVENESS_PREFERENCES = "liveness_preferences";
     public static final String API_PARAM_IDCARD_UNEDITABLE_FIELD = "idcard_uneditable_field";
     public static final String API_PARAM_IDCARD_VALID_DATE = "idcard_valid_date";
     public static final String API_PARAM_IDCARD_ISSUED_BY = "idcard_issued_by";
@@ -145,7 +144,6 @@ public final class Const
     public static final String API_PARAM_BIZ_INFO = "biz_info";
     public static final String API_PARAM_IDCARD_INFO = "idcard_info";
     public static final String API_PARAM_IDCARD_MODE_USER = "idcard_mode_user";
-
     public static final String API_PARAM_FRONT_SIDE = "front_side";
     public static final String API_PARAM_BACK_SIDE = "back_side";
     public static final String API_PARAM_OCR_RESULT = "ocr_result";
@@ -186,6 +184,7 @@ public final class Const
     public static final String API_PARAM_RANDOM_NUMBER = "random_number";
     public static final String API_PARAM_VIDEO = "video";
     public static final String API_PARAM_TOKEN_VIDEO = "token_video";
+    public static final String API_PARAM_PROCEDURE_VALIDATION = "procedure_validation";
     // endregion
 
     // region Common
@@ -225,6 +224,7 @@ public final class Const
     public static final String API_PARAM_RETURN_URL = "return_url";
     public static final String API_PARAM_NOTIFY_URL = "notify_url";
     public static final String API_PARAM_RETURN_IMAGE = "return_image";
+    public static final String API_PARAM_LIVENESS_PREFERENCES = "liveness_preferences";
     // endregion
 
     // region Host URL
