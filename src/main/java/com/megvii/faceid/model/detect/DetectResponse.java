@@ -1,7 +1,7 @@
 package com.megvii.faceid.model.detect;
 
 import com.megvii.faceid.model.base.response.BaseResponse;
-import com.megvii.faceid.model.common.FaceInfo;
+import com.megvii.faceid.model.base.common.FaceInfo;
 
 import java.util.List;
 

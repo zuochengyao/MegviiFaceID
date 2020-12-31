@@ -1,8 +1,8 @@
 package com.megvii.faceid.model.base.response;
 
 import com.google.gson.annotations.SerializedName;
-import com.megvii.faceid.model.common.IdExceptions;
-import com.megvii.faceid.model.common.Result;
+import com.megvii.faceid.model.base.common.IdExceptions;
+import com.megvii.faceid.model.base.common.Result;
 import com.megvii.faceid.util.Const;
 
 public class CompareResponse extends BaseResponse

@@ -1,6 +1,6 @@
 package com.megvii.faceid.model.verify.v3;
 
-import com.megvii.faceid.model.base.auth.ISignRequest;
+import com.megvii.faceid.model.base.request.auth.ISignRequest;
 import com.megvii.faceid.model.base.request.CompareRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;

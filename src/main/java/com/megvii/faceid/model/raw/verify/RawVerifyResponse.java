@@ -1,4 +1,4 @@
-package com.megvii.faceid.model.raw;
+package com.megvii.faceid.model.raw.verify;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.response.CompareResponse;

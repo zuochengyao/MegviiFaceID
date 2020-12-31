@@ -1,6 +1,6 @@
 package com.megvii.faceid.model.ocr.bankcard;
 
-import com.megvii.faceid.model.base.auth.IKeyRequest;
+import com.megvii.faceid.model.base.request.auth.IKeyRequest;
 import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.network.http.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;

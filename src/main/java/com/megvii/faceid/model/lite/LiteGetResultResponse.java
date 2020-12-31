@@ -2,11 +2,11 @@ package com.megvii.faceid.model.lite;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.response.BaseResponse;
-import com.megvii.faceid.model.common.FaceGenuineness;
-import com.megvii.faceid.model.common.IdExceptions;
-import com.megvii.faceid.model.common.IdcardDict;
-import com.megvii.faceid.model.common.ImageList;
-import com.megvii.faceid.model.common.Result;
+import com.megvii.faceid.model.base.response.CompareResponse;
+import com.megvii.faceid.model.base.common.FaceGenuineness;
+import com.megvii.faceid.model.base.common.IdcardDict;
+import com.megvii.faceid.model.base.common.ImageList;
+import com.megvii.faceid.model.base.common.Result;
 import com.megvii.faceid.model.ocr.idcard.v1.IdCardV1Response;
 import com.megvii.faceid.util.Const;
 
@@ -717,62 +717,12 @@ public class LiteGetResultResponse extends BaseResponse
         }
     }
 
-    public static class VerifyResult
+    public static class VerifyResult extends CompareResponse
     {
-        @SerializedName(Const.API_PARAM_ERROR_MESSAGE)
-        private String errorMessage;
-        @SerializedName(Const.API_PARAM_RESULT_FACEID)
-        private Result resultFaceId;
-        @SerializedName(Const.API_PARAM_RESULT_REF1)
-        private Result resultRef1;
-        @SerializedName(Const.API_PARAM_RESULT_REF2)
-        private Result resultRef2;
         @SerializedName(Const.API_PARAM_RESULT_IDCARD_PHOTO)
         private Result resultIdcardPhoto;
         @SerializedName(Const.API_PARAM_RESULT_IDCARD_DATASOURCE)
         private Result resultIdcardDatasource;
-        @SerializedName(Const.API_PARAM_ID_EXCEPTIONS)
-        private IdExceptions idExceptions;
-
-        public String getErrorMessage()
-        {
-            return errorMessage;
-        }
-
-        public void setErrorMessage(String errorMessage)
-        {
-            this.errorMessage = errorMessage;
-        }
-
-        public Result getResultFaceId()
-        {
-            return resultFaceId;
-        }
-
-        public void setResultFaceId(Result resultFaceId)
-        {
-            this.resultFaceId = resultFaceId;
-        }
-
-        public Result getResultRef1()
-        {
-            return resultRef1;
-        }
-
-        public void setResultRef1(Result resultRef1)
-        {
-            this.resultRef1 = resultRef1;
-        }
-
-        public Result getResultRef2()
-        {
-            return resultRef2;
-        }
-
-        public void setResultRef2(Result resultRef2)
-        {
-            this.resultRef2 = resultRef2;
-        }
 
         public Result getResultIdcardPhoto()
         {
@@ -792,16 +742,6 @@ public class LiteGetResultResponse extends BaseResponse
         public void setResultIdcardDatasource(Result resultIdcardDatasource)
         {
             this.resultIdcardDatasource = resultIdcardDatasource;
-        }
-
-        public IdExceptions getIdExceptions()
-        {
-            return idExceptions;
-        }
-
-        public void setIdExceptions(IdExceptions idExceptions)
-        {
-            this.idExceptions = idExceptions;
         }
     }
 }

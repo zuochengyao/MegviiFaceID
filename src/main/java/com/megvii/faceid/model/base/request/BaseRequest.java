@@ -1,6 +1,6 @@
 package com.megvii.faceid.model.base.request;
 
-import com.megvii.faceid.model.base.auth.IRequest;
+import com.megvii.faceid.model.base.request.auth.IRequest;
 import com.megvii.faceid.network.http.HttpHeader;
 
 import java.util.HashMap;

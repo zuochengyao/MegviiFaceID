@@ -1,26 +1,17 @@
-package com.megvii.faceid.model.raw;
+package com.megvii.faceid.model.raw.selfie;
 
-import com.megvii.faceid.model.base.auth.IKeyRequest;
-import com.megvii.faceid.model.base.request.CompareRequest;
+import com.megvii.faceid.model.base.request.auth.IKeyRequest;
+import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.network.http.HttpMethod;
+import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
-public class RawVerifyRequest extends CompareRequest implements IKeyRequest
+import java.io.File;
+
+public class RawValidateFrontFaceRequest extends BaseRequest implements IKeyRequest
 {
-    private String token;
     private String bizNo;
-    private String livenessPreferences;
-
-    public String getToken()
-    {
-        return token;
-    }
-
-    public void setToken(String token)
-    {
-        this.token = token;
-        this.addStringParam(Const.API_PARAM_TOKEN, token);
-    }
+    private byte[] selfie;
 
     public String getBizNo()
     {
@@ -33,15 +24,21 @@ public class RawVerifyRequest extends CompareRequest implements IKeyRequest
         this.addStringParam(Const.API_PARAM_BIZ_NO, bizNo);
     }
 
-    public String getLivenessPreferences()
+    public byte[] getSelfie()
     {
-        return livenessPreferences;
+        return selfie;
     }
 
-    public void setLivenessPreferences(String livenessPreferences)
+    public void setSelfie(File selfie)
     {
-        this.livenessPreferences = livenessPreferences;
-        this.addStringParam(Const.API_PARAM_LIVENESS_PREFERENCES, livenessPreferences);
+        if (selfie != null)
+            this.setSelfie(CommonUtils.getFileBytes(selfie));
+    }
+
+    public void setSelfie(byte[] selfie)
+    {
+        this.selfie = selfie;
+        this.addBinaryParam(Const.API_PARAM_SELFIE, selfie);
     }
 
     @Override
@@ -61,7 +58,7 @@ public class RawVerifyRequest extends CompareRequest implements IKeyRequest
     @Override
     public String getUrl()
     {
-        return "/faceid/lite/raw/verify";
+        return "/faceid/lite/raw/validate_front_face ";
     }
 
     @Override

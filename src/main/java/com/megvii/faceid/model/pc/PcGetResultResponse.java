@@ -2,7 +2,7 @@ package com.megvii.faceid.model.pc;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.response.BaseResponse;
-import com.megvii.faceid.model.common.ImageList;
+import com.megvii.faceid.model.base.common.ImageList;
 import com.megvii.faceid.model.verify.v2.VerifyV2Response;
 import com.megvii.faceid.util.Const;
 

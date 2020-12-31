@@ -1,7 +1,7 @@
 package com.megvii.faceid;
 
-import com.megvii.faceid.model.base.auth.IKeyRequest;
-import com.megvii.faceid.model.base.auth.ISignRequest;
+import com.megvii.faceid.model.base.request.auth.IKeyRequest;
+import com.megvii.faceid.model.base.request.auth.ISignRequest;
 import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.model.detect.DetectRequest;
 import com.megvii.faceid.model.detect.DetectResponse;
@@ -19,12 +19,16 @@ import com.megvii.faceid.model.pc.PcGetResultRequest;
 import com.megvii.faceid.model.pc.PcGetResultResponse;
 import com.megvii.faceid.model.pc.PcGetTokenRequest;
 import com.megvii.faceid.model.pc.PcGetTokenResponse;
-import com.megvii.faceid.model.raw.RawGetRandomNumberRequest;
-import com.megvii.faceid.model.raw.RawGetRandomNumberResponse;
-import com.megvii.faceid.model.raw.RawValidateVideoRequest;
-import com.megvii.faceid.model.raw.RawValidateVideoResponse;
-import com.megvii.faceid.model.raw.RawVerifyRequest;
-import com.megvii.faceid.model.raw.RawVerifyResponse;
+import com.megvii.faceid.model.raw.video.RawGetRandomNumberRequest;
+import com.megvii.faceid.model.raw.video.RawGetRandomNumberResponse;
+import com.megvii.faceid.model.raw.selfie.RawValidateFrontFaceRequest;
+import com.megvii.faceid.model.raw.selfie.RawValidateFrontFaceResponse;
+import com.megvii.faceid.model.raw.selfie.RawValidateSideFaceRequest;
+import com.megvii.faceid.model.raw.selfie.RawValidateSideFaceResponse;
+import com.megvii.faceid.model.raw.video.RawValidateVideoRequest;
+import com.megvii.faceid.model.raw.video.RawValidateVideoResponse;
+import com.megvii.faceid.model.raw.verify.RawVerifyRequest;
+import com.megvii.faceid.model.raw.verify.RawVerifyResponse;
 import com.megvii.faceid.model.verify.v2.VerifyV2Request;
 import com.megvii.faceid.model.verify.v2.VerifyV2Response;
 import com.megvii.faceid.model.verify.v3.GetBizTokenRequest;
@@ -213,6 +217,28 @@ public class FaceIdClient
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, RawValidateVideoResponse.class);
+    }
+
+    /**
+     * 移动端网页 KYC 验证服务 Raw - 上传用户自拍正脸照片
+     * https://faceid.com/pages/documents/7775665
+     */
+    public RawValidateFrontFaceResponse RawValidateFrontFace(RawValidateFrontFaceRequest req) throws IOException
+    {
+        HttpResponse response = doInternalRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, RawValidateFrontFaceResponse.class);
+    }
+
+    /**
+     * 移动端网页 KYC 验证服务 Raw - 验证用户的侧脸照片
+     * https://faceid.com/pages/documents/7775684
+     */
+    public RawValidateSideFaceResponse RawValidateSideFace(RawValidateSideFaceRequest req) throws IOException
+    {
+        HttpResponse response = doInternalRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, RawValidateSideFaceResponse.class);
     }
 
     /**

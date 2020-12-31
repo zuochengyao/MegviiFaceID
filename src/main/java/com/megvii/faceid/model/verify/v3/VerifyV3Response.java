@@ -2,8 +2,8 @@ package com.megvii.faceid.model.verify.v3;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.response.BaseResponse;
-import com.megvii.faceid.model.common.ImageList;
-import com.megvii.faceid.model.common.Result;
+import com.megvii.faceid.model.base.common.ImageList;
+import com.megvii.faceid.model.base.common.Result;
 import com.megvii.faceid.util.Const;
 
 public class VerifyV3Response extends BaseResponse

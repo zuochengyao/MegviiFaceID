@@ -1,4 +1,4 @@
-package com.megvii.faceid.model.common;
+package com.megvii.faceid.model.base.common;
 
 public class PointRectF
 {

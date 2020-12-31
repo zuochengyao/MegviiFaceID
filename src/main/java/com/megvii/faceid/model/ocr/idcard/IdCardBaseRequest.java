@@ -1,13 +1,13 @@
 package com.megvii.faceid.model.ocr.idcard;
 
-import com.megvii.faceid.model.base.auth.IKeyRequest;
+import com.megvii.faceid.model.base.request.auth.IKeyRequest;
 import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public abstract class BaseIdCardRequest extends BaseRequest implements IKeyRequest
+public abstract class IdCardBaseRequest extends BaseRequest implements IKeyRequest
 {
     private byte[] image;
 
