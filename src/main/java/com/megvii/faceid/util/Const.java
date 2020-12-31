@@ -161,6 +161,8 @@ public final class Const
     public static final String API_PARAM_IMAGE_IDCARD_FRONT = "image_idcard_front";
     public static final String API_PARAM_IMAGE_FACE_FRONT = "image_face_front";
     public static final String API_PARAM_IMAGE_FACE_SIDE = "image_face_side";
+    public static final String API_PARAM_GET_SHOOTING_ERROR = "get_shooting_error";
+    public static final String API_PARAM_MAXIMUM_SHOOTING_TIME = "maximum_shooting_time";
     // endregion
 
     // region Raw

@@ -10,6 +10,8 @@ public class LiteGetTokenRequest extends H5Request implements IKeyRequest
     private String webTitle;
     private String procedureType;
     private String livenessPreferences;
+    private String getShootingError;
+    private int maximumShootingTime;
     private String idcardMode;
     private String idcardUnEditableField;
     private String fmpMode;
@@ -45,6 +47,28 @@ public class LiteGetTokenRequest extends H5Request implements IKeyRequest
     {
         this.livenessPreferences = livenessPreferences;
         this.addStringParam(Const.API_PARAM_LIVENESS_PREFERENCES, livenessPreferences);
+    }
+
+    public String getGetShootingError()
+    {
+        return getShootingError;
+    }
+
+    public void setGetShootingError(String getShootingError)
+    {
+        this.getShootingError = getShootingError;
+        this.addStringParam(Const.API_PARAM_GET_SHOOTING_ERROR, getShootingError);
+    }
+
+    public int getMaximumShootingTime()
+    {
+        return maximumShootingTime;
+    }
+
+    public void setMaximumShootingTime(int maximumShootingTime)
+    {
+        this.maximumShootingTime = maximumShootingTime;
+        this.addStringParam(Const.API_PARAM_MAXIMUM_SHOOTING_TIME, maximumShootingTime);
     }
 
     public String getIdcardMode()
