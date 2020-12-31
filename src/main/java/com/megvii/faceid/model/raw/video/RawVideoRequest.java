@@ -6,22 +6,10 @@ import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public class RawValidateVideoRequest extends RawBaseRequest
+public abstract class RawVideoRequest extends RawBaseRequest
 {
-    private String tokenRandomNumber;
-    private byte[] video;
-    private String returnImage;
-
-    public String getTokenRandomNumber()
-    {
-        return tokenRandomNumber;
-    }
-
-    public void setTokenRandomNumber(String tokenRandomNumber)
-    {
-        this.tokenRandomNumber = tokenRandomNumber;
-        this.addStringParam(Const.API_PARAM_TOKEN_RANDOM_NUMBER, tokenRandomNumber);
-    }
+    protected byte[] video;
+    protected String returnImage;
 
     public byte[] getVideo()
     {
@@ -49,11 +37,5 @@ public class RawValidateVideoRequest extends RawBaseRequest
     {
         this.returnImage = returnImage;
         this.addStringParam(Const.API_PARAM_RETURN_IMAGE, returnImage);
-    }
-
-    @Override
-    public String getUrl()
-    {
-        return "/faceid/lite/raw/validate_video";
     }
 }

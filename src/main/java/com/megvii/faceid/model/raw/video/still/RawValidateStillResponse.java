@@ -1,24 +1,24 @@
-package com.megvii.faceid.model.raw.video;
+package com.megvii.faceid.model.raw.video.still;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.raw.RawBaseResponse;
 import com.megvii.faceid.util.Const;
 
-public class RawValidateVideoResponse extends RawBaseResponse
+public class RawValidateStillResponse extends RawBaseResponse
 {
-    @SerializedName(Const.API_PARAM_TOKEN_VIDEO)
-    private String tokenVideo;
+    @SerializedName(Const.API_PARAM_TOKEN_STILL)
+    private String tokenStill;
     @SerializedName(Const.API_PARAM_IMAGE_BEST)
     private String imageBest;
 
-    public String getTokenVideo()
+    public String getTokenStill()
     {
-        return tokenVideo;
+        return tokenStill;
     }
 
-    public void setTokenVideo(String tokenVideo)
+    public void setTokenStill(String tokenStill)
     {
-        this.tokenVideo = tokenVideo;
+        this.tokenStill = tokenStill;
     }
 
     public String getImageBest()

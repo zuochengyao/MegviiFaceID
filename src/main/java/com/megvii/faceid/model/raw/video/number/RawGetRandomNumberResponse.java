@@ -1,4 +1,4 @@
-package com.megvii.faceid.model.raw.video;
+package com.megvii.faceid.model.raw.video.number;
 
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.raw.RawBaseResponse;

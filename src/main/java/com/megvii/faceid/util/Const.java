@@ -16,13 +16,7 @@ public final class Const
     // endregion
 
     // region IDCard OCR V1
-    public static final String API_PARAM_FRONT = "front";
-    public static final String API_PARAM_BACK = "back";
-    public static final String API_PARAM_BIRTHDAY_YEAR = "year";
-    public static final String API_PARAM_BIRTHDAY_MONTH = "month";
-    public static final String API_PARAM_BIRTHDAY_DAY = "day";
     public static final String API_PARAM_ID_CARD_NUMBER = "id_card_number";
-    public static final String API_PARAM_RACE = "race";
     public static final String API_PARAM_VALID_DATE = "valid_date";
     public static final String API_PARAM_HEAD_RECT = "head_rect";
     public static final String API_PARAM_LEGALITY_ID_PHOTO_V1 = "ID Photo";
@@ -30,7 +24,6 @@ public final class Const
     // endregion
 
     // region IDCard OCR V2
-    public static final String API_PARAM_PORTRAIT = "portrait";
     public static final String API_PARAM_RETURN_PORTRAIT = "return_portrait";
     public static final String API_PARAM_LOGIC = "logic";
     public static final String API_PARAM_COMPLETENESS = "completeness";
@@ -188,40 +181,25 @@ public final class Const
     public static final String API_PARAM_SELFIE = "selfie";
     public static final String API_PARAM_TOKEN_FRONT_FACE = "token_front_face";
     public static final String API_PARAM_TOKEN_SIDE_FACE = "token_side_face";
+    public static final String API_PARAM_TOKEN_STILL = "token_still";
     // endregion
 
     // region Common
     public static final String API_PARAM_ERROR = "error";
     public static final String API_PARAM_ERROR_MESSAGE = "error_message";
     public static final String API_PARAM_IMAGE_BEST = "image_best";
-    public static final String API_PARAM_NAME = "name";
-    public static final String API_PARAM_SIDE = "side";
     public static final String API_PARAM_IMAGE = "image";
-    public static final String API_PARAM_FACES = "faces";
-    public static final String API_PARAM_QUALITY = "quality";
     public static final String API_PARAM_QUALITY_THRESHOLD = "quality_threshold";
-    public static final String API_PARAM_RECT = "rect";
     public static final String API_PARAM_RT = "rt";
     public static final String API_PARAM_LT = "lt";
     public static final String API_PARAM_RB = "rb";
     public static final String API_PARAM_LB = "lb";
-    public static final String API_PARAM_X = "x";
-    public static final String API_PARAM_Y = "y";
     public static final String API_PARAM_ISSUED_BY = "issued_by";
     public static final String API_PARAM_LEGALITY = "legality";
     public static final String API_PARAM_LEGALITY_EDITED = "Edited";
     public static final String API_PARAM_LEGALITY_PHOTOCOPY = "Photocopy";
     public static final String API_PARAM_LEGALITY_SCREEN = "Screen";
-    public static final String API_PARAM_ADDRESS = "address";
-    public static final String API_PARAM_BIRTHDAY = "birthday";
-    public static final String API_PARAM_GENDER = "gender";
     public static final String API_PARAM_IDCARD_NUMBER = "idcard_number";
-    public static final String API_PARAM_RESULT = "result";
-    public static final String API_PARAM_ORIENTATION = "orientation";
-    public static final String API_PARAM_LEFT = "left";
-    public static final String API_PARAM_TOP = "top";
-    public static final String API_PARAM_WIDTH = "width";
-    public static final String API_PARAM_HEIGHT = "height";
     public static final String API_PARAM_BIZ_NO = "biz_no";
     public static final String API_PARAM_MULTI_ORIENTED_DETECTION = "multi_oriented_detection";
     public static final String API_PARAM_RETURN_URL = "return_url";

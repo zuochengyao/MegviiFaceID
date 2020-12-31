@@ -19,16 +19,18 @@ import com.megvii.faceid.model.pc.PcGetResultRequest;
 import com.megvii.faceid.model.pc.PcGetResultResponse;
 import com.megvii.faceid.model.pc.PcGetTokenRequest;
 import com.megvii.faceid.model.pc.PcGetTokenResponse;
-import com.megvii.faceid.model.raw.video.RawGetRandomNumberRequest;
-import com.megvii.faceid.model.raw.video.RawGetRandomNumberResponse;
+import com.megvii.faceid.model.raw.video.number.RawGetRandomNumberRequest;
+import com.megvii.faceid.model.raw.video.number.RawGetRandomNumberResponse;
 import com.megvii.faceid.model.raw.selfie.RawValidateFrontFaceRequest;
 import com.megvii.faceid.model.raw.selfie.RawValidateFrontFaceResponse;
 import com.megvii.faceid.model.raw.selfie.RawValidateSideFaceRequest;
 import com.megvii.faceid.model.raw.selfie.RawValidateSideFaceResponse;
-import com.megvii.faceid.model.raw.video.RawValidateVideoRequest;
-import com.megvii.faceid.model.raw.video.RawValidateVideoResponse;
+import com.megvii.faceid.model.raw.video.number.RawValidateVideoRequest;
+import com.megvii.faceid.model.raw.video.number.RawValidateVideoResponse;
 import com.megvii.faceid.model.raw.verify.RawVerifyRequest;
 import com.megvii.faceid.model.raw.verify.RawVerifyResponse;
+import com.megvii.faceid.model.raw.video.still.RawValidateStillRequest;
+import com.megvii.faceid.model.raw.video.still.RawValidateStillResponse;
 import com.megvii.faceid.model.verify.v2.VerifyV2Request;
 import com.megvii.faceid.model.verify.v2.VerifyV2Response;
 import com.megvii.faceid.model.verify.v3.GetBizTokenRequest;
@@ -239,6 +241,17 @@ public class FaceIdClient
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
         return JsonUtils.parse(message, RawValidateSideFaceResponse.class);
+    }
+
+    /**
+     * 移动端网页 KYC 验证服务 Raw - 上传静默视频
+     * https://faceid.com/pages/documents/218677281
+     */
+    public RawValidateStillResponse RawValidateStill(RawValidateStillRequest req) throws IOException
+    {
+        HttpResponse response = doInternalRequest(req);
+        String message = response.getMessage();
+        return JsonUtils.parse(message, RawValidateStillResponse.class);
     }
 
     /**
