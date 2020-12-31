@@ -1,18 +1,15 @@
 package com.megvii.faceid.model.raw.video;
 
-import com.megvii.faceid.model.base.request.auth.IKeyRequest;
-import com.megvii.faceid.model.base.request.BaseRequest;
-import com.megvii.faceid.network.http.HttpMethod;
+import com.megvii.faceid.model.raw.RawBaseRequest;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
-public class RawValidateVideoRequest extends BaseRequest implements IKeyRequest
+public class RawValidateVideoRequest extends RawBaseRequest
 {
     private String tokenRandomNumber;
     private byte[] video;
-    private String bizNo;
     private String returnImage;
 
     public String getTokenRandomNumber()
@@ -43,17 +40,6 @@ public class RawValidateVideoRequest extends BaseRequest implements IKeyRequest
         this.addBinaryParam(Const.API_PARAM_VIDEO, video);
     }
 
-    public String getBizNo()
-    {
-        return bizNo;
-    }
-
-    public void setBizNo(String bizNo)
-    {
-        this.bizNo = bizNo;
-        this.addStringParam(Const.API_PARAM_BIZ_NO, bizNo);
-    }
-
     public String getReturnImage()
     {
         return returnImage;
@@ -66,28 +52,8 @@ public class RawValidateVideoRequest extends BaseRequest implements IKeyRequest
     }
 
     @Override
-    public void setApiKey(String apiKey)
-    {
-        this.apiKey = apiKey;
-        this.addStringParam(Const.API_PARAM_API_KEY, apiKey);
-    }
-
-    @Override
-    public void setApiSecret(String apiSecret)
-    {
-        this.apiSecret = apiSecret;
-        this.addStringParam(Const.API_PARAM_API_SECRET, apiSecret);
-    }
-
-    @Override
     public String getUrl()
     {
         return "/faceid/lite/raw/validate_video";
-    }
-
-    @Override
-    public HttpMethod method()
-    {
-        return HttpMethod.POST;
     }
 }

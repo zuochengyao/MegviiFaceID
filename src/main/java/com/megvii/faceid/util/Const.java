@@ -187,6 +187,7 @@ public final class Const
     public static final String API_PARAM_PROCEDURE_VALIDATION = "procedure_validation";
     public static final String API_PARAM_SELFIE = "selfie";
     public static final String API_PARAM_TOKEN_FRONT_FACE = "token_front_face";
+    public static final String API_PARAM_TOKEN_SIDE_FACE = "token_side_face";
     // endregion
 
     // region Common

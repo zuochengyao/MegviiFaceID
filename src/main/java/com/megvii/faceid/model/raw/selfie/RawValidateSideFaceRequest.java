@@ -1,36 +1,25 @@
 package com.megvii.faceid.model.raw.selfie;
 
-import com.megvii.faceid.model.base.request.auth.IKeyRequest;
-import com.megvii.faceid.model.base.request.BaseRequest;
-import com.megvii.faceid.network.http.HttpMethod;
+import com.megvii.faceid.util.Const;
 
-public class RawValidateSideFaceRequest extends BaseRequest implements IKeyRequest
+public class RawValidateSideFaceRequest extends RawSelfieRequest
 {
-    private String bizNo;
     private String tokenFrontFace;
-    private byte[] selfie;
 
-    @Override
-    public void setApiKey(String apiKey)
+    public String getTokenFrontFace()
     {
-
+        return tokenFrontFace;
     }
 
-    @Override
-    public void setApiSecret(String apiSecret)
+    public void setTokenFrontFace(String tokenFrontFace)
     {
-
+        this.tokenFrontFace = tokenFrontFace;
+        this.addStringParam(Const.API_PARAM_TOKEN_FRONT_FACE, tokenFrontFace);
     }
 
     @Override
     public String getUrl()
     {
-        return null;
-    }
-
-    @Override
-    public HttpMethod method()
-    {
-        return null;
+        return "/faceid/lite/raw/validate_side_face ";
     }
 }

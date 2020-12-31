@@ -7,7 +7,7 @@ import com.megvii.faceid.util.Const;
 
 public abstract class RawBaseRequest extends BaseRequest implements IKeyRequest
 {
-    private String bizNo;
+    protected String bizNo;
 
     public String getBizNo()
     {
