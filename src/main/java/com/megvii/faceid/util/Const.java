@@ -25,8 +25,6 @@ public final class Const
 
     // region IDCard OCR V2
     public static final String API_PARAM_RETURN_PORTRAIT = "return_portrait";
-    public static final String API_PARAM_LOGIC = "logic";
-    public static final String API_PARAM_COMPLETENESS = "completeness";
     public static final String API_PARAM_CARD_RECT = "card_rect";
     public static final String API_PARAM_VALID_DATE_START = "valid_date_start";
     public static final String API_PARAM_VALID_DATE_END = "valid_date_end";
@@ -36,18 +34,13 @@ public final class Const
     public static final String API_PARAM_BIRTH_YEAR = "birth_year";
     public static final String API_PARAM_BIRTH_MONTH = "birth_month";
     public static final String API_PARAM_BIRTH_DAY = "birth_day";
-    public static final String API_PARAM_NATIONALITY = "nationality";
     // endregion
 
     // region BankCard
-    public static final String API_PARAM_BANK = "bank";
-    public static final String API_PARAM_NUMBER = "number";
-    public static final String API_PARAM_ORGANIZATION = "organization";
     public static final String API_PARAM_LEFT_BOTTOM = "left_bottom";
     public static final String API_PARAM_RIGHT_TOP = "right_top";
     public static final String API_PARAM_RIGHT_BOTTOM = "right_bottom";
     public static final String API_PARAM_LEFT_TOP = "left_top";
-    public static final String API_PARAM_POSITION = "position";
     // endregion
 
     // region App-GetBizToken & Verify
@@ -82,8 +75,6 @@ public final class Const
     public static final String API_PARAM_FACE_QUALITY_THRESHOLD = "face_quality_threshold";
     public static final String API_PARAM_RETURN_FACES = "return_faces";
     public static final String API_PARAM_MEGLIVE_FLASH_RESULT = "meglive_flash_result";
-    public static final String API_PARAM_CONFIDENCE = "confidence";
-    public static final String API_PARAM_THRESHOLDS = "thresholds";
     public static final String API_PARAM_THRESHOLDS_1E_3 = "1e-3";
     public static final String API_PARAM_THRESHOLDS_1E_4 = "1e-4";
     public static final String API_PARAM_THRESHOLDS_1E_5 = "1e-5";
@@ -185,7 +176,8 @@ public final class Const
     // endregion
 
     // region Common
-    public static final String API_PARAM_ERROR = "error";
+    public static final String API_PARAM_ERROR_LOWERCASE = "error";
+    public static final String API_PARAM_ERROR_UPPERCASE = "ERROR";
     public static final String API_PARAM_ERROR_MESSAGE = "error_message";
     public static final String API_PARAM_IMAGE_BEST = "image_best";
     public static final String API_PARAM_IMAGE = "image";

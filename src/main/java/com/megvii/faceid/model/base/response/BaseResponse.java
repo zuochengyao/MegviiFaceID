@@ -9,7 +9,7 @@ public abstract class BaseResponse
     protected String requestId;
     @SerializedName(Const.API_PARAM_TIME_USED)
     protected Integer timeUsed;
-    @SerializedName(value = Const.API_PARAM_ERROR, alternate = Const.API_PARAM_ERROR_MESSAGE)
+    @SerializedName(value = Const.API_PARAM_ERROR_LOWERCASE, alternate = {Const.API_PARAM_ERROR_MESSAGE, Const.API_PARAM_ERROR_UPPERCASE})
     protected String error;
 
     public String getRequestId()

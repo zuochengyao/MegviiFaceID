@@ -1,6 +1,7 @@
 package com.megvii.faceid.model.ocr.idcard.v2;
 
 import com.google.gson.annotations.SerializedName;
+import com.megvii.faceid.model.base.common.PointRect;
 import com.megvii.faceid.model.base.response.BaseResponse;
 import com.megvii.faceid.model.base.common.IdcardDict;
 import com.megvii.faceid.model.base.common.Legality;
@@ -31,23 +32,25 @@ public class IdCardV2Response extends BaseResponse
     private IdcardDict validDateEnd;
     private Legality legality;
     private Integer completeness;
+    @SerializedName(Const.API_PARAM_CARD_RECT)
+    private PointRect cardRect;
 
-    public int getResult()
+    public Integer getResult()
     {
         return result;
     }
 
-    public void setResult(int result)
+    public void setResult(Integer result)
     {
         this.result = result;
     }
 
-    public int getSide()
+    public Integer getSide()
     {
         return side;
     }
 
-    public void setSide(int side)
+    public void setSide(Integer side)
     {
         this.side = side;
     }
@@ -182,13 +185,23 @@ public class IdCardV2Response extends BaseResponse
         this.legality = legality;
     }
 
-    public int getCompleteness()
+    public Integer getCompleteness()
     {
         return completeness;
     }
 
-    public void setCompleteness(int completeness)
+    public void setCompleteness(Integer completeness)
     {
         this.completeness = completeness;
+    }
+
+    public PointRect getCardRect()
+    {
+        return cardRect;
+    }
+
+    public void setCardRect(PointRect cardRect)
+    {
+        this.cardRect = cardRect;
     }
 }
