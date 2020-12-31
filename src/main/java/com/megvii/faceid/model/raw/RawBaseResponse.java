@@ -7,7 +7,7 @@ import com.megvii.faceid.util.Const;
 public abstract class RawBaseResponse extends BaseResponse
 {
     @SerializedName(Const.API_PARAM_BIZ_NO)
-    private String bizNo;
+    protected String bizNo;
 
     public String getBizNo()
     {
