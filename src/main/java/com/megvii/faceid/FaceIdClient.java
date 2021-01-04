@@ -37,10 +37,10 @@ import com.megvii.faceid.model.verify.v3.GetBizTokenRequest;
 import com.megvii.faceid.model.verify.v3.GetBizTokenResponse;
 import com.megvii.faceid.model.verify.v3.VerifyV3Request;
 import com.megvii.faceid.model.verify.v3.VerifyV3Response;
-import com.megvii.faceid.network.HttpConfig;
-import com.megvii.faceid.network.HttpManager;
-import com.megvii.faceid.network.HttpRequest;
-import com.megvii.faceid.network.HttpResponse;
+import com.megvii.faceid.http.HttpConfig;
+import com.megvii.faceid.http.HttpManager;
+import com.megvii.faceid.http.HttpRequest;
+import com.megvii.faceid.http.HttpResponse;
 import com.megvii.faceid.util.JsonUtils;
 
 import java.io.IOException;

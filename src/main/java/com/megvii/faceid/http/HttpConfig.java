@@ -1,11 +1,10 @@
-package com.megvii.faceid.network;
+package com.megvii.faceid.http;
 
 import java.net.Proxy;
 
 public class HttpConfig
 {
     public static final String CLASSNAME_OKHTTP = "okhttp3.OkHttpClient";
-    public static final String CLASSNAME_ORIGIN = "java.net.HttpURLConnection";
 
     /** 连接超时时长 单位：毫秒 */
     private final int mConnectTimeout;
@@ -75,7 +74,7 @@ public class HttpConfig
         private int readTimeout = 10000;
         private int writeTimeout = 10000;
         private boolean retryOnConnectionFailure = true;
-        private String httpClassName = CLASSNAME_ORIGIN;
+        private String httpClassName = CLASSNAME_OKHTTP;
         private Proxy proxy;
 
         public Builder setConnectTimeout(int timeout)

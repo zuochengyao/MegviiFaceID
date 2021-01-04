@@ -1,7 +1,4 @@
-package com.megvii.faceid.network.http.base;
-
-import com.megvii.faceid.network.http.HttpStatus;
-import com.megvii.faceid.network.http.HttpHeader;
+package com.megvii.faceid.http.base;
 
 import java.io.Closeable;
 import java.io.IOException;

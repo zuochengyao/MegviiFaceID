@@ -1,6 +1,6 @@
-package com.megvii.faceid.network;
+package com.megvii.faceid.http;
 
-import com.megvii.faceid.network.http.base.IResponse;
+import com.megvii.faceid.http.base.IResponse;
 
 import java.io.IOException;
 import java.io.InputStream;

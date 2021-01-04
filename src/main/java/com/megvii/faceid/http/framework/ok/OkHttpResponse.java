@@ -1,8 +1,8 @@
-package com.megvii.faceid.network.framework.ok;
+package com.megvii.faceid.http.framework.ok;
 
-import com.megvii.faceid.network.HttpResponse;
-import com.megvii.faceid.network.http.HttpHeader;
-import com.megvii.faceid.network.http.HttpStatus;
+import com.megvii.faceid.http.HttpResponse;
+import com.megvii.faceid.http.base.HttpHeader;
+import com.megvii.faceid.http.base.HttpStatus;
 
 import java.io.IOException;
 import java.io.InputStream;

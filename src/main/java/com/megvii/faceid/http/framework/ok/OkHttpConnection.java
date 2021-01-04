@@ -1,9 +1,9 @@
-package com.megvii.faceid.network.framework.ok;
+package com.megvii.faceid.http.framework.ok;
 
-import com.megvii.faceid.network.HttpConfig;
-import com.megvii.faceid.network.HttpRequest;
-import com.megvii.faceid.network.HttpResponse;
-import com.megvii.faceid.network.framework.IHttpConnection;
+import com.megvii.faceid.http.HttpConfig;
+import com.megvii.faceid.http.HttpRequest;
+import com.megvii.faceid.http.HttpResponse;
+import com.megvii.faceid.http.framework.IHttpConnection;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -13,7 +13,6 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -43,29 +42,15 @@ public class OkHttpConnection extends IHttpConnection
         return new OkHttpResponse(okResponse);
     }
 
-    @Override
-    public void enqueue(HttpRequest request) throws IOException
-    {
-        newCall(request).enqueue(new Callback()
-        {
-            @Override
-            public void onFailure(Call call, IOException e)
-            {
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException
-            {
-
-            }
-        });
-    }
-
     private Call newCall(HttpRequest request)
     {
         Call call;
         mRequestBuilder = new Request.Builder();
+        if (request.getHeader() != null && request.getHeader().size() > 0)
+        {
+            for (Map.Entry<String, String> entry : request.getHeader().entrySet())
+                mRequestBuilder.addHeader(entry.getKey(), entry.getValue());
+        }
         switch (request.method())
         {
             default:

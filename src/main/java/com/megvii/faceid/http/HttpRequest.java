@@ -1,7 +1,7 @@
-package com.megvii.faceid.network;
+package com.megvii.faceid.http;
 
-import com.megvii.faceid.network.http.HttpHeader;
-import com.megvii.faceid.network.http.HttpMethod;
+import com.megvii.faceid.http.base.HttpHeader;
+import com.megvii.faceid.http.base.HttpMethod;
 
 import java.util.Map;
 

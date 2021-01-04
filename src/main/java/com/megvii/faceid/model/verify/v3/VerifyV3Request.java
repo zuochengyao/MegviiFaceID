@@ -3,7 +3,7 @@ package com.megvii.faceid.model.verify.v3;
 import com.google.gson.annotations.SerializedName;
 import com.megvii.faceid.model.base.request.auth.ISignRequest;
 import com.megvii.faceid.model.base.request.BaseRequest;
-import com.megvii.faceid.network.http.HttpMethod;
+import com.megvii.faceid.http.base.HttpMethod;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
 

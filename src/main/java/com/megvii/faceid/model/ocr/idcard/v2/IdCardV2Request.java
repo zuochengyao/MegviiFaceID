@@ -1,7 +1,7 @@
 package com.megvii.faceid.model.ocr.idcard.v2;
 
 import com.megvii.faceid.model.ocr.idcard.IdCardBaseRequest;
-import com.megvii.faceid.network.http.HttpMethod;
+import com.megvii.faceid.http.base.HttpMethod;
 import com.megvii.faceid.util.Const;
 
 import org.jetbrains.annotations.NotNull;
