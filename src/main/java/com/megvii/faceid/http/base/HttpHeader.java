@@ -1,7 +1,5 @@
 package com.megvii.faceid.http.base;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -189,7 +187,7 @@ public class HttpHeader implements Map<String, String>
     }
 
     @Override
-    public void putAll(@NotNull Map<? extends String, ? extends String> m)
+    public void putAll(Map<? extends String, ? extends String> m)
     {
         mMap.putAll(m);
     }
@@ -200,24 +198,18 @@ public class HttpHeader implements Map<String, String>
         mMap.clear();
     }
 
-
-    @NotNull
     @Override
     public Set<String> keySet()
     {
         return mMap.keySet();
     }
 
-
-    @NotNull
     @Override
     public Collection<String> values()
     {
         return mMap.values();
     }
 
-
-    @NotNull
     @Override
     public Set<Entry<String, String>> entrySet()
     {

@@ -1,10 +1,8 @@
 package com.megvii.faceid.model.ocr.idcard.v1;
 
-import com.megvii.faceid.model.ocr.idcard.IdCardBaseRequest;
 import com.megvii.faceid.http.base.HttpMethod;
+import com.megvii.faceid.model.ocr.idcard.IdCardBaseRequest;
 import com.megvii.faceid.util.Const;
-
-import org.jetbrains.annotations.NotNull;
 
 public class IdCardV1Request extends IdCardBaseRequest
 {
@@ -21,7 +19,7 @@ public class IdCardV1Request extends IdCardBaseRequest
         this.addStringParam(Const.API_PARAM_LEGALITY, legality);
     }
 
-    @NotNull
+
     @Override
     public String getUrl()
     {

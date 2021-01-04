@@ -1,12 +1,10 @@
 package com.megvii.faceid.model.detect;
 
-import com.megvii.faceid.model.base.request.auth.IKeyRequest;
-import com.megvii.faceid.model.base.request.BaseRequest;
-import com.megvii.faceid.util.Const;
-import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.http.base.HttpMethod;
-
-import org.jetbrains.annotations.NotNull;
+import com.megvii.faceid.model.base.request.BaseRequest;
+import com.megvii.faceid.model.base.request.auth.IKeyRequest;
+import com.megvii.faceid.util.CommonUtils;
+import com.megvii.faceid.util.Const;
 
 import java.io.File;
 
@@ -43,7 +41,7 @@ public class DetectRequest extends BaseRequest implements IKeyRequest
         this.addStringParam(Const.API_PARAM_MULTI_ORIENTED_DETECTION, multiOrientedDetection);
     }
 
-    @NotNull
+
     @Override
     public String getUrl()
     {

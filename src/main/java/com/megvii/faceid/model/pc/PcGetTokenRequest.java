@@ -1,12 +1,10 @@
 package com.megvii.faceid.model.pc;
 
-import com.megvii.faceid.model.base.request.auth.IKeyRequest;
-import com.megvii.faceid.model.base.request.H5Request;
 import com.megvii.faceid.http.base.HttpMethod;
+import com.megvii.faceid.model.base.request.H5Request;
+import com.megvii.faceid.model.base.request.auth.IKeyRequest;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
@@ -43,7 +41,7 @@ public class PcGetTokenRequest extends H5Request implements IKeyRequest
         this.addStringParam(Const.API_PARAM_SCREEN_REPLAY, screenReplay);
     }
 
-    @NotNull
+
     @Override
     public String getUrl()
     {

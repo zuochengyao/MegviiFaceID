@@ -5,8 +5,6 @@ import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.http.base.HttpMethod;
 import com.megvii.faceid.util.Const;
 
-import org.jetbrains.annotations.NotNull;
-
 public class PcGetResultRequest extends BaseRequest implements IKeyRequest
 {
     private String bizId;
@@ -34,7 +32,6 @@ public class PcGetResultRequest extends BaseRequest implements IKeyRequest
         this.addStringParam(Const.API_PARAM_GET_IMAGE_TYPE, getImageType);
     }
 
-    @NotNull
     @Override
     public String getUrl()
     {

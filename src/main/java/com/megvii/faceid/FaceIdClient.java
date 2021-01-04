@@ -73,7 +73,7 @@ public class FaceIdClient
      * 人脸检测 Detect
      * https://faceid.com/pages/documents/4173042
      */
-    public DetectResponse detect(DetectRequest req) throws IOException
+    public DetectResponse Detect(DetectRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         return JsonUtils.parse(response.getMessage(), DetectResponse.class);
@@ -93,7 +93,7 @@ public class FaceIdClient
      * 身份证 OCR V1.0.0
      * http://bj-faceid-prod-asset.oss-cn-beijing.aliyuncs.com/WIKI_SYNC_PICS/DOCS/OCRIDCard_v1.0.0.pdf
      */
-    public IdCardV1Response ocrIdCardV1(IdCardV1Request req) throws IOException
+    public IdCardV1Response OcrIdCardV1(IdCardV1Request req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -104,7 +104,7 @@ public class FaceIdClient
      * 身份证 OCR V2.0.0 推荐
      * https://faceid.com/pages/documents/10881005
      */
-    public IdCardV2Response ocrIdCardV2(IdCardV2Request req) throws IOException
+    public IdCardV2Response OcrIdCardV2(IdCardV2Request req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -115,7 +115,7 @@ public class FaceIdClient
      * 银行卡 OCR
      * https://faceid.com/pages/documents/10881161
      */
-    public BankCardResponse ocrBankCard(BankCardRequest req) throws IOException
+    public BankCardResponse OcrBankCard(BankCardRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -126,7 +126,7 @@ public class FaceIdClient
      * SDK - 获取 biz_token
      * https://faceid.com/pages/documents/37661898
      */
-    public GetBizTokenResponse appGetBizToken(GetBizTokenRequest req) throws IOException
+    public GetBizTokenResponse AppGetBizToken(GetBizTokenRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -137,7 +137,7 @@ public class FaceIdClient
      * Verify V3.0.0
      * https://faceid.com/pages/documents/37662519
      */
-    public VerifyV3Response appVerifyV3(VerifyV3Request req) throws IOException
+    public VerifyV3Response AppVerifyV3(VerifyV3Request req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -148,7 +148,7 @@ public class FaceIdClient
      * Verify V2.0.6
      * https://faceid.com/pages/documents/4173286
      */
-    public VerifyV2Response appVerifyV2(VerifyV2Request req) throws IOException
+    public VerifyV2Response AppVerifyV2(VerifyV2Request req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -159,7 +159,7 @@ public class FaceIdClient
      * PC 网页 KYC 验证服务 - 获取 token
      * https://faceid.com/pages/documents/5680502
      */
-    public PcGetTokenResponse pcGetToken(PcGetTokenRequest req) throws IOException
+    public PcGetTokenResponse PcGetToken(PcGetTokenRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -170,7 +170,7 @@ public class FaceIdClient
      * PC 网页 KYC 验证服务 - 获取验证结果
      * https://faceid.com/pages/documents/5680508
      */
-    public PcGetResultResponse pcGetResult(PcGetResultRequest req) throws IOException
+    public PcGetResultResponse PcGetResult(PcGetResultRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -181,7 +181,7 @@ public class FaceIdClient
      * 移动端网页 KYC 验证服务 Lite - 获取 token
      * https://faceid.com/pages/documents/5680475
      */
-    public LiteGetTokenResponse liteGetToken(LiteGetTokenRequest req) throws IOException
+    public LiteGetTokenResponse LiteGetToken(LiteGetTokenRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -192,7 +192,7 @@ public class FaceIdClient
      * 移动端网页 KYC 验证服务 Lite - 获取验证结果
      * https://faceid.com/pages/documents/5680488
      */
-    public LiteGetResultResponse liteGetResult(LiteGetResultRequest req) throws IOException
+    public LiteGetResultResponse LiteGetResult(LiteGetResultRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -203,7 +203,7 @@ public class FaceIdClient
      * 移动端网页 KYC 验证服务 Raw - 获取 token
      * https://faceid.com/pages/documents/7775613
      */
-    public RawGetRandomNumberResponse rawGetRandomNumber(RawGetRandomNumberRequest req) throws IOException
+    public RawGetRandomNumberResponse RawGetRandomNumber(RawGetRandomNumberRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -214,7 +214,7 @@ public class FaceIdClient
      * 移动端网页 KYC 验证服务 Raw - 上传读数视频
      * https://faceid.com/pages/documents/7775631
      */
-    public RawValidateVideoResponse rawValidateVideo(RawValidateVideoRequest req) throws IOException
+    public RawValidateVideoResponse RawValidateVideo(RawValidateVideoRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();
@@ -258,7 +258,7 @@ public class FaceIdClient
      * 移动端网页 KYC 验证服务 Raw - Verify 验证
      * https://faceid.com/pages/documents/7775652
      */
-    public RawVerifyResponse rawVerify(RawVerifyRequest req) throws IOException
+    public RawVerifyResponse RawVerify(RawVerifyRequest req) throws IOException
     {
         HttpResponse response = doInternalRequest(req);
         String message = response.getMessage();

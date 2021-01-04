@@ -5,8 +5,6 @@ import com.megvii.faceid.http.HttpRequest;
 import com.megvii.faceid.http.HttpResponse;
 import com.megvii.faceid.http.framework.IHttpConnection;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
@@ -36,7 +34,7 @@ public class OkHttpConnection extends IHttpConnection
     }
 
     @Override
-    public HttpResponse execute(@NotNull HttpRequest request) throws IOException
+    public HttpResponse execute(HttpRequest request) throws IOException
     {
         Response okResponse = newCall(request).execute();
         return new OkHttpResponse(okResponse);

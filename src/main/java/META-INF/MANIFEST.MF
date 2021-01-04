@@ -5,5 +5,5 @@ Bundle-Version: 1.0.0-beta
 Created-By: 11.0.7 (AdoptOpenJDK)
 Class-Path: testng-6.14.3.jar jcommander-1.72.jar gson-2.8.6.jar okio-jv
  m-2.9.0.jar bsh-2.0b6.jar kotlin-stdlib-common-1.4.10.jar kotlin-stdlib
- -1.4.10.jar okhttp-3.14.9.jar annotations-13.0.jar
+ -1.4.10.jar okhttp-3.14.9.jar
 

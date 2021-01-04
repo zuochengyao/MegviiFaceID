@@ -1,12 +1,10 @@
 package com.megvii.faceid.model.ocr.bankcard;
 
-import com.megvii.faceid.model.base.request.auth.IKeyRequest;
-import com.megvii.faceid.model.base.request.BaseRequest;
 import com.megvii.faceid.http.base.HttpMethod;
+import com.megvii.faceid.model.base.request.BaseRequest;
+import com.megvii.faceid.model.base.request.auth.IKeyRequest;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
@@ -31,7 +29,7 @@ public class BankCardRequest extends BaseRequest implements IKeyRequest
         this.addBinaryParam(Const.API_PARAM_IMAGE, image);
     }
 
-    @NotNull
+
     @Override
     public String getUrl()
     {

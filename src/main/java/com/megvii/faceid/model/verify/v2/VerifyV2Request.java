@@ -1,12 +1,10 @@
 package com.megvii.faceid.model.verify.v2;
 
-import com.megvii.faceid.model.base.request.auth.IKeyRequest;
-import com.megvii.faceid.model.base.request.CompareRequest;
 import com.megvii.faceid.http.base.HttpMethod;
+import com.megvii.faceid.model.base.request.CompareRequest;
+import com.megvii.faceid.model.base.request.auth.IKeyRequest;
 import com.megvii.faceid.util.CommonUtils;
 import com.megvii.faceid.util.Const;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
@@ -302,7 +300,7 @@ public class VerifyV2Request extends CompareRequest implements IKeyRequest
             setMegliveFlashResult(CommonUtils.getFileBytes(megliveFlashResult));
     }
 
-    @NotNull
+
     @Override
     public String getUrl()
     {
