@@ -1,4 +1,4 @@
-<p align="center"><img src="logo_megvii_faceid.png" alt="faceid" width="100"/></p>
+<p align="center"><img src="logo_megvii_faceid.png" alt="faceid" width="300"/></p>
 <p align="center"><video id="top-video" muted="" autoplay="" autobuffer="autobuffer" playsinline="playsinline" loop="" width="1000">
 <source src="https://assets.faceid.com/official/banner.ee5fb1f1.mp4"><img src="https://assets.faceid.com/official/banner.ddeead71.png">
 </video></p>
