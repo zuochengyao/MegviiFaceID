@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<img src="src/main/resources/logo_megvii.png" align="right" style="width:141px;height:30px"/>
-
-# FaceID [![FaceID](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome#readme)
-
-> <font size="2">一个用于快速接入 [faceid](https://faceid.com/) 平台的接口封装库。<br/>
-
-注意：此接口库为 faceid **商务平台** 的接口文档，使用 **自助平台** 的用户，请勿集成使用。</font>
-=======
 # FaceID ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg) ![License](https://img.shields.io/badge/Version-1.0.0--beta-green)
 
 <p align="center"><img src="logo_megvii_faceid.png" alt="faceid" width="300"/></p>
@@ -243,4 +234,3 @@ public RawVerifyResponse RawVerify(RawVerifyRequest req) throws IOException;
 
 ### 详细示例
 在`samples/Program.java`文件中，可以查看更多接口调用示例。其中接口参数为测试值，在正式使用时，请传递真是参数。
->>>>>>> readme
