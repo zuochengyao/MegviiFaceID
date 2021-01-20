@@ -26,7 +26,7 @@
 
 #### 库引用安装（推荐）
 
-将 `jars/build/megvii-faceid-1.0.0-beta.jar` 放在您的项目中即可。
+将 `jars/artifact/megvii-faceid-1.0.0-beta.jar` 放在您的项目中即可。
 
 #### 源码安装
 
