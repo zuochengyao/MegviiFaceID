@@ -205,7 +205,7 @@ public final class Const
     // region Host URL
     public static final String API_HOST_URL_CHINA = "https://api.megvii.com";
     // public static final String API_HOST_URL_CHINA_IPV6 = "https://api-ipv6.megvii.com";
-    public static final String API_HOST_URL_CHINA_IDN = "https://api-idn.megvii.com";
-    public static final String API_HOST_URL_CHINA_SGP = "https://api-sgp.megvii.com";
+    public static final String API_HOST_URL_IDN = "https://api-idn.megvii.com";
+    public static final String API_HOST_URL_SGP = "https://api-sgp.megvii.com";
     // endregion
 }

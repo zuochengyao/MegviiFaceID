@@ -6,8 +6,8 @@ public enum FaceIdHost
 {
     China(Const.API_HOST_URL_CHINA),
 //    ChinaIPV6(Const.API_HOST_URL_CHINA_IPV6),
-    Indonesia(Const.API_HOST_URL_CHINA_IDN),
-    Singapore(Const.API_HOST_URL_CHINA_SGP);
+    Indonesia(Const.API_HOST_URL_IDN),
+    Singapore(Const.API_HOST_URL_SGP);
 
     private final String host;
 

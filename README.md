@@ -72,3 +72,30 @@ class FaceIDManager
     }
 }
 ```
+
+### 类说明
+
+#### FaceIdHost
+``` java
+/**
+ * 枚举类，配置 FaceID 服务 host 地址
+ */
+enum FaceIdHost 
+{
+    // 国内服务
+    China(Const.API_HOST_URL_CHINA),
+    // 印尼服务
+    Indonesia(Const.API_HOST_URL_IDN),
+    // 新加坡服务
+    Singapore(Const.API_HOST_URL_SGP);
+}
+```
+
+#### FaceIdConfig
+``` java
+// 配置 FaceID 平台 api_key 与 api_secret
+
+// 构造器
+public FaceIdConfig(String key, String secret);
+```
+
